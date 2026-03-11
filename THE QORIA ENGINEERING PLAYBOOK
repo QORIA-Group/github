@@ -1,0 +1,46 @@
+📘 THE QORIA ENGINEERING PLAYBOOK
+Version: 1.0.0 | Classification: CONFIDENTIEL / IP Core
+Applicabilité: Équipes d'ingénierie, Claude Code IA, Agents R&D
+1. Philosophie d'Ingénierie & Vision Architecturale
+L'infrastructure QORIA OS et le moteur KYRA sont conçus pour opérer dans des environnements d'entreprise critiques (Comités de Direction, Décisions Stratégiques, Compliance CSRD).
+Chaque contributeur (humain ou IA) doit respecter les 3 piliers fondamentaux :
+Zero Trust & Multi-Tenancy : Chaque donnée, chaque requête et chaque événement appartient à un tenant spécifique. L'isolation est absolue et gérée au niveau de la base de données (RLS).
+Intelligence Invisible (Sanitization) : Le moteur causal (KYRA) opère exclusivement en backend. Les interfaces utilisateur (UI) ne reçoivent que des insights actionnables et épurés, sans jamais exposer la chaîne de raisonnement, les métadonnées de compute, ou le nom "KYRA".
+Event-Driven by Design : L'architecture est réactive. Les micro-services communiquent via le protocole PulseFlow. Aucun appel synchrone (REST/GraphQL) n'est autorisé pour modifier des états inter-services.
+2. Standards de Code (Backend : Node.js / NestJS)
+Le cœur de notre système exige une rigueur mathématique et logicielle irréprochable.
+2.1. TypeScript Strict
+La compilation en mode strict: true est non-négociable.
+L'utilisation du type any est formellement interdite. Utilisez unknown si le type est dynamiquement résolu, puis validez-le via Zod ou class-validator.
+Tous les retours de fonctions, y compris les promesses, doivent être explicitement typés.
+2.2. Conventions de Nommage
+Classes, Interfaces, DTOs : PascalCase (ex: LeadScoringService).
+Méthodes, Variables, Propriétés : camelCase (ex: calculateAscendiaScore).
+Fichiers : kebab-case (ex: lead-scoring.service.ts).
+Base de données (Prisma) : Les modèles dans schema.prisma utilisent PascalCase, mais doivent impérativement être mappés en snake_case dans PostgreSQL via les décorateurs @@map et @map.
+2.3. Gestion des Erreurs et Observabilité
+Ne jamais renvoyer de Stack Trace au client.
+Utilisez des filtres d'exceptions NestJS globaux (GlobalExceptionFilter).
+Les erreurs sont formatées selon le standard QORIA : { "error_code": "QORIA_ERR_XYZ", "message": "...", "correlation_id": "uuid" }.
+Chaque action de mutation d'état ou de décision causale doit être logguée au format JSON structuré (pour ingestion Prometheus/Grafana) incluant le tenant_id et le correlation_id.
+3. Gouvernance des Données & Multi-Tenancy
+La sécurité des données est notre atout commercial principal.
+Clés Primaires : Utilisation exclusive d'UUIDv4 ou ULID. Les entiers auto-incrémentés sont interdits (prévention des attaques d'énumération).
+Row Level Security (RLS) : Toute requête PostgreSQL émise par l'ORM (Prisma) doit être exécutée dans le contexte transactionnel d'un tenant_id. Le bypass du RLS n'est autorisé que pour les scripts de migration système exécutés par le rôle superadmin.
+Soft Deletes : Aucune donnée critique n'est supprimée physiquement. Implémenter systématiquement un champ deleted_at DateTime? et l'exclure des requêtes globales.
+4. Protocole PulseFlow (Gestion des Événements)
+L'orchestration asynchrone est le système nerveux de QORIA OS.
+Pattern Outbox : L'émission d'un événement vers le Message Broker (pg_notify) ne doit jamais être faite directement depuis le code applicatif. L'événement est écrit dans la table EventOutbox dans la même transaction que la modification métier. Un worker asynchrone se charge du dispatch.
+Contrats AsyncAPI : Tout événement diffusé sur l'EventBus doit strictement valider le schéma défini dans le registre AsyncAPI (contracts/pulseflow-asyncapi.md).
+Idempotence : Tous les consumers d'événements doivent être idempotents. Le traitement multiple d'un événement (ex: lead_scored) ne doit jamais altérer l'état final de la base de données.
+5. Moteur Cognitif & IA Causale (KYRA)
+Interdiction du Prompting Direct : Il est interdit d'appeler directement un LLM (Mistral, Claude) depuis un service métier.
+Routage Tri-Brain™ : Toute demande d'analyse doit être formatée comme un CognitiveTask et envoyée à l'API du moteur KYRA, qui décidera du routage (Reptilien, Limbique, Néocortex).
+Traçabilité Causale : Chaque décision prise par le moteur Néocortex (traversée du Knowledge Graph Neo4j) doit générer un log d'inférence (Causal Evidence) stocké de manière immuable pour conformité avec l'AI Act européen.
+6. Cycle de Vie du Développement (Workflow Git & CI/CD)
+Nous utilisons un modèle Trunk-Based Development optimisé pour l'intégration continue et l'interaction avec Claude Code.
+Branches : Tout développement se fait sur des branches éphémères préfixées : feat/, fix/, chore/, refactor/.
+Commits : Adopter la spécification Conventional Commits (ex: feat(pulseflow): implement outbox pattern).
+Pull Requests (PR) : * Aucune PR ne peut être mergée sans l'approbation de l'Architecte Système.
+La couverture de tests (Jest) pour la logique métier et les filtres de sanitization doit être de 100%.
+Le pipeline CI GitHub Actions (Linting, Build, Tests, Scan de Sécurité) doit être entièrement au vert.
