@@ -1,0 +1,25 @@
+🛡️ FRAMEWORK DE SÉCURITÉ & COMPLIANCE
+Version: 1.0.0 | Classification: CONFIDENTIEL (Partageable sous NDA)
+Conformité Ciblée: ISO 27001, SOC2 Type II, RGPD, EU AI Act
+1. Souveraineté et Hébergement (Infrastructure Européenne)
+L'infrastructure QORIA OS garantit une souveraineté numérique totale, un prérequis pour le traitement des données stratégiques, RH (PulsePayroll) et extra-financières (PulseRSE).
+Data Residency : 100% des données (au repos et en transit) sont hébergées géographiquement sur le territoire de l'Union Européenne.
+Orchestration Multi-LLM Souveraine : Les requêtes nécessitant le traitement du langage naturel (Cerveau Limbique) sont prioritairement routées vers des modèles européens (Mistral, Aleph Alpha). L'utilisation de modèles tiers est conditionnée à des accords de non-entraînement (Zero Data Retention API).
+2. Architecture "Zero Trust" & Isolation des Données
+La sécurité multi-tenant est implémentée "by design" au niveau de l'infrastructure de données, empêchant toute fuite, même en cas de faille applicative.
+Row-Level Security (RLS) : Le Relational Data Hub (PostgreSQL) utilise des politiques RLS strictes. Le contexte du tenant_id est injecté au niveau de la transaction de la base de données via un JWT validé. Un processus serveur ne peut physiquement pas lire les données d'un autre client.
+Chiffrement au Repos (Data at Rest) : Les bases de données (PostgreSQL, Neo4j) et le stockage de fichiers (S3-compatible) sont chiffrés en utilisant l'algorithme AES-256.
+Chiffrement en Transit (Data in Transit) : Toutes les communications externes et internes (y compris le trafic PulseFlow Protocol et WebSocket) sont chiffrées via TLS 1.3.
+3. Traçabilité Cognitive et Conformité "EU AI Act"
+L'IA causale de QORIA opère dans des environnements à haut risque décisionnel. Contrairement aux modèles probabilistes "boîtes noires", notre système est intégralement auditable.
+Causal Evidence Logging : Chaque décision ou recommandation métier générée par le moteur KYRA déclenche l'enregistrement d'une empreinte causale immuable.
+Audit Trail PulseFlow : Chaque événement transitant par le bus de messagerie est enregistré dans une table d'audit centralisée avec horodatage cryptographique, identifiant de l'acteur (Humain ou Agent IA), et payload exact.
+Prévention des Hallucinations : Le routage Tri-Brain Computing™ assure que toute affirmation factuelle est validée contre le Knowledge Graph (Neo4j). Le taux d'hallucination résiduel est continuellement monitoré et rapporté via le Control Center.
+4. Gestion des Accès et des Identités (IAM)
+RBAC Granulaire : Le contrôle d'accès basé sur les rôles (Role-Based Access Control) distingue strictement les C-Levels, les CGOs, les administrateurs système et les agents IA autonomes.
+Principe du Moindre Privilège : Les micro-services (ex: PulsePayroll) n'ont accès qu'aux bases de données et aux topics d'événements strictement nécessaires à leur fonction.
+Gestion des Secrets : Les clés d'API, certificats et mots de passe de base de données ne sont jamais stockés dans le code source. Ils sont injectés dynamiquement à l'exécution via un gestionnaire de secrets (ex: AWS Secrets Manager ou HashiCorp Vault).
+5. DevSecOps et Résilience (Plan de Continuité)
+Intégration Continue Sécurisée : Le code généré par l'équipe d'ingénierie et l'IA (Claude Code) passe par un pipeline automatisé incluant l'analyse statique de sécurité (SAST) et l'audit des dépendances avant toute mise en production.
+Haute Disponibilité : Les composants critiques (API Gateway, Kyra Engine, EventBus) sont déployés sur des clusters à auto-scaling avec redondance multi-zones (Multi-AZ) pour garantir un SLA de 99.99%.
+Disaster Recovery (RTO/RPO) : Des sauvegardes automatisées et chiffrées sont effectuées en continu (Point-in-Time Recovery) avec un objectif de point de reprise (RPO) inférieur à 5 minutes et un objectif de temps de restauration (RTO) inférieur à 1 heure.
