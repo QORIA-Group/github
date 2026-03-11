@@ -1,0 +1,37 @@
+🚀 STRATÉGIE DE RELEASE & CI/CD - QORIA TECHNOLOGY
+Version: 1.0.0 | Classification: USAGE INTERNE / AUDIT READY
+Applicabilité: GitHub Actions, Claude Code IA, DevSecOps
+1. Philosophie et Objectifs
+L'infrastructure QORIA OS doit garantir un SLA de 99.99% pour nos clients exécutifs. Pour atteindre ce standard tout en maintenant une vélocité de développement extrême via l'IA, notre pipeline CI/CD repose sur trois piliers :
+Shift-Left Security : La sécurité et l'isolation multi-tenant sont testées au moment du commit, pas après le déploiement.
+Zero-Trust AI : Le code généré par Claude Code est considéré comme "non fiable" jusqu'à ce qu'il passe avec succès les 4 portes de validation automatisées (CI).
+Zero-Downtime Deployment (ZDD) : Les mises en production s'effectuent sans aucune interruption de service pour la Suite Pulse ou les clients Ascendia.
+2. Le Workflow de Collaboration (Humain ↔ IA)
+Nous adoptons un modèle Trunk-Based Development strict :
+La branche main est sacrée. Elle reflète EXACTEMENT ce qui est en production.
+Claude Code travaille exclusivement sur des branches éphémères (feat/pulse-payroll, fix/causal-routing).
+L'Architecte (Humain) n'écrit pas le code métier, il intervient lors de la Pull Request (PR) pour valider l'architecture. La PR ne peut être mergée que si le pipeline CI est 100% au vert.
+3. Les 4 Portes de Validation (CI Pipeline)
+Dès que Claude Code pousse un commit sur GitHub, un workflow GitHub Actions se déclenche.
+🚪 Porte 1 : Analyse Statique et Contrats
+Linting & Typage : Vérification stricte de TypeScript (tsc --noEmit). Rejet immédiat si l'IA a utilisé le type any ou ignoré le snake_case pour Prisma.
+Validation AsyncAPI/OpenAPI : Un script vérifie que les modifications du code backend respectent à 100% les contrats d'API définis pour le frontend (Nexus/Ascendia).
+🚪 Porte 2 : Tests Automatisés (Le rempart métier)
+Tests Unitaires (Jest) : Couverture minimale exigée de 85%.
+Tests d'Intégration Multi-Tenant (Critique) : Le pipeline monte une base de données PostgreSQL éphémère (via Docker), applique le schema.prisma et le fichier de politiques RLS. Il exécute ensuite des tests vérifiant spécifiquement qu'un Tenant A ne peut jamais lire les données d'un Tenant B. Si Claude Code a mal conçu la requête, le test échoue et la PR est bloquée.
+🚪 Porte 3 : SecOps & Propriété Intellectuelle (IP)
+Secret Scanning : GitHub Advanced Security bloque le commit si Claude a accidentellement inclus une clé API (Stripe, Mistral) dans le code.
+SAST (Static Application Security Testing) : Exécution de CodeQL pour détecter les failles d'injection SQL, les vulnérabilités XSS ou les mauvaises gestions de la cryptographie.
+Audit des Dépendances : Refus d'intégrer des packages NPM ayant des vulnérabilités critiques connues (Dependabot).
+🚪 Porte 4 : Build & Containerization
+Compilation du code NestJS en JavaScript optimisé.
+Création d'une image Docker immuable, taguée avec le hash du commit (ex: qoria-os-gateway:a1b2c3d).
+Push de l'image vers notre registre privé de conteneurs (ex: AWS ECR ou GitHub Container Registry).
+4. Stratégie de Déploiement Continu (CD)
+Une fois la PR mergée sur main par l'Architecte, le déploiement vers le cloud (AWS ECS ou Scaleway) est entièrement automatisé selon le modèle Blue/Green Deployment.
+Migration Base de Données : Les scripts Prisma (npx prisma migrate deploy) sont exécutés de manière rétrocompatible. (Ex: on ajoute une colonne, mais on ne supprime/renomme jamais une colonne existante sans une phase de transition de 30 jours).
+Phase Green (Nouveau Code) : L'orchestrateur lance les nouveaux conteneurs (Green) contenant le nouveau code de Claude. L'ancien code (Blue) tourne toujours pour les clients actuels.
+Health Check : Le système vérifie que l'API Gateway Green répond correctement et que le protocole PulseFlow est connecté.
+Switch : Le Load Balancer redirige instantanément le trafic des clients (Nexus, Ascendia) vers les conteneurs Green.
+Phase Blue (Destruction) : Les anciens conteneurs sont détruits.
+Rollback Automatique : Si le taux d'erreur HTTP 500 augmente ou si la latence du moteur KYRA dépasse le SLA dans les 5 minutes suivant le déploiement, le Load Balancer re-bascule automatiquement sur la version Blue.
