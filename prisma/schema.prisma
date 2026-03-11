@@ -1,0 +1,124 @@
+// =============================================================================
+// QORIA OS - Prisma Schema (Relational Data Hub)
+// =============================================================================
+// Convention: Models use PascalCase, mapped to snake_case in PostgreSQL.
+// All tables include tenant_id for RLS enforcement.
+// Primary keys are UUIDv4 (no auto-increment).
+// Soft deletes via deleted_at field.
+// =============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Core: Tenants & Users
+// ---------------------------------------------------------------------------
+
+model Tenant {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String
+  slug      String    @unique
+  plan      String    @default("standard")
+  isActive  Boolean   @default(true) @map("is_active")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  users       User[]
+  eventOutbox EventOutbox[]
+
+  @@map("tenants")
+}
+
+model User {
+  id        String    @id @default(uuid()) @db.Uuid
+  tenantId  String    @map("tenant_id") @db.Uuid
+  email     String
+  firstName String    @map("first_name")
+  lastName  String    @map("last_name")
+  roles     String[]  @default([])
+  isActive  Boolean   @default(true) @map("is_active")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  tenant         Tenant          @relation(fields: [tenantId], references: [id])
+  cognitiveTasks CognitiveTask[]
+
+  @@unique([tenantId, email])
+  @@index([tenantId])
+  @@map("users")
+}
+
+// ---------------------------------------------------------------------------
+// PulseFlow: Event Outbox Pattern
+// ---------------------------------------------------------------------------
+
+model EventOutbox {
+  id            String    @id @default(uuid()) @db.Uuid
+  tenantId      String    @map("tenant_id") @db.Uuid
+  eventType     String    @map("event_type")
+  aggregateId   String    @map("aggregate_id") @db.Uuid
+  aggregateType String    @map("aggregate_type")
+  payload       Json
+  correlationId String    @map("correlation_id") @db.Uuid
+  createdAt     DateTime  @default(now()) @map("created_at")
+  publishedAt   DateTime? @map("published_at")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  @@index([tenantId])
+  @@index([publishedAt])
+  @@map("event_outbox")
+}
+
+model EventAuditLog {
+  id            String   @id @default(uuid()) @db.Uuid
+  tenantId      String   @map("tenant_id") @db.Uuid
+  eventType     String   @map("event_type")
+  aggregateId   String   @map("aggregate_id") @db.Uuid
+  aggregateType String   @map("aggregate_type")
+  payload       Json
+  correlationId String   @map("correlation_id") @db.Uuid
+  actorType     String   @map("actor_type") // 'HUMAN' | 'AI_AGENT'
+  actorId       String   @map("actor_id") @db.Uuid
+  processedAt   DateTime @default(now()) @map("processed_at")
+
+  @@index([tenantId])
+  @@index([eventType])
+  @@index([correlationId])
+  @@map("event_audit_log")
+}
+
+// ---------------------------------------------------------------------------
+// KYRA: Cognitive Task Tracking
+// ---------------------------------------------------------------------------
+
+model CognitiveTask {
+  id              String    @id @default(uuid()) @db.Uuid
+  tenantId        String    @map("tenant_id") @db.Uuid
+  userId          String    @map("user_id") @db.Uuid
+  taskType        String    @map("task_type")
+  payload         Json
+  status          String    @default("PENDING")
+  brainLevel      String?   @map("brain_level") // REPTILIAN | LIMBIC | NEOCORTEX
+  result          Json?
+  causalEvidence  Json?     @map("causal_evidence")
+  processingTimeMs Int?     @map("processing_time_ms")
+  correlationId   String    @map("correlation_id") @db.Uuid
+  createdAt       DateTime  @default(now()) @map("created_at")
+  completedAt     DateTime? @map("completed_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([tenantId])
+  @@index([status])
+  @@index([correlationId])
+  @@map("cognitive_tasks")
+}
