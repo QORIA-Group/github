@@ -3,6 +3,7 @@ import { ReptilianService } from './reptilian.service';
 import { StructuredLogger } from '../../../common/utils/structured-logger';
 import { CognitiveTask } from '../../../common/interfaces/cognitive-task.interface';
 import { TriBrainLevel } from '../../../common/enums/tri-brain-level.enum';
+import { TenantType } from '../../../common/enums/tenant-type.enum';
 
 describe('ReptilianService', () => {
   let service: ReptilianService;
@@ -26,6 +27,7 @@ describe('ReptilianService', () => {
       correlationId: 'test-correlation-id',
       userId: 'test-user-id',
       source: 'test',
+      tenantType: TenantType.CLIENT,
     },
     createdAt: new Date(),
   });

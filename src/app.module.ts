@@ -9,6 +9,8 @@ import { TenantModule } from './modules/tenant/tenant.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { PulseFlowModule } from './modules/pulseflow/pulseflow.module';
 import { KyraModule } from './modules/kyra/kyra.module';
+import { NexusModule } from './modules/nexus/nexus.module';
+import { AscendiaModule } from './modules/ascendia/ascendia.module';
 import { StructuredLoggerModule } from './common/utils/structured-logger.module';
 
 @Module({
@@ -25,6 +27,8 @@ import { StructuredLoggerModule } from './common/utils/structured-logger.module'
     HealthModule,
     PulseFlowModule,
     KyraModule,
+    NexusModule,
+    AscendiaModule,
   ],
 })
 export class AppModule {}

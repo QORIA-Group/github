@@ -21,19 +21,45 @@ datasource db {
 // ---------------------------------------------------------------------------
 
 model Tenant {
-  id        String    @id @default(uuid()) @db.Uuid
-  name      String
-  slug      String    @unique
-  plan      String    @default("standard")
-  isActive  Boolean   @default(true) @map("is_active")
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
+  id         String    @id @default(uuid()) @db.Uuid
+  name       String
+  slug       String    @unique
+  tenantType String    @default("CLIENT") @map("tenant_type") // CGO | CLIENT
+  plan       String    @default("standard")
+  isActive   Boolean   @default(true) @map("is_active")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  updatedAt  DateTime  @updatedAt @map("updated_at")
+  deletedAt  DateTime? @map("deleted_at")
 
   users       User[]
   eventOutbox EventOutbox[]
 
+  // CGO -> CLIENT relationship: a CGO manages multiple clients
+  managedClients CgoClientRelation[] @relation("CgoTenant")
+  managedByCgo   CgoClientRelation[] @relation("ClientTenant")
+
   @@map("tenants")
+}
+
+// ---------------------------------------------------------------------------
+// CGO <-> Client Mapping (Provider-Consumer Relationship)
+// ---------------------------------------------------------------------------
+
+model CgoClientRelation {
+  id             String    @id @default(uuid()) @db.Uuid
+  cgoTenantId    String    @map("cgo_tenant_id") @db.Uuid
+  clientTenantId String    @map("client_tenant_id") @db.Uuid
+  isActive       Boolean   @default(true) @map("is_active")
+  createdAt      DateTime  @default(now()) @map("created_at")
+  deletedAt      DateTime? @map("deleted_at")
+
+  cgoTenant    Tenant @relation("CgoTenant", fields: [cgoTenantId], references: [id])
+  clientTenant Tenant @relation("ClientTenant", fields: [clientTenantId], references: [id])
+
+  @@unique([cgoTenantId, clientTenantId])
+  @@index([cgoTenantId])
+  @@index([clientTenantId])
+  @@map("cgo_client_relations")
 }
 
 model User {

@@ -3,6 +3,7 @@ export enum Role {
   TENANT_ADMIN = 'tenant_admin',
   C_LEVEL = 'c_level',
   CGO = 'cgo',
+  CLIENT = 'client',
   MANAGER = 'manager',
   ANALYST = 'analyst',
   AI_AGENT = 'ai_agent',

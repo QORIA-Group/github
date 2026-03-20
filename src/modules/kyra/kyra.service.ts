@@ -55,6 +55,8 @@ export class KyraService {
         correlationId: tenant.correlationId,
         userId: tenant.userId,
         source: 'api',
+        tenantType: tenant.tenantType,
+        managedTenantIds: tenant.managedTenantIds,
       },
       createdAt: new Date(),
     };

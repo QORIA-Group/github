@@ -1,4 +1,5 @@
 import { TriBrainLevel } from '../enums/tri-brain-level.enum';
+import { TenantType } from '../enums/tenant-type.enum';
 
 export interface CognitiveTask {
   taskId: string;
@@ -13,6 +14,9 @@ export interface CognitiveContext {
   correlationId: string;
   userId: string;
   source: string;
+  tenantType: TenantType;
+  /** For CGO: IDs of managed client tenants */
+  managedTenantIds?: string[];
 }
 
 export interface CognitiveResult {
