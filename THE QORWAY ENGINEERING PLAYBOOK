@@ -1,0 +1,85 @@
+📘 THE QORWAY ENGINEERING PLAYBOOK
+Version: 1.1.0 | Classification: CONFIDENTIAL / IP Core
+
+Entity: QORWAY TECHNOLOGY (Holding)
+
+Architect: Nicole Valey (CEO, CMO, Business AI Architect, Lead Tech, CTO)
+
+1. Engineering Philosophy & Architectural Vision
+The QOR-OS infrastructure and the QOR-AX engine are designed for mission-critical enterprise environments (Executive Boards, Strategic Decisions, CSRD Compliance).
+
+Every contributor (Human or AI) must adhere to these 3 fundamental pillars:
+
+Zero Trust & Multi-Tenancy: Every data point, request, and event belongs to a specific tenant. Isolation is absolute and enforced at the database level via Row Level Security (RLS).
+
+Invisible Intelligence (Sanitization): The causal engine (QOR-AX) operates strictly in the backend. User Interfaces (QOR-HUB) receive only actionable, clean insights. Never expose raw reasoning chains, compute metadata, or the internal "QOR-AX" branding to the end-user.
+
+Event-Driven by Design: The architecture is reactive. Micro-services communicate via the Pulseflow-broker protocol. Synchronous calls (REST/GraphQL) are strictly forbidden for modifying inter-service states.
+
+2. Coding Standards (Backend: Node.js / NestJS / Go)
+The core of QOR-OS demands absolute mathematical and software rigor.
+
+2.1. Strict TypeScript
+Compilation mode strict: true is non-negotiable.
+
+Use of the any type is strictly forbidden. Use unknown for dynamically resolved types and validate them via Zod or class-validator.
+
+All function returns, including Promises, must be explicitly typed.
+
+2.2. Naming Conventions
+Classes, Interfaces, DTOs: PascalCase (e.g., QorLeadScoringService).
+
+Methods, Variables, Properties: camelCase (e.g., calculateQorScore).
+
+Files: kebab-case (e.g., qor-ax-engine.service.ts).
+
+Database (Prisma): Models in schema.prisma use PascalCase but must be mapped to snake_case in PostgreSQL using @@map and @map decorators.
+
+2.3. Error Handling & Observability
+No Stack Traces: Never return stack traces to the client.
+
+Global Filters: Use NestJS Global Exception Filters.
+
+Standardized Errors: Format: { "error_code": "QOR_ERR_XYZ", "message": "...", "correlation_id": "uuid" }.
+
+Structured Logging: Every state mutation or causal decision must be logged in structured JSON (for Prometheus/Grafana) including tenant_id and correlation_id.
+
+3. Data Governance & Multi-Tenancy
+Data security is QORWAY TECHNOLOGY's primary commercial asset.
+
+Primary Keys: Exclusive use of UUIDv4 or ULID. Auto-incrementing integers are prohibited (prevents enumeration attacks).
+
+Row Level Security (RLS): Every PostgreSQL query emitted by the ORM (Prisma) must execute within a tenant_id transactional context. RLS bypass is restricted to system migration scripts.
+
+Immutability (Soft Deletes): No physical deletion of critical data. Systematically implement a deleted_at field and exclude it from global queries.
+
+4. Pulseflow Protocol (Event Management)
+Asynchronous orchestration is the nervous system of QOR-OS.
+
+Outbox Pattern: Event emission to the Message Broker must never be done directly from application code. Events are written to an EventOutbox table within the same transaction as the business logic. An asynchronous worker handles dispatch to Pulseflow-broker.
+
+AsyncAPI Contracts: Every event broadcasted on the EventBus must strictly validate against the schema defined in the AsyncAPI registry.
+
+Idempotency: All event consumers must be idempotent. Multiple processing of the same event must never alter the final database state.
+
+5. Cognitive Engine & Causal AI (QOR-AX)
+No Direct Prompting: Direct LLM calls from business services are prohibited.
+
+Tri-Brain™ Routing: Every analysis request is formatted as a CognitiveTask and sent to the QOR-AX API, which decides the routing (Reptilian, Limbic, Neocortex).
+
+Causal Traceability: Every decision made by the Neocortex engine must generate an immutable Causal Evidence log for compliance with the EU AI Act.
+
+6. Development Lifecycle (Git & CI/CD Workflow)
+We use a Trunk-Based Development model optimized for continuous integration and AI-assisted engineering (Claude Code).
+
+Branches: Use ephemeral branches prefixed with feat/, fix/, chore/, or refactor/.
+
+Commits: Adhere to Conventional Commits specification (e.g., feat(qor-ax): implement causal tracing).
+
+Pull Requests (PR):
+
+No PR can be merged without the System Architect’s (Nicole Valey) approval.
+
+Test coverage (Jest) for business logic and sanitization filters must be 100%.
+
+The GitHub Actions CI pipeline (Linting, Build, Tests, Security Scan) must be fully green.
