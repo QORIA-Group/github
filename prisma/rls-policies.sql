@@ -1,5 +1,5 @@
 -- =============================================================================
--- QORIA OS - Row Level Security (RLS) Policies
+-- Qorway OS - Row Level Security (RLS) Policies
 -- =============================================================================
 -- Applied after Prisma migrations to enforce multi-tenant data isolation.
 --
@@ -139,22 +139,22 @@ CREATE POLICY client_own_relations ON cgo_client_relations
 -- ---------------------------------------------------------------------------
 -- Superadmin bypass role (for system migrations only)
 -- ---------------------------------------------------------------------------
-CREATE ROLE qoria_superadmin NOLOGIN;
+CREATE ROLE qorway_superadmin NOLOGIN;
 
 CREATE POLICY superadmin_bypass_tenants ON tenants
-  TO qoria_superadmin USING (true);
+  TO qorway_superadmin USING (true);
 
 CREATE POLICY superadmin_bypass_users ON users
-  TO qoria_superadmin USING (true);
+  TO qorway_superadmin USING (true);
 
 CREATE POLICY superadmin_bypass_event_outbox ON event_outbox
-  TO qoria_superadmin USING (true);
+  TO qorway_superadmin USING (true);
 
 CREATE POLICY superadmin_bypass_event_audit_log ON event_audit_log
-  TO qoria_superadmin USING (true);
+  TO qorway_superadmin USING (true);
 
 CREATE POLICY superadmin_bypass_cognitive_tasks ON cognitive_tasks
-  TO qoria_superadmin USING (true);
+  TO qorway_superadmin USING (true);
 
 CREATE POLICY superadmin_bypass_cgo_client_relations ON cgo_client_relations
-  TO qoria_superadmin USING (true);
+  TO qorway_superadmin USING (true);

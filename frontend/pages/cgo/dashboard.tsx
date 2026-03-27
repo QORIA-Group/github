@@ -5,14 +5,14 @@ import { useAuth } from '../../context/auth.context';
 import { ClientOverviewTable } from '../../components/nexus/client-overview-table';
 import { IntegrityGatePanel } from '../../components/nexus/integrity-gate-panel';
 import { MultiClientAnalysis } from '../../components/nexus/multi-client-analysis';
-import { CognitiveResult } from '../../types/kyra.types';
+import { CognitiveResult } from '../../types/atlas.types';
 
 /**
  * CGO Dashboard Page (Nexus)
  * Route: /cgo/dashboard
  *
- * Multi-client view: shows all managed Ascendia clients.
- * KYRA actions: optimization, multi-client analysis, Integrity Gate alerts.
+ * Multi-client view: shows all managed Ascend clients.
+ * ATLAS actions: optimization, multi-client analysis, Integrity Gate alerts.
  */
 export default function CgoDashboard(): React.ReactElement {
   const { user, isCgo } = useAuth();
@@ -37,7 +37,7 @@ export default function CgoDashboard(): React.ReactElement {
     payload: Record<string, unknown>,
   ): Promise<CognitiveResult> => {
     // POST /api/v1/nexus/optimize
-    // Backend routes to KYRA with tenantType=CGO context
+    // Backend routes to ATLAS with tenantType=CGO context
     return {} as CognitiveResult; // Placeholder
   };
 

@@ -9,7 +9,7 @@ export class HealthController {
 
   @Get()
   @ApiOperation({ summary: 'System health check' })
-  @ApiOkResponse({ description: 'Health status of all QORIA OS subsystems' })
+  @ApiOkResponse({ description: 'Health status of all Qorway OS subsystems' })
   async check(): Promise<HealthCheckResult> {
     return this.healthService.check();
   }

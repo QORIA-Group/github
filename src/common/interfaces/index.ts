@@ -1,5 +1,5 @@
 export { TenantContext } from './tenant-context.interface';
-export { QoriaErrorResponse } from './qoria-error.interface';
+export { QorwayErrorResponse } from './qorway-error.interface';
 export {
   CognitiveTask,
   CognitiveContext,

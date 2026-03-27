@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState, useRef, useMemo } from 'react';
 import { useAuth } from './auth.context';
-import { PulseFlowEvent } from '../types/kyra.types';
+import { PulseFlowEvent } from '../types/atlas.types';
 
 interface PulseFlowContextValue {
   lastEvent: PulseFlowEvent | null;

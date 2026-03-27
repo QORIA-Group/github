@@ -2,17 +2,17 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/auth.context';
-import { AutopilotDashboard } from '../../components/ascendia/autopilot-dashboard';
-import { TaskExecutor } from '../../components/ascendia/task-executor';
-import { AlertNotifications } from '../../components/ascendia/alert-notifications';
-import { CognitiveResult } from '../../types/kyra.types';
+import { AutopilotDashboard } from '../../components/ascend/autopilot-dashboard';
+import { TaskExecutor } from '../../components/ascend/task-executor';
+import { AlertNotifications } from '../../components/ascend/alert-notifications';
+import { CognitiveResult } from '../../types/atlas.types';
 
 /**
- * Client Autopilot Page (Ascendia)
+ * Client Autopilot Page (Ascend)
  * Route: /client/autopilot
  *
  * Single-tenant view: shows only the client's own automations and data.
- * KYRA actions: payroll execution, ESG reporting, task monitoring.
+ * ATLAS actions: payroll execution, ESG reporting, task monitoring.
  */
 export default function ClientAutopilot(): React.ReactElement {
   const { user, isClient } = useAuth();
@@ -28,22 +28,22 @@ export default function ClientAutopilot(): React.ReactElement {
   useEffect(() => {
     if (!isClient || !user) return;
 
-    // Fetch autopilot status from /api/v1/ascendia/autopilot
-    // Fetch automation status from /api/v1/ascendia/automations/status
+    // Fetch autopilot status from /api/v1/ascend/autopilot
+    // Fetch automation status from /api/v1/ascend/automations/status
     // These API calls include x-tenant-id, x-tenant-type=CLIENT headers
   }, [isClient, user]);
 
   const handlePayroll = async (
     payload: Record<string, unknown>,
   ): Promise<CognitiveResult> => {
-    // POST /api/v1/ascendia/tasks/payroll
+    // POST /api/v1/ascend/tasks/payroll
     return {} as CognitiveResult; // Placeholder
   };
 
   const handleEsgReporting = async (
     payload: Record<string, unknown>,
   ): Promise<CognitiveResult> => {
-    // POST /api/v1/ascendia/tasks/esg-reporting
+    // POST /api/v1/ascend/tasks/esg-reporting
     return {} as CognitiveResult; // Placeholder
   };
 
@@ -54,7 +54,7 @@ export default function ClientAutopilot(): React.ReactElement {
   return (
     <div className="client-autopilot">
       <header>
-        <h1>Ascendia Autopilot</h1>
+        <h1>Ascend Autopilot</h1>
       </header>
 
       <div className="autopilot-grid">

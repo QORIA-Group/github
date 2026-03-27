@@ -4,7 +4,7 @@ import { PrismaService } from '../../database/prisma/prisma.service';
 import { StructuredLogger } from '../../common/utils/structured-logger';
 import { TenantContext } from '../../common/interfaces/tenant-context.interface';
 import { TenantType } from '../../common/enums/tenant-type.enum';
-import { KyraService } from '../kyra/kyra.service';
+import { AtlasService } from '../atlas/atlas.service';
 import { CognitiveResult } from '../../common/interfaces/cognitive-task.interface';
 
 export interface ManagedClientSummary {
@@ -40,7 +40,7 @@ export interface IntegrityGateAlert {
 export class NexusService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly kyraService: KyraService,
+    private readonly atlasService: AtlasService,
     private readonly logger: StructuredLogger,
   ) {}
 
@@ -111,7 +111,7 @@ export class NexusService {
   }
 
   /**
-   * Request KYRA multi-client optimization analysis.
+   * Request ATLAS multi-client optimization analysis.
    * CGO-specific: analyzes patterns across all managed clients.
    */
   async requestMultiClientOptimization(
@@ -120,7 +120,7 @@ export class NexusService {
   ): Promise<CognitiveResult> {
     this.assertCgoAccess(tenant);
 
-    return this.kyraService.processCognitiveTask(tenant, 'multi_client_optimization', {
+    return this.atlasService.processCognitiveTask(tenant, 'multi_client_optimization', {
       ...payload,
       managed_tenant_ids: tenant.managedTenantIds,
       analysis_scope: 'cross_tenant',
@@ -128,7 +128,7 @@ export class NexusService {
   }
 
   /**
-   * Request KYRA multi-client analysis (comparative insights).
+   * Request ATLAS multi-client analysis (comparative insights).
    */
   async requestMultiClientAnalysis(
     tenant: TenantContext,
@@ -136,7 +136,7 @@ export class NexusService {
   ): Promise<CognitiveResult> {
     this.assertCgoAccess(tenant);
 
-    return this.kyraService.processCognitiveTask(tenant, 'multi_client_analysis', {
+    return this.atlasService.processCognitiveTask(tenant, 'multi_client_analysis', {
       ...payload,
       managed_tenant_ids: tenant.managedTenantIds,
       analysis_scope: 'comparative',

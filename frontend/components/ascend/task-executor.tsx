@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CognitiveResult } from '../../types/kyra.types';
+import { CognitiveResult } from '../../types/atlas.types';
 
 interface TaskExecutorProps {
   onExecutePayroll: (payload: Record<string, unknown>) => Promise<CognitiveResult>;

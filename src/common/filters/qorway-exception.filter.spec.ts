@@ -1,9 +1,9 @@
 import { HttpException, HttpStatus, ArgumentsHost } from '@nestjs/common';
-import { QoriaExceptionFilter } from './qoria-exception.filter';
+import { QorwayExceptionFilter } from './qorway-exception.filter';
 import { StructuredLogger } from '../utils/structured-logger';
 
-describe('QoriaExceptionFilter', () => {
-  let filter: QoriaExceptionFilter;
+describe('QorwayExceptionFilter', () => {
+  let filter: QorwayExceptionFilter;
   let mockLogger: Partial<StructuredLogger>;
   let mockResponse: { status: jest.Mock; json: jest.Mock };
   let mockRequest: { method: string; url: string; headers: Record<string, string> };
@@ -38,10 +38,10 @@ describe('QoriaExceptionFilter', () => {
       getType: jest.fn(),
     };
 
-    filter = new QoriaExceptionFilter(mockLogger as StructuredLogger);
+    filter = new QorwayExceptionFilter(mockLogger as StructuredLogger);
   });
 
-  it('should handle HttpException and return QORIA error format', () => {
+  it('should handle HttpException and return Qorway error format', () => {
     const exception = new HttpException('Not Found', HttpStatus.NOT_FOUND);
 
     filter.catch(exception, mockHost);
@@ -49,7 +49,7 @@ describe('QoriaExceptionFilter', () => {
     expect(mockResponse.status).toHaveBeenCalledWith(404);
     expect(mockResponse.json).toHaveBeenCalledWith(
       expect.objectContaining({
-        error_code: 'QORIA_ERR_HTTP_404',
+        error_code: 'QORWAY_ERR_HTTP_404',
         message: 'Not Found',
         correlation_id: expect.any(String),
         timestamp: expect.any(String),
@@ -65,7 +65,7 @@ describe('QoriaExceptionFilter', () => {
     expect(mockResponse.status).toHaveBeenCalledWith(500);
     expect(mockResponse.json).toHaveBeenCalledWith(
       expect.objectContaining({
-        error_code: 'QORIA_ERR_INTERNAL',
+        error_code: 'QORWAY_ERR_INTERNAL',
         message: 'An internal error occurred. Please contact support.',
       }),
     );

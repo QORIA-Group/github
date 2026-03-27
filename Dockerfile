@@ -1,7 +1,7 @@
 # =============================================================================
-# QORIA OS - Multi-stage Docker Build
+# Qorway OS - Multi-stage Docker Build
 # =============================================================================
-# Image tag convention: qoria-os-gateway:<commit-hash>
+# Image tag convention: qorway-os-gateway:<commit-hash>
 # =============================================================================
 
 # --- Stage 1: Dependencies ---
@@ -24,15 +24,15 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-RUN addgroup --system --gid 1001 qoria && \
-    adduser --system --uid 1001 qoria
+RUN addgroup --system --gid 1001 qorway && \
+    adduser --system --uid 1001 qorway
 
-COPY --from=builder --chown=qoria:qoria /app/dist ./dist
-COPY --from=builder --chown=qoria:qoria /app/node_modules ./node_modules
-COPY --from=builder --chown=qoria:qoria /app/package.json ./package.json
-COPY --from=builder --chown=qoria:qoria /app/prisma ./prisma
+COPY --from=builder --chown=qorway:qorway /app/dist ./dist
+COPY --from=builder --chown=qorway:qorway /app/node_modules ./node_modules
+COPY --from=builder --chown=qorway:qorway /app/package.json ./package.json
+COPY --from=builder --chown=qorway:qorway /app/prisma ./prisma
 
-USER qoria
+USER qorway
 
 EXPOSE 3000
 

@@ -1,22 +1,22 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ForbiddenException } from '@nestjs/common';
-import { AscendiaService } from './ascendia.service';
+import { AscendService } from './ascend.service';
 import { PrismaService } from '../../database/prisma/prisma.service';
-import { KyraService } from '../kyra/kyra.service';
+import { AtlasService } from '../atlas/atlas.service';
 import { PulseFlowService } from '../pulseflow/pulseflow.service';
 import { StructuredLogger } from '../../common/utils/structured-logger';
 import { TenantContext } from '../../common/interfaces/tenant-context.interface';
 import { TenantType } from '../../common/enums/tenant-type.enum';
 
-describe('AscendiaService', () => {
-  let service: AscendiaService;
+describe('AscendService', () => {
+  let service: AscendService;
 
   const mockPrisma = {
     executeInTenantContext: jest.fn(),
     cognitiveTask: { count: jest.fn() },
   };
 
-  const mockKyra = {
+  const mockAtlas = {
     processCognitiveTask: jest.fn(),
   };
 
@@ -50,15 +50,15 @@ describe('AscendiaService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        AscendiaService,
+        AscendService,
         { provide: PrismaService, useValue: mockPrisma },
-        { provide: KyraService, useValue: mockKyra },
+        { provide: AtlasService, useValue: mockAtlas },
         { provide: PulseFlowService, useValue: mockPulseflow },
         { provide: StructuredLogger, useValue: mockLogger },
       ],
     }).compile();
 
-    service = module.get<AscendiaService>(AscendiaService);
+    service = module.get<AscendService>(AscendService);
   });
 
   afterEach(() => jest.clearAllMocks());
@@ -94,7 +94,7 @@ describe('AscendiaService', () => {
   });
 
   describe('executePayrollTask', () => {
-    it('should route payroll task through KYRA with single_tenant scope', async () => {
+    it('should route payroll task through ATLAS with single_tenant scope', async () => {
       const mockResult = {
         taskId: 'task-1',
         level: 'REPTILIAN',
@@ -103,13 +103,13 @@ describe('AscendiaService', () => {
         processingTimeMs: 5,
         cached: false,
       };
-      mockKyra.processCognitiveTask.mockResolvedValue(mockResult);
+      mockAtlas.processCognitiveTask.mockResolvedValue(mockResult);
       mockPulseflow.emitEvent.mockResolvedValue({});
 
       const result = await service.executePayrollTask(clientTenant, { month: '2026-03' });
 
       expect(result).toEqual(mockResult);
-      expect(mockKyra.processCognitiveTask).toHaveBeenCalledWith(
+      expect(mockAtlas.processCognitiveTask).toHaveBeenCalledWith(
         clientTenant,
         'payroll_execution',
         expect.objectContaining({

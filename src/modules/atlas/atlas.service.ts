@@ -13,7 +13,7 @@ import { TriBrainLevel } from '../../common/enums/tri-brain-level.enum';
 import { PulseFlowEventType } from '../../common/enums/pulseflow-event-type.enum';
 
 /**
- * KYRA Cognitive Engine - Tri-Brain Computing(tm) Router
+ * ATLAS Cognitive Engine - Tri-Brain Computing(tm) Router
  *
  * Routes cognitive tasks through the three brain levels:
  * 1. Reptilian: Cache & exact rules (fastest, zero cost)
@@ -25,7 +25,7 @@ import { PulseFlowEventType } from '../../common/enums/pulseflow-event-type.enum
  * while maintaining reasoning quality.
  */
 @Injectable()
-export class KyraService {
+export class AtlasService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly reptilian: ReptilianService,
@@ -77,7 +77,7 @@ export class KyraService {
     });
 
     this.logger.logCognitiveDecision(
-      'KyraService',
+      'AtlasService',
       `Cognitive task ${taskId} submitted - beginning Tri-Brain routing`,
       {
         task_id: taskId,
@@ -119,7 +119,7 @@ export class KyraService {
     );
 
     this.logger.logCognitiveDecision(
-      'KyraService',
+      'AtlasService',
       `Cognitive task ${taskId} completed at level ${result.level}`,
       {
         task_id: taskId,
@@ -149,7 +149,7 @@ export class KyraService {
 
     this.logger.log(
       `Task ${task.taskId} escalated from Reptilian to Limbic`,
-      'KyraService',
+      'AtlasService',
     );
 
     // Level 2: Limbic (LLM Classification)
@@ -160,7 +160,7 @@ export class KyraService {
 
     this.logger.log(
       `Task ${task.taskId} escalated from Limbic to Neocortex`,
-      'KyraService',
+      'AtlasService',
     );
 
     // Level 3: Neocortex (Deep Causal Inference - always resolves)

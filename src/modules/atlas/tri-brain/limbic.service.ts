@@ -19,7 +19,7 @@ export class LimbicService {
     private readonly configService: ConfigService,
     private readonly logger: StructuredLogger,
   ) {
-    this.llmEndpoint = this.configService.get<string>('kyra.llmEndpoint', '');
+    this.llmEndpoint = this.configService.get<string>('atlas.llmEndpoint', '');
   }
 
   /**
@@ -91,7 +91,7 @@ export class LimbicService {
     task: CognitiveTask,
   ): Promise<Record<string, unknown>> {
     // LLM integration placeholder
-    // In production: HTTP call to KYRA_LLM_ENDPOINT with structured prompt
+    // In production: HTTP call to ATLAS_LLM_ENDPOINT with structured prompt
     this.logger.log(
       `Classifying task ${task.taskId} of type ${task.type} via LLM`,
       'LimbicService',

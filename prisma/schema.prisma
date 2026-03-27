@@ -1,5 +1,5 @@
 // =============================================================================
-// QORIA OS - Prisma Schema (Relational Data Hub)
+// Qorway OS - Prisma Schema (Relational Data Hub)
 // =============================================================================
 // Convention: Models use PascalCase, mapped to snake_case in PostgreSQL.
 // All tables include tenant_id for RLS enforcement.
@@ -123,7 +123,7 @@ model EventAuditLog {
 }
 
 // ---------------------------------------------------------------------------
-// KYRA: Cognitive Task Tracking
+// ATLAS: Cognitive Task Tracking
 // ---------------------------------------------------------------------------
 
 model CognitiveTask {

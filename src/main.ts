@@ -3,7 +3,7 @@ import { ValidationPipe, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
-import { QoriaExceptionFilter } from './common/filters/qoria-exception.filter';
+import { QorwayExceptionFilter } from './common/filters/qorway-exception.filter';
 import { StructuredLogger } from './common/utils/structured-logger';
 
 async function bootstrap(): Promise<void> {
@@ -39,16 +39,16 @@ async function bootstrap(): Promise<void> {
     }),
   );
 
-  app.useGlobalFilters(new QoriaExceptionFilter(logger));
+  app.useGlobalFilters(new QorwayExceptionFilter(logger));
 
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('QORIA OS API')
-    .setDescription('QORIA OS - European Causal AI Operating System API Gateway')
+    .setTitle('Qorway OS API')
+    .setDescription('Qorway OS - European Causal AI Operating System API Gateway')
     .setVersion('0.1.0')
     .addBearerAuth()
     .addTag('health', 'Health check endpoints')
     .addTag('auth', 'Authentication & Authorization')
-    .addTag('kyra', 'KYRA Cognitive Engine')
+    .addTag('atlas', 'ATLAS Cognitive Engine')
     .addTag('pulseflow', 'PulseFlow Event Protocol')
     .build();
 
@@ -58,7 +58,7 @@ async function bootstrap(): Promise<void> {
   const port = process.env.PORT ?? 3000;
   await app.listen(port);
 
-  logger.log(`QORIA OS Gateway started on port ${port}`, 'Bootstrap');
+  logger.log(`Qorway OS Gateway started on port ${port}`, 'Bootstrap');
   logger.log(`Swagger documentation available at /api/docs`, 'Bootstrap');
 }
 

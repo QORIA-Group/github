@@ -6,18 +6,18 @@ import {
   ApiOkResponse,
   ApiCreatedResponse,
 } from '@nestjs/swagger';
-import { AscendiaService, AutopilotStatus } from './ascendia.service';
+import { AscendService, AutopilotStatus } from './ascend.service';
 import { CurrentTenant } from '../../common/decorators/tenant.decorator';
 import { Roles } from '../../common/decorators/roles.decorator';
 import { Role } from '../../common/enums/role.enum';
 import { TenantContext } from '../../common/interfaces/tenant-context.interface';
 import { CognitiveResult } from '../../common/interfaces/cognitive-task.interface';
 
-@ApiTags('ascendia')
+@ApiTags('ascend')
 @ApiBearerAuth()
-@Controller({ path: 'ascendia', version: '1' })
-export class AscendiaController {
-  constructor(private readonly ascendiaService: AscendiaService) {}
+@Controller({ path: 'ascend', version: '1' })
+export class AscendController {
+  constructor(private readonly ascendService: AscendService) {}
 
   @Get('autopilot')
   @Roles(Role.CLIENT, Role.MANAGER, Role.ANALYST)
@@ -26,31 +26,31 @@ export class AscendiaController {
   async getAutopilotStatus(
     @CurrentTenant() tenant: TenantContext,
   ): Promise<AutopilotStatus> {
-    return this.ascendiaService.getAutopilotStatus(tenant);
+    return this.ascendService.getAutopilotStatus(tenant);
   }
 
   @Post('tasks/payroll')
   @HttpCode(HttpStatus.CREATED)
   @Roles(Role.CLIENT, Role.MANAGER)
-  @ApiOperation({ summary: 'Execute a payroll task via KYRA' })
+  @ApiOperation({ summary: 'Execute a payroll task via ATLAS' })
   @ApiCreatedResponse({ description: 'Payroll task executed and result returned' })
   async executePayroll(
     @CurrentTenant() tenant: TenantContext,
     @Body() payload: Record<string, unknown>,
   ): Promise<CognitiveResult> {
-    return this.ascendiaService.executePayrollTask(tenant, payload);
+    return this.ascendService.executePayrollTask(tenant, payload);
   }
 
   @Post('tasks/esg-reporting')
   @HttpCode(HttpStatus.CREATED)
   @Roles(Role.CLIENT, Role.MANAGER, Role.ANALYST)
-  @ApiOperation({ summary: 'Execute an ESG/CSRD reporting task via KYRA' })
+  @ApiOperation({ summary: 'Execute an ESG/CSRD reporting task via ATLAS' })
   @ApiCreatedResponse({ description: 'ESG reporting task executed and result returned' })
   async executeEsgReporting(
     @CurrentTenant() tenant: TenantContext,
     @Body() payload: Record<string, unknown>,
   ): Promise<CognitiveResult> {
-    return this.ascendiaService.executeEsgReporting(tenant, payload);
+    return this.ascendService.executeEsgReporting(tenant, payload);
   }
 
   @Get('automations/status')
@@ -60,6 +60,6 @@ export class AscendiaController {
   async getAutomationStatus(
     @CurrentTenant() tenant: TenantContext,
   ): Promise<{ pending: number; processing: number; completed: number }> {
-    return this.ascendiaService.getAutomationStatus(tenant);
+    return this.ascendService.getAutomationStatus(tenant);
   }
 }

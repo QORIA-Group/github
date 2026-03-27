@@ -27,7 +27,7 @@ export class PulseFlowService {
     private readonly logger: StructuredLogger,
   ) {
     this.channel = this.configService.get<string>(
-      'kyra.pulseflowChannel',
+      'atlas.pulseflowChannel',
       'pulseflow_events',
     );
   }

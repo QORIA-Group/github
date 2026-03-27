@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ForbiddenException } from '@nestjs/common';
 import { NexusService } from './nexus.service';
 import { PrismaService } from '../../database/prisma/prisma.service';
-import { KyraService } from '../kyra/kyra.service';
+import { AtlasService } from '../atlas/atlas.service';
 import { StructuredLogger } from '../../common/utils/structured-logger';
 import { TenantContext } from '../../common/interfaces/tenant-context.interface';
 import { TenantType } from '../../common/enums/tenant-type.enum';
@@ -16,7 +16,7 @@ describe('NexusService', () => {
     cognitiveTask: { count: jest.fn() },
   };
 
-  const mockKyra = {
+  const mockAtlas = {
     processCognitiveTask: jest.fn(),
   };
 
@@ -49,7 +49,7 @@ describe('NexusService', () => {
       providers: [
         NexusService,
         { provide: PrismaService, useValue: mockPrisma },
-        { provide: KyraService, useValue: mockKyra },
+        { provide: AtlasService, useValue: mockAtlas },
         { provide: StructuredLogger, useValue: mockLogger },
       ],
     }).compile();
@@ -84,14 +84,14 @@ describe('NexusService', () => {
   });
 
   describe('requestMultiClientOptimization', () => {
-    it('should route KYRA task with cross_tenant scope for CGO', async () => {
+    it('should route ATLAS task with cross_tenant scope for CGO', async () => {
       const mockResult = { taskId: 'task-1', level: 'NEOCORTEX' };
-      mockKyra.processCognitiveTask.mockResolvedValue(mockResult);
+      mockAtlas.processCognitiveTask.mockResolvedValue(mockResult);
 
       const result = await service.requestMultiClientOptimization(cgoTenant, { domain: 'payroll' });
 
       expect(result).toEqual(mockResult);
-      expect(mockKyra.processCognitiveTask).toHaveBeenCalledWith(
+      expect(mockAtlas.processCognitiveTask).toHaveBeenCalledWith(
         cgoTenant,
         'multi_client_optimization',
         expect.objectContaining({

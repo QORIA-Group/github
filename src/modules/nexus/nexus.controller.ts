@@ -36,8 +36,8 @@ export class NexusController {
   @Post('optimize')
   @HttpCode(HttpStatus.CREATED)
   @Roles(Role.CGO, Role.C_LEVEL)
-  @ApiOperation({ summary: 'Request KYRA multi-client optimization analysis' })
-  @ApiCreatedResponse({ description: 'Cross-tenant optimization result from KYRA' })
+  @ApiOperation({ summary: 'Request ATLAS multi-client optimization analysis' })
+  @ApiCreatedResponse({ description: 'Cross-tenant optimization result from ATLAS' })
   async requestOptimization(
     @CurrentTenant() tenant: TenantContext,
     @Body() payload: Record<string, unknown>,
@@ -48,8 +48,8 @@ export class NexusController {
   @Post('analyze')
   @HttpCode(HttpStatus.CREATED)
   @Roles(Role.CGO, Role.C_LEVEL)
-  @ApiOperation({ summary: 'Request KYRA multi-client comparative analysis' })
-  @ApiCreatedResponse({ description: 'Comparative analysis result from KYRA' })
+  @ApiOperation({ summary: 'Request ATLAS multi-client comparative analysis' })
+  @ApiCreatedResponse({ description: 'Comparative analysis result from ATLAS' })
   async requestAnalysis(
     @CurrentTenant() tenant: TenantContext,
     @Body() payload: Record<string, unknown>,

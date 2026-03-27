@@ -1,7 +1,7 @@
 {
-  "name": "qoria-os-backend",
+  "name": "qorway-os-backend",
   "version": "0.1.0",
-  "description": "QORIA OS - European Causal AI Operating System Backend",
+  "description": "Qorway OS - European Causal AI Operating System Backend",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {

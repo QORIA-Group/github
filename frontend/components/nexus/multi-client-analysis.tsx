@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CognitiveResult } from '../../types/kyra.types';
+import { CognitiveResult } from '../../types/atlas.types';
 
 interface MultiClientAnalysisProps {
   onRequestOptimization: (payload: Record<string, unknown>) => Promise<CognitiveResult>;
@@ -37,7 +37,7 @@ export function MultiClientAnalysis({
 
   return (
     <div className="multi-client-analysis">
-      <h3>KYRA Multi-Client Intelligence</h3>
+      <h3>ATLAS Multi-Client Intelligence</h3>
       <div className="analysis-actions">
         <button onClick={handleOptimize} disabled={isLoading}>
           {isLoading ? 'Processing...' : 'Optimize Portfolio'}

@@ -14,7 +14,7 @@ import { TriBrainLevel } from '../../../common/enums/tri-brain-level.enum';
  * Performs deep causal reasoning by traversing the Knowledge Graph (Neo4j).
  * Every assertion is backed by auditable graph paths (Causal Evidence).
  * Used for complex analysis: CSRD indicators, causal impact chains,
- * strategic scoring (Ascendia Score, DMVScore).
+ * strategic scoring (Ascend Score, DMVScore).
  *
  * ZERO HALLUCINATION: All results are sourced from the Knowledge Graph.
  */

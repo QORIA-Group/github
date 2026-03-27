@@ -4,7 +4,7 @@ import { PrismaService } from '../../database/prisma/prisma.service';
 import { StructuredLogger } from '../../common/utils/structured-logger';
 import { TenantContext } from '../../common/interfaces/tenant-context.interface';
 import { TenantType } from '../../common/enums/tenant-type.enum';
-import { KyraService } from '../kyra/kyra.service';
+import { AtlasService } from '../atlas/atlas.service';
 import { PulseFlowService } from '../pulseflow/pulseflow.service';
 import { PulseFlowEventType } from '../../common/enums/pulseflow-event-type.enum';
 import { CognitiveResult } from '../../common/interfaces/cognitive-task.interface';
@@ -42,10 +42,10 @@ export interface ClientAlert {
 }
 
 @Injectable()
-export class AscendiaService {
+export class AscendService {
   constructor(
     private readonly prisma: PrismaService,
-    private readonly kyraService: KyraService,
+    private readonly atlasService: AtlasService,
     private readonly pulseflow: PulseFlowService,
     private readonly logger: StructuredLogger,
   ) {}
@@ -92,7 +92,7 @@ export class AscendiaService {
 
     this.logger.log(
       `Autopilot status loaded for client ${tenant.tenantId}`,
-      'AscendiaService',
+      'AscendService',
     );
 
     return {
@@ -112,7 +112,7 @@ export class AscendiaService {
   }
 
   /**
-   * Execute a payroll task via KYRA.
+   * Execute a payroll task via ATLAS.
    * Client-specific: processes payroll for the authenticated tenant only.
    */
   async executePayrollTask(
@@ -121,7 +121,7 @@ export class AscendiaService {
   ): Promise<CognitiveResult> {
     this.assertClientAccess(tenant);
 
-    const result = await this.kyraService.processCognitiveTask(
+    const result = await this.atlasService.processCognitiveTask(
       tenant,
       'payroll_execution',
       {
@@ -147,7 +147,7 @@ export class AscendiaService {
   }
 
   /**
-   * Execute an ESG/CSRD reporting task via KYRA.
+   * Execute an ESG/CSRD reporting task via ATLAS.
    */
   async executeEsgReporting(
     tenant: TenantContext,
@@ -155,7 +155,7 @@ export class AscendiaService {
   ): Promise<CognitiveResult> {
     this.assertClientAccess(tenant);
 
-    return this.kyraService.processCognitiveTask(tenant, 'esg_reporting', {
+    return this.atlasService.processCognitiveTask(tenant, 'esg_reporting', {
       ...payload,
       scope: 'single_tenant',
       tenant_id: tenant.tenantId,

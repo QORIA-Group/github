@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { NexusController } from './nexus.controller';
 import { NexusService } from './nexus.service';
-import { KyraModule } from '../kyra/kyra.module';
+import { AtlasModule } from '../atlas/atlas.module';
 
 @Module({
-  imports: [KyraModule],
+  imports: [AtlasModule],
   controllers: [NexusController],
   providers: [NexusService],
 })
