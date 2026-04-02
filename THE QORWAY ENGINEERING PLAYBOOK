@@ -1,85 +1,425 @@
 📘 THE QORWAY ENGINEERING PLAYBOOK
-Version: 1.1.0 | Classification: CONFIDENTIAL / IP Core
 
+Version: 2.0.0 | Classification: CONFIDENTIAL / IP Core
 Entity: QORWAY TECHNOLOGY (Holding)
+Architect: Nicole Valey (CEO, Lead Tech, Business AI Architect)
+Supersedes: v1.1.0 (March 2026)
 
-Architect: Nicole Valey (CEO, CMO, Business AI Architect, Lead Tech, CTO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOMENCLATURE OFFICIELLE (v2.0 — non négociable)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. Engineering Philosophy & Architectural Vision
-The QOR-OS infrastructure and the QOR-AX engine are designed for mission-critical enterprise environments (Executive Boards, Strategic Decisions, CSRD Compliance).
+Toute la codebase, la documentation et les communications
+internes utilisent exclusivement ces noms à partir de v2.0.
 
-Every contributor (Human or AI) must adhere to these 3 fundamental pillars:
+  v1.1 (ancien)     →    v2.0 (officiel)
+  ─────────────────────────────────────────
+  QOR-OS            →    QORWAY OS
+  QOR-AX            →    ATLAS (powered by KYRA)
+  QOR-HUB           →    VERTICAL SHELL / OS DASHBOARD
+  Reptilien         →    KYRA INSTINCT
+  Limbique          →    KYRA REASON
+  Néocortex         →    KYRA CAUSAL ENGINE
+  Pulseflow-broker  →    PULSEFLOW          (inchangé)
+  Ascendia          →    ASCEND             (sas de qualification)
+  Suite Pulse       →    VERTICAL SHELL     (template déployable)
 
-Zero Trust & Multi-Tenancy: Every data point, request, and event belongs to a specific tenant. Isolation is absolute and enforced at the database level via Row Level Security (RLS).
+Alias publics (ce que voit le client final) :
+  ATLAS             →    "Votre Advisory Board IA"
+  KYRA              →    jamais exposé — moteur interne uniquement
+  QORWAY OS         →    jamais exposé — infrastructure invisible
+  ASCEND            →    "Programme de 30 jours"
 
-Invisible Intelligence (Sanitization): The causal engine (QOR-AX) operates strictly in the backend. User Interfaces (QOR-HUB) receive only actionable, clean insights. Never expose raw reasoning chains, compute metadata, or the internal "QOR-AX" branding to the end-user.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. VISION ARCHITECTURALE & PHILOSOPHIE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Event-Driven by Design: The architecture is reactive. Micro-services communicate via the Pulseflow-broker protocol. Synchronous calls (REST/GraphQL) are strictly forbidden for modifying inter-service states.
+QORWAY n'est pas un outil IA. QORWAY est une infrastructure
+de revenu invisible.
 
-2. Coding Standards (Backend: Node.js / NestJS / Go)
-The core of QOR-OS demands absolute mathematical and software rigor.
+"Le client pense que le système est son business.
+ En réalité, il tourne sur QORWAY."
 
-2.1. Strict TypeScript
-Compilation mode strict: true is non-negotiable.
+Le flux de valeur est séquentiel et cumulatif :
 
-Use of the any type is strictly forbidden. Use unknown for dynamically resolved types and validate them via Zod or class-validator.
+  ASCEND (Sas de qualification — €10k–€25k)
+      ↓
+  ATLAS (Advisory Board IA — powered by KYRA)
+      ↓
+  QORWAY OS (Execution layer — invisible)
+      ↓
+  IA FACTORY (Livre l'IA du client — Portable Core)
+      ↓
+  PULSEFLOW (Orchestre tout en événements)
+      ↓
+  REVENUE SHARE (10–30% sur les outcomes)
 
-All function returns, including Promises, must be explicitly typed.
+Trois piliers fondamentaux (inchangés) :
 
-2.2. Naming Conventions
-Classes, Interfaces, DTOs: PascalCase (e.g., QorLeadScoringService).
+  1. Zero Trust & Multi-Tenancy
+     Chaque donnée, requête et événement appartient à un tenant.
+     L'isolation est absolue et appliquée au niveau base de données
+     via Row Level Security (RLS). Aucune exception.
 
-Methods, Variables, Properties: camelCase (e.g., calculateQorScore).
+  2. Intelligence Invisible (Sanitization)
+     ATLAS et KYRA opèrent strictement en backend.
+     Les interfaces (VERTICAL SHELL, OS DASHBOARD) reçoivent
+     uniquement des insights actionnables. Jamais :
+     — les chaînes de raisonnement brutes
+     — les métadonnées de compute
+     — le branding "KYRA" ou "QORWAY OS"
 
-Files: kebab-case (e.g., qor-ax-engine.service.ts).
+  3. Event-Driven by Design
+     L'architecture est réactive. Les micro-services communiquent
+     via PULSEFLOW. Les appels synchrones REST/GraphQL sont
+     INTERDITS pour modifier l'état inter-services.
 
-Database (Prisma): Models in schema.prisma use PascalCase but must be mapped to snake_case in PostgreSQL using @@map and @map decorators.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. COMPOSANTS SYSTÈME (v2.0 — complet)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-2.3. Error Handling & Observability
-No Stack Traces: Never return stack traces to the client.
+2.1 ASCEND — Sas de Qualification
+  Rôle    : Point d'entrée unique. Qualifie, prépare, onboarde.
+  Ce n'est PAS un programme de formation. C'est un filtre premium.
+  Input   : Business client (5 questions pré-qualification)
+  Process : ATLAS conduit 12 questions → scoring silencieux
+  Output  : Verdict A/B/C + Blueprint PDF + entrée QORWAY OS
+  Cash    : €10k–€25k (50% upfront, 50% à J15)
+  Garantie: 100% remboursé si métrique J30 non atteinte
 
-Global Filters: Use NestJS Global Exception Filters.
+2.2 ATLAS — Advisory Engine
+  Rôle    : Advisory Board synthétique. Rend des verdicts.
+            N'est PAS un chatbot. N'est PAS un assistant.
+  Moteur  : KYRA Tri-Brain (voir 2.3)
+  Modes   :
+    ADVISORY    → ASCEND, diagnostic, verdict, blueprint
+    ENGINEERING → Post-verdict, build system, déploiement IA
+  Règle   : Atlas ne vend jamais QORWAY OS.
+            Atlas dit la vérité. Si la vérité y mène, tant mieux.
+  Prompts : Master Prompt (invariant) + Vertical Prompt + Stage Prompt
+  Verdicts: A (déploiement complet) / B (conditionnel) / C (refus+redirect)
 
-Standardized Errors: Format: { "error_code": "QOR_ERR_XYZ", "message": "...", "correlation_id": "uuid" }.
+2.3 KYRA — Tri-Brain Computing™
+  Rôle    : Moteur cognitif d'ATLAS. Jamais exposé au client.
+  Architecture :
 
-Structured Logging: Every state mutation or causal decision must be logged in structured JSON (for Prometheus/Grafana) including tenant_id and correlation_id.
+    KYRA INSTINCT (ex-Reptilien)
+    — Complexité score < 30
+    — Pattern matching rapide, réponses immédiates
+    — Modèle léger, température 0.1, max 500 tokens
+    — Cible : 70%+ des requêtes
 
-3. Data Governance & Multi-Tenancy
-Data security is QORWAY TECHNOLOGY's primary commercial asset.
+    KYRA REASON (ex-Limbique)
+    — Complexité score 30–70
+    — Raisonnement structuré, scoring, évaluation
+    — Modèle mid-tier, température 0.3, max 1500 tokens
+    — Cible : 20% des requêtes
 
-Primary Keys: Exclusive use of UUIDv4 or ULID. Auto-incrementing integers are prohibited (prevents enumeration attacks).
+    KYRA CAUSAL ENGINE (ex-Néocortex)
+    — Complexité score > 70
+    — Simulation, anticipation, décisions complexes
+    — claude-sonnet-4-20250514, température 0.3, max 4000 tokens
+    — Chaque décision génère un Causal Evidence Log (EU AI Act)
+    — Cible : < 10% des requêtes
 
-Row Level Security (RLS): Every PostgreSQL query emitted by the ORM (Prisma) must execute within a tenant_id transactional context. RLS bypass is restricted to system migration scripts.
+  Objectif économique : 90%+ sur INSTINCT/REASON → -85% coûts LLM
 
-Immutability (Soft Deletes): No physical deletion of critical data. Systematically implement a deleted_at field and exclude it from global queries.
+2.4 GREENCORE™ — Routing d'Efficience
+  Rôle    : Couche d'arbitrage compute entre KYRA INSTINCT/REASON/CAUSAL.
+            Optimise coût / carbone / latence par requête.
+  Décision:
+    LOCAL (QORBOX Year 2) → requêtes INSTINCT sensibles
+    EDGE                  → requêtes REASON à faible latence
+    CLOUD EU (Scaleway)   → requêtes CAUSAL complexes
+  Principe: la donnée ne "part" jamais brute vers le cloud.
+            ATLAS anonymise avant tout envoi externe (AES-256).
+  Indicateur UI : barre de souveraineté permanente dans OS DASHBOARD
+    🔒 LOCAL ONLY / 🌐 CLOUD BRIDGE / ⚡ QORBOX
 
-4. Pulseflow Protocol (Event Management)
-Asynchronous orchestration is the nervous system of QOR-OS.
+2.5 KNOWLEDGE LAYER — Mémoire Stratégique
+  Structure :
+    UNIVERSAL KG (Neo4j, namespace qorway:universal)
+    — Insights agrégés anonymisés par verticale
+    — Alimente le Data Flywheel : chaque client rend ATLAS plus intelligent
+    — Jamais de données client identifiables
 
-Outbox Pattern: Event emission to the Message Broker must never be done directly from application code. Events are written to an EventOutbox table within the same transaction as the business logic. An asynchronous worker handles dispatch to Pulseflow-broker.
+    PRIVATE KG (Neo4j, namespace qorway:tenant:{tenantId})
+    — Données propres au client (contexte business, historique)
+    — Chiffrées AES-256, clé détenue par le tenant
+    — QORWAY ne voit jamais le contenu raw
 
-AsyncAPI Contracts: Every event broadcasted on the EventBus must strictly validate against the schema defined in the AsyncAPI registry.
+  Flywheel : +1 client RSE → Universal KG Finance +X nœuds
+             → ATLAS résout les problèmes RSE suivants plus vite
+             → CAC déploiement diminue, marge augmente
 
-Idempotency: All event consumers must be idempotent. Multiple processing of the same event must never alter the final database state.
+2.6 IA FACTORY — Générateur de Systèmes
+  Rôle    : ATLAS code, livre et déploie l'IA du client.
+            3 mois de R&D client → compressés en ~1h via Claude Code.
+  Mode    : Engineering Mode d'ATLAS supervise Claude Code.
+  Output  :
+    PORTABLE CORE (appartient au client) :
+    — Ses données (export possible)
+    — Sa logique métier (code source livré)
+    — Ses prompts et assets business
+    — Sentiment de contrôle total → confiance
 
-5. Cognitive Engine & Causal AI (QOR-AX)
-No Direct Prompting: Direct LLM calls from business services are prohibited.
+    CONTROLLED RUNTIME (appartient à QORWAY) :
+    — Orchestration des agents
+    — Execution layer (PULSEFLOW)
+    — Optimisation continue
+    — Data flywheel
+    — Switching cost = disruption totale du business
 
-Tri-Brain™ Routing: Every analysis request is formatted as a CognitiveTask and sent to the QOR-AX API, which decides the routing (Reptilian, Limbic, Neocortex).
+2.7 ACQUISITION ENGINE (NEW — v2.0)
+  Rôle    : Automatise l'acquisition de clients pour chaque vertical.
+  Stage   : Entre LAUNCH et GROWTH dans le parcours ASCEND.
+  Composants :
+    — Séquence outbound automatisée (LinkedIn + Email)
+    — Agent de qualification des réponses (KYRA REASON)
+    — Booking automatique (intégration calendrier)
+    — Lead scoring en temps réel
+    — Follow-up personnalisé sans intervention humaine
+  Trigger PULSEFLOW : ascend.lead.qualified → acquisition.sequence.start
 
-Causal Traceability: Every decision made by the Neocortex engine must generate an immutable Causal Evidence log for compliance with the EU AI Act.
+2.8 PULSEFLOW — Event Bus
+  Rôle    : Système nerveux de QORWAY OS.
+            Toute communication inter-services passe par ici.
+  Pattern : Outbox Pattern obligatoire (jamais d'émission directe)
+  Catalog d'events (extrait) :
+    ascend.lead.qualified         ascend.verdict.issued
+    atlas.analysis.started        atlas.verdict.ready
+    factory.app.deployed          factory.agent.created
+    business.revenue.generated    business.revenue_share.due
+    acquisition.sequence.start    system.tenant.created
+    system.security.alert         greencore.route.decided
 
-6. Development Lifecycle (Git & CI/CD Workflow)
-We use a Trunk-Based Development model optimized for continuous integration and AI-assisted engineering (Claude Code).
+2.9 REVENUE SHARE TRACKER (NEW — v2.0)
+  Rôle    : Calcule et trace le % dû à QORWAY sur les outcomes client.
+  Trigger : business.revenue.generated event
+  Calcul  : 10–30% selon accord signé en phase ASCEND
+  Output  : Dashboard tenant + notification automatique
+  Principe: On gagne quand le client gagne.
+            C'est le lock-in ultime — pas technique, financier.
 
-Branches: Use ephemeral branches prefixed with feat/, fix/, chore/, or refactor/.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. STANDARDS DE CODE (inchangés + additions v2.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Commits: Adhere to Conventional Commits specification (e.g., feat(qor-ax): implement causal tracing).
+3.1 TypeScript Strict (inchangé)
+  — strict: true non négociable
+  — any interdit → utiliser unknown + validation Zod/class-validator
+  — Tous les retours de fonction explicitement typés
+  — never utiliser l'assertion non-nulle (!) → gérer null explicitement
 
-Pull Requests (PR):
+3.2 Pattern Result (addition v2.0)
+  type Result<T> = { ok: true; data: T } | { ok: false; error: QorwayError }
 
-No PR can be merged without the System Architect’s (Nicole Valey) approval.
+  class QorwayError extends Error {
+    constructor(
+      message: string,
+      public code: string,        // Ex: "ATLAS_ERR_001"
+      public tenantId?: string,
+    ) { super(message); }
+  }
 
-Test coverage (Jest) for business logic and sanitization filters must be 100%.
+3.3 Conventions de Nommage (inchangé)
+  Classes/Interfaces/DTOs : PascalCase  (ex: AtlasVerdictService)
+  Méthodes/Variables      : camelCase   (ex: calculateDominationScore)
+  Fichiers                : kebab-case  (ex: atlas-verdict.service.ts)
+  Prisma schema           : PascalCase → mappé snake_case PostgreSQL
+  Constants               : SCREAMING_SNAKE_CASE
 
-The GitHub Actions CI pipeline (Linting, Build, Tests, Security Scan) must be fully green.
+3.4 Gestion d'Erreurs (inchangé + renforcé)
+  — Jamais de stack trace vers le client
+  — Global Exception Filter NestJS obligatoire
+  — Format : { "error_code": "QOR_ERR_XYZ", "message": "...", "correlation_id": "uuid" }
+  — Logging structuré JSON avec tenant_id et correlation_id
+  — Jamais de PII dans les logs en clair
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. GOUVERNANCE DES DONNÉES & MULTI-TENANCY (renforcé)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4.1 Règle absolue RLS
+  Chaque query Prisma DOIT être scopée par tenantId.
+
+  // CORRECT — toujours
+  async findAll(tenantId: string) {
+    return this.prisma.project.findMany({ where: { tenantId } });
+  }
+
+  // INTERDIT — jamais
+  async findAll() {
+    return this.prisma.project.findMany(); // expose tous les tenants
+  }
+
+4.2 Classification des données (addition v2.0)
+  enum DataClassification {
+    UNIVERSAL  = 'universal'   // Partagé (anonymisé)
+    PRIVATE    = 'private'     // Tenant uniquement (chiffré)
+    SENSITIVE  = 'sensitive'   // Chiffrement extra + audit log
+  }
+  Les données SENSITIVE ne quittent JAMAIS le cluster sans anonymisation.
+
+4.3 Clés primaires
+  Exclusivement UUIDv4 ou ULID.
+  Les entiers auto-incrémentés sont interdits (attaques d'énumération).
+
+4.4 Soft Deletes
+  Aucune suppression physique de données critiques.
+  Implémenter systematiquement deleted_at.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. PULSEFLOW PROTOCOL (renforcé v2.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Outbox Pattern : Les events sont écrits dans EventOutbox
+                   dans la même transaction que la logique métier.
+                   Un worker asynchrone dispatch vers PULSEFLOW.
+
+  AsyncAPI Contracts : Chaque event doit valider contre le schéma
+                       du registre AsyncAPI.
+
+  Idempotency : Tous les consumers doivent être idempotents.
+                Un même event traité N fois = même état final.
+
+  Dead Letter Queue : Retry 3x, puis DLQ avec alerte ATLAS.
+
+  tenantId OBLIGATOIRE dans tous les headers d'events.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. ATLAS ENGINE — RÈGLES COGNITIVES (NEW — v2.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6.1 Règles comportementales absolues
+  — Jamais deux questions en même temps
+  — Jamais de phrases de remplissage ("Excellente question")
+  — Jamais valider sans preuve
+  — Toujours nommer le vrai problème, pas le symptôme
+  — Toujours rendre un verdict en fin de diagnostic
+  — Si réponse vague : "Ce n'est pas assez précis. Donnez-moi un chiffre."
+  — Si le business n'est pas prêt pour QORWAY OS : le dire, puis rediriger
+
+6.2 Construction du prompt (prompt-builder)
+  Prompt final = MASTER_PROMPT + VERTICAL_PROMPT + STAGE_PROMPT
+  — Master  : identité ATLAS, règles comportementales (invariant)
+  — Vertical: expertise domaine (RSE / Finance / Invest / Growth / Legal)
+  — Stage  : comportement par étape (ASCEND / BUILD / LAUNCH / GROWTH)
+
+6.3 Interdictions LLM
+  — Appels LLM directs depuis les services métier INTERDITS
+  — Toute requête passe par KYRA router → ATLAS service
+  — Données sensibles anonymisées AVANT envoi au LLM externe
+  — Chaque décision KYRA CAUSAL génère un Causal Evidence Log immuable
+
+6.4 Matrice de Domination (scoring ASCEND)
+  5 questions binaires → score /5
+  1. Est-ce que je remplace un workflow complet ?
+  2. Est-ce que je capture des données uniques ?
+  3. Est-ce que je rends le client dépendant ?
+  4. Est-ce que je suis connecté au revenu ?
+  5. Est-ce que je peux scaler sans humains ?
+
+  Score < 3/5 → Verdict C (refus + orientation)
+  Score 3-4/5 → Verdict B (conditionnel)
+  Score 5/5   → Verdict A (déploiement complet)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. DÉPLOIEMENT VERTICAL (NEW — v2.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Un vertical = un sous-domaine = une instance VERTICAL SHELL.
+Même UI, même ATLAS, expertise différente injectée via VERTICAL_PROMPT.
+
+  rse.qorway.com      → VERTICAL_PROMPTS.rse
+  finance.qorway.com  → VERTICAL_PROMPTS.finance
+  invest.qorway.com   → VERTICAL_PROMPTS.invest
+  growth.qorway.com   → VERTICAL_PROMPTS.growth
+  legal.qorway.com    → VERTICAL_PROMPTS.legal
+
+Commande de déploiement :
+  pnpm vertical:deploy --name=rse --subdomain=rse.qorway.com
+  Objectif : < 10 minutes du commit au live.
+
+Priorité de déploiement (Year 1) :
+  Semaine 1-2 → Infrastructure + Gateway + RLS
+  Semaine 3-4 → KYRA + ATLAS Engine + PULSEFLOW
+  Semaine 5-6 → VERTICAL SHELL + premier vertical RSE live
+  Semaine 7-8 → OS DASHBOARD + monitoring
+  Semaine 9   → GREENCORE routing
+  Semaine 10  → ACQUISITION ENGINE
+  Semaine 11  → REVENUE SHARE TRACKER
+  Year 2      → QORBOX (hardware souverain)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. SÉCURITÉ — RÈGLES NON NÉGOCIABLES (renforcé)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Données sensibles chiffrées AES-256 avant de quitter le Private KG
+  2. Toutes les routes API requièrent JWT valide + claim tenantId
+  3. Toutes les queries Prisma scopées par tenantId (Section 4)
+  4. Appels LLM : anonymiser les données sensibles avant envoi cloud
+  5. Jamais de PII en clair dans les logs
+  6. Jamais exposer les données tenant A au tenant B — ever
+  7. Tous les appels externes passent par le gateway — jamais du frontend
+  8. EU AI Act : audit log de chaque décision ATLAS avec chaîne de preuves
+  9. Secret Scanning GitHub bloque tout commit avec clé API
+  10. SAST (CodeQL) sur chaque PR
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+9. WORKFLOW CI/CD (inchangé + additions v2.0)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Modèle : Trunk-Based Development
+  — main = production. Sacré.
+  — Claude Code travaille sur branches éphémères (feat/, fix/, chore/)
+  — Merge uniquement si pipeline 100% vert + validation Architecte
+
+4 Portes de Validation (inchangées) :
+  🚪 Porte 1 : Linting + TypeScript strict + contrats AsyncAPI/OpenAPI
+  🚪 Porte 2 : Tests unitaires (85% coverage) + tests isolation multi-tenant
+  🚪 Porte 3 : Secret Scanning + SAST CodeQL + audit dépendances
+  🚪 Porte 4 : Build Docker + push registre privé
+
+Addition v2.0 — Test isolation ATLAS :
+  Le pipeline vérifie que ATLAS injecte bien le bon VERTICAL_PROMPT
+  selon le vertical actif. Un test RSE ne doit jamais retourner
+  une réponse avec expertise Finance.
+
+Déploiement : Blue/Green (inchangé)
+  Rollback automatique si HTTP 500 > seuil ou latence KYRA > SLA
+  dans les 5 minutes post-déploiement.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10. CE QUE CLAUDE CODE NE DOIT JAMAIS FAIRE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ❌ Créer une route sans tenantId scoping
+  ❌ Appeler l'API Anthropic avec des données client brutes
+  ❌ Utiliser le type TypeScript any
+  ❌ Appeler un service depuis un autre service directement (utiliser PULSEFLOW)
+  ❌ Exposer "KYRA", "QORWAY OS" ou les détails de routing au frontend client
+  ❌ Créer un vertical sans VERTICAL_PROMPT correspondant
+  ❌ Hardcoder des données tenant
+  ❌ Bypasser KYRA router pour appeler le LLM directement
+  ❌ Écrire une réponse ATLAS sans le Master System Prompt
+  ❌ Committer des secrets ou clés API
+  ❌ Supprimer physiquement des données (soft delete obligatoire)
+  ❌ Choisir la vitesse plutôt que le respect de ce Playbook
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+11. LA PHRASE QUI RÉSUME TOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"QORWAY ne fournit pas de l'IA.
+ QORWAY opère des systèmes de revenu.
+ Chaque système est connecté à la performance financière du client.
+ Quand il gagne, nous gagnons.
+ Et il ne peut plus fonctionner sans nous."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dernière mise à jour : Avril 2026 — Nicole Valey, Lead Architect
+Lire ce document entièrement avant d'écrire une seule ligne de code.
+Le fichier CLAUDE.md en racine de chaque repo est le dérivé opérationnel
+de ce Playbook. En cas de conflit, ce Playbook fait foi.
