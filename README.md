@@ -1,40 +1,132 @@
 # github
-# 🇪🇺 QORIA Technology
-**The European Causal AI Operating System**
+# 🇪🇺 QORWAY TECHNOLOGY
+**The Revenue Operating System for the AI Economy**
 
 [![Security: Zero Trust](https://img.shields.io/badge/Security-Zero_Trust-red.svg)](#)
-[![Compliance: ISO 27001 Prep](https://img.shields.io/badge/Compliance-ISO_27001_Prep-blue.svg)](#)
+[![Compliance: EU AI Act Ready](https://img.shields.io/badge/Compliance-EU_AI_Act_Ready-blue.svg)](#)
 [![Infrastructure: 100% EU Sovereign](https://img.shields.io/badge/Infrastructure-100%25_EU_Sovereign-green.svg)](#)
-[![Status: Private Repositories](https://img.shields.io/badge/Code-Private_IP-lightgrey.svg)](#)
+[![Code: Private IP](https://img.shields.io/badge/Code-Private_IP-lightgrey.svg)](#)
 
-QORIA Technology construit l'infrastructure standard européenne pour l'Intelligence Artificielle Causale. Nous fournissons aux grandes entreprises et aux environnements critiques (Aéronautique, Finance, Conformité CSRD) un système d'exploitation IA éliminant les hallucinations algorithmiques grâce à un raisonnement mathématique rigoureux (Inférence Causale & Knowledge Graphs).
-
-
-
-## 🧠 Notre Propriété Intellectuelle (IP)
-
-Notre code source, nos algorithmes et nos modèles de données sont strictement confidentiels et répartis dans des dépôts privés avec une isolation absolue. 
-
-Nos innovations fondamentales incluent :
-* **KYRA Cognitive Engine :** Le premier moteur de raisonnement causal asynchrone pour l'entreprise.
-* **Tri-Brain Computing™ :** Notre algorithme de routage cognitif adaptatif (Reptilien, Limbique, Néocortex) réduisant les coûts de compute GPU de 79%.
-* **PulseFlow Protocol :** Un bus d'événements asynchrone (Event-Driven Architecture) orchestrant la communication en temps réel entre l'IA et les applications métier.
-* **Enterprise Knowledge Graphs :** Modélisation déterministe de plus de 1 200 indicateurs réglementaires (ESRS/CSRD) sur Neo4j.
-
-## 🏗️ Architecture QORIA OS (Zero-Trust Multi-Tenant)
-
-Notre infrastructure est conçue autour du principe de souveraineté et de "Security by Design".
-
-1. **Presentation Layer :** Interfaces React/Next.js "stateless" (ex: *Nexus CGO Platform*, *Ascendia*). L'intelligence reste invisible.
-2. **API Gateway :** Point d'entrée sécurisé avec un contrôle d'accès granulaire (RBAC) et un Metering System natif.
-3. **Isolation RLS (Row Level Security) :** Chaque client (Tenant) évolue dans un silo de données mathématiquement impénétrable sur PostgreSQL.
-
-## 🤝 Gouvernance et Ingénierie
-
-QORIA Technology opère selon les standards DeepTech les plus stricts :
-* Pipeline CI/CD automatisé avec analyse statique de sécurité (SAST) et scanning des dépendances.
-* Chiffrement AES-256 au repos et TLS 1.3 en transit.
-* Traçabilité complète des décisions de l'IA (Causal Evidence Logging) pour la conformité avec l'**EU AI Act**.
+> *"Le client pense que le système est son business. En réalité, il tourne sur QORWAY."*
 
 ---
-*QORIA Technology SAS opère depuis la France. Pour toute demande d'audit technique, d'intégration ou d'accès à notre environnement bac à sable, veuillez contacter notre direction technique.*
+
+## 🎯 Mission
+
+QORWAY Technology construit l'infrastructure invisible derrière les systèmes de revenu autonomes.
+
+Nous ne vendons pas de l'IA. Nous déployons des **Revenue Operating Systems** — des infrastructures qui pensent, apprennent, construisent et orchestrent le business de nos clients, en capturant une part de la valeur générée.
+
+**En 30 jours :** Un business qualifié entre dans ASCEND. ATLAS prescrit le système. QORWAY OS le déploie. Le client génère du revenu. QORWAY en partage une fraction.
+
+---
+
+## 🧠 Propriété Intellectuelle (IP)
+
+Notre code source, algorithmes et modèles de données sont strictement confidentiels, répartis dans des dépôts privés avec isolation absolue par tenant.
+
+### ATLAS — AI Advisory Engine
+Le premier Advisory Board synthétique opérationnel. ATLAS ne génère pas de contenu — il rend des **verdicts**. Il évalue chaque business sur 5 dimensions (Matrice de Domination), identifie le point de rupture unique, et prescrit exactement le système à déployer. Propulsé par KYRA.
+
+### KYRA — Tri-Brain Computing™
+Notre algorithme de routage cognitif adaptatif à trois niveaux :
+- **KYRA INSTINCT** — Pattern matching rapide, faible latence, faible coût
+- **KYRA REASON** — Raisonnement structuré, scoring, évaluation
+- **KYRA CAUSAL ENGINE** — Simulation causale, décisions stratégiques complexes, EU AI Act compliant
+
+Résultat : 90%+ des requêtes résolues sur INSTINCT/REASON → **réduction des coûts LLM de 85%**.
+
+### GREENCORE™ — Routing d'Efficience
+Couche d'arbitrage compute qui route chaque requête vers le niveau optimal : LOCAL (QORBOX), EDGE ou CLOUD EU. Les données sensibles ne quittent jamais le cluster sans anonymisation AES-256.
+
+### PulseFlow Protocol
+Bus d'événements asynchrone (Event-Driven Architecture) orchestrant la communication en temps réel entre ATLAS, les micro-services et les applications verticales. Outbox Pattern natif. Idempotency garantie.
+
+### Enterprise Knowledge Graphs
+Deux couches distinctes sur Neo4j :
+- **Universal KG** — Insights agrégés et anonymisés par verticale métier (Data Flywheel)
+- **Private KG** — Contexte propriétaire du client, chiffré AES-256, clé détenue par le tenant
+
+Chaque nouveau client enrichit l'Universal KG → ATLAS devient plus intelligent sur chaque verticale → le coût de déploiement diminue → la marge augmente. C'est le moat.
+
+### IA Factory
+ATLAS en Engineering Mode orchestre Claude Code pour livrer le système complet du client : backend, UI, agents, logique métier. 3 mois de R&D compressés en ~1 heure. Le client possède son Portable Core. QORWAY contrôle le Runtime.
+
+---
+
+## 🏗️ Architecture QORWAY OS
+
+```
+ASCEND          Sas de qualification (€10k–€25k)
+    ↓
+ATLAS           Advisory Engine — powered by KYRA
+    ↓
+QORWAY OS       Execution layer — invisible
+    ↓
+IA FACTORY      Livre le système IA du client
+    ↓
+PULSEFLOW       Orchestre tout en événements
+    ↓
+REVENUE SHARE   10–30% sur les outcomes générés
+```
+
+Trois piliers fondamentaux :
+
+**1. Zero Trust & Multi-Tenancy**
+Chaque donnée, requête et événement appartient à un tenant précis. L'isolation est absolue, appliquée au niveau base de données via Row Level Security (RLS) PostgreSQL. Aucune exception architecturale.
+
+**2. Intelligence Invisible**
+ATLAS et KYRA opèrent strictement en backend. Les interfaces clients reçoivent uniquement des insights actionnables. Le branding interne (KYRA, QORWAY OS) n'est jamais exposé au client final.
+
+**3. Event-Driven by Design**
+L'architecture est réactive. Les micro-services communiquent exclusivement via PulseFlow. Les appels synchrones directs entre services sont architecturalement interdits.
+
+---
+
+## 🚀 Modèle de Revenus
+
+| Layer | Produit | Montant |
+|-------|---------|---------|
+| **Entry** | Programme ASCEND | €10k–€25k (one-shot) |
+| **Core** | QORWAY OS (SaaS) | Abonnement mensuel |
+| **Upside** | Revenue Share | 10–30% des outcomes |
+
+Le Revenue Share est le vrai moteur : on gagne quand le client gagne. Les incentives sont parfaitement alignés. Le switching cost devient la disruption totale du business client.
+
+---
+
+## 🛡️ Gouvernance & Sécurité
+
+- Pipeline CI/CD avec 4 portes de validation (SAST, tests isolation multi-tenant, Secret Scanning, containerisation Docker)
+- Chiffrement AES-256 au repos, TLS 1.3 en transit
+- **Causal Evidence Logging** : traçabilité complète et immuable de chaque décision ATLAS (conformité EU AI Act)
+- Déploiement Blue/Green avec rollback automatique sous 5 minutes
+- Infrastructure 100% EU souveraine (Scaleway, France)
+
+---
+
+## 📍 Verticales déployées
+
+| Vertical | Sous-domaine | Expertise ATLAS |
+|----------|-------------|-----------------|
+| RSE / CSRD | rse.qorway.com | EU Taxonomy, ESRS, Bilan Carbone |
+| Finance & Equity | finance.qorway.com | P&L, DCF, SaaS metrics, Cap Table |
+| Investissement M&A | invest.qorway.com | Due diligence, Valorisation, Term Sheet |
+| Growth | growth.qorway.com | AARRR, Outbound, Funnel, ICP |
+| Legal & Compliance | legal.qorway.com | RGPD, EU AI Act, Contrats SaaS |
+
+---
+
+## 📋 Documentation interne
+
+| Document | Rôle |
+|----------|------|
+| `THE QORWAY ENGINEERING PLAYBOOK` | Source de vérité architecturale (v2.0) |
+| `RELEASE_STRATEGY` | Pipeline CI/CD et workflow humain ↔ IA |
+| `SECURITY_COMPLIANCE` | Standards sécurité et conformité |
+| `CLAUDE.md` *(repos privés)* | Brief opérationnel pour Claude Code |
+
+---
+
+*QORWAY TECHNOLOGY SAS — France*
+*Pour toute demande d'intégration ou d'accès à l'environnement sandbox : direction technique.*
