@@ -1,132 +1,265 @@
 # github
 # 🇪🇺 QORWAY TECHNOLOGY
-**The Revenue Operating System for the AI Economy**
+**Sovereign Decision Intelligence Infrastructure for Europe**
 
-[![Security: Zero Trust](https://img.shields.io/badge/Security-Zero_Trust-red.svg)](#)
-[![Compliance: EU AI Act Ready](https://img.shields.io/badge/Compliance-EU_AI_Act_Ready-blue.svg)](#)
-[![Infrastructure: 100% EU Sovereign](https://img.shields.io/badge/Infrastructure-100%25_EU_Sovereign-green.svg)](#)
-[![Code: Private IP](https://img.shields.io/badge/Code-Private_IP-lightgrey.svg)](#)
-
-> *"Le client pense que le système est son business. En réalité, il tourne sur QORWAY."*
+> From fragmented decisions → to causal, executable, and auditable systems.
 
 ---
 
 ## 🎯 Mission
 
-QORWAY Technology construit l'infrastructure invisible derrière les systèmes de revenu autonomes.
+QORWAY construit une infrastructure souveraine qui transforme la manière dont les organisations prennent, exécutent et gouvernent leurs décisions.
 
-Nous ne vendons pas de l'IA. Nous déployons des **Revenue Operating Systems** — des infrastructures qui pensent, apprennent, construisent et orchestrent le business de nos clients, en capturant une part de la valeur générée.
+Aujourd’hui, les entreprises ne manquent pas de données.
+Elles manquent de **structure décisionnelle**.
 
-**En 30 jours :** Un business qualifié entre dans ASCEND. ATLAS prescrit le système. QORWAY OS le déploie. Le client génère du revenu. QORWAY en partage une fraction.
+QORWAY remplace cette fragmentation par un système unifié où :
 
----
-
-## 🧠 Propriété Intellectuelle (IP)
-
-Notre code source, algorithmes et modèles de données sont strictement confidentiels, répartis dans des dépôts privés avec isolation absolue par tenant.
-
-### ATLAS — AI Advisory Engine
-Le premier Advisory Board synthétique opérationnel. ATLAS ne génère pas de contenu — il rend des **verdicts**. Il évalue chaque business sur 5 dimensions (Matrice de Domination), identifie le point de rupture unique, et prescrit exactement le système à déployer. Propulsé par KYRA.
-
-### KYRA — Tri-Brain Computing™
-Notre algorithme de routage cognitif adaptatif à trois niveaux :
-- **KYRA INSTINCT** — Pattern matching rapide, faible latence, faible coût
-- **KYRA REASON** — Raisonnement structuré, scoring, évaluation
-- **KYRA CAUSAL ENGINE** — Simulation causale, décisions stratégiques complexes, EU AI Act compliant
-
-Résultat : 90%+ des requêtes résolues sur INSTINCT/REASON → **réduction des coûts LLM de 85%**.
-
-### GREENCORE™ — Routing d'Efficience
-Couche d'arbitrage compute qui route chaque requête vers le niveau optimal : LOCAL (QORBOX), EDGE ou CLOUD EU. Les données sensibles ne quittent jamais le cluster sans anonymisation AES-256.
-
-### PulseFlow Protocol
-Bus d'événements asynchrone (Event-Driven Architecture) orchestrant la communication en temps réel entre ATLAS, les micro-services et les applications verticales. Outbox Pattern natif. Idempotency garantie.
-
-### Enterprise Knowledge Graphs
-Deux couches distinctes sur Neo4j :
-- **Universal KG** — Insights agrégés et anonymisés par verticale métier (Data Flywheel)
-- **Private KG** — Contexte propriétaire du client, chiffré AES-256, clé détenue par le tenant
-
-Chaque nouveau client enrichit l'Universal KG → ATLAS devient plus intelligent sur chaque verticale → le coût de déploiement diminue → la marge augmente. C'est le moat.
-
-### IA Factory
-ATLAS en Engineering Mode orchestre Claude Code pour livrer le système complet du client : backend, UI, agents, logique métier. 3 mois de R&D compressés en ~1 heure. Le client possède son Portable Core. QORWAY contrôle le Runtime.
+data → reasoning → decision → execution → learning  
+devient une boucle continue et exploitable.
 
 ---
 
-## 🏗️ Architecture QORWAY OS
+## 🧠 Ce que QORWAY est réellement
 
-```
-ASCEND          Sas de qualification (€10k–€25k)
-    ↓
-ATLAS           Advisory Engine — powered by KYRA
-    ↓
-QORWAY OS       Execution layer — invisible
-    ↓
-IA FACTORY      Livre le système IA du client
-    ↓
-PULSEFLOW       Orchestre tout en événements
-    ↓
-REVENUE SHARE   10–30% sur les outcomes générés
-```
+QORWAY n’est pas :
+- un SaaS
+- un outil d’analytics
+- un chatbot
 
-Trois piliers fondamentaux :
+QORWAY est :
 
-**1. Zero Trust & Multi-Tenancy**
-Chaque donnée, requête et événement appartient à un tenant précis. L'isolation est absolue, appliquée au niveau base de données via Row Level Security (RLS) PostgreSQL. Aucune exception architecturale.
+> **une infrastructure de Decision Intelligence exécutable**
 
-**2. Intelligence Invisible**
-ATLAS et KYRA opèrent strictement en backend. Les interfaces clients reçoivent uniquement des insights actionnables. Le branding interne (KYRA, QORWAY OS) n'est jamais exposé au client final.
-
-**3. Event-Driven by Design**
-L'architecture est réactive. Les micro-services communiquent exclusivement via PulseFlow. Les appels synchrones directs entre services sont architecturalement interdits.
+Elle permet :
+- le raisonnement causal sur l’état d’une organisation
+- la génération de décisions structurées
+- leur exécution via des systèmes et agents
+- leur traçabilité complète (audit & conformité)
 
 ---
 
-## 🚀 Modèle de Revenus
+## ⚙️ Le cœur du système
 
-| Layer | Produit | Montant |
-|-------|---------|---------|
-| **Entry** | Programme ASCEND | €10k–€25k (one-shot) |
-| **Core** | QORWAY OS (SaaS) | Abonnement mensuel |
-| **Upside** | Revenue Share | 10–30% des outcomes |
+### 1. ATLAS — Causal Decision Engine
 
-Le Revenue Share est le vrai moteur : on gagne quand le client gagne. Les incentives sont parfaitement alignés. Le switching cost devient la disruption totale du business client.
+Atlas est le moteur de raisonnement.
 
----
+Il ne génère pas du contenu.  
+Il produit des **décisions causales structurées**.
 
-## 🛡️ Gouvernance & Sécurité
+Capacités :
+- inférence causale sur variables business
+- simulation d’impact
+- diagnostic des systèmes décisionnels
+- génération de recommandations exécutables
 
-- Pipeline CI/CD avec 4 portes de validation (SAST, tests isolation multi-tenant, Secret Scanning, containerisation Docker)
-- Chiffrement AES-256 au repos, TLS 1.3 en transit
-- **Causal Evidence Logging** : traçabilité complète et immuable de chaque décision ATLAS (conformité EU AI Act)
-- Déploiement Blue/Green avec rollback automatique sous 5 minutes
-- Infrastructure 100% EU souveraine (Scaleway, France)
-
----
-
-## 📍 Verticales déployées
-
-| Vertical | Sous-domaine | Expertise ATLAS |
-|----------|-------------|-----------------|
-| RSE / CSRD | rse.qorway.com | EU Taxonomy, ESRS, Bilan Carbone |
-| Finance & Equity | finance.qorway.com | P&L, DCF, SaaS metrics, Cap Table |
-| Investissement M&A | invest.qorway.com | Due diligence, Valorisation, Term Sheet |
-| Growth | growth.qorway.com | AARRR, Outbound, Funnel, ICP |
-| Legal & Compliance | legal.qorway.com | RGPD, EU AI Act, Contrats SaaS |
+Output :
+→ chaînes causales  
+→ décisions  
+→ priorisation d’actions  
 
 ---
 
-## 📋 Documentation interne
+### 2. Knowledge Graph Infrastructure
 
-| Document | Rôle |
-|----------|------|
-| `THE QORWAY ENGINEERING PLAYBOOK` | Source de vérité architecturale (v2.0) |
-| `RELEASE_STRATEGY` | Pipeline CI/CD et workflow humain ↔ IA |
-| `SECURITY_COMPLIANCE` | Standards sécurité et conformité |
-| `CLAUDE.md` *(repos privés)* | Brief opérationnel pour Claude Code |
+L’organisation est modélisée comme un système causal.
+
+Structure :
+- indicateurs
+- actions
+- risques
+- gates
+- outcomes
+
+Fonctions :
+- mémoire décisionnelle
+- propagation des risques
+- mapping des dépendances
+- logique système
 
 ---
 
-*QORWAY TECHNOLOGY SAS — France*
-*Pour toute demande d'intégration ou d'accès à l'environnement sandbox : direction technique.*
+### 3. PulseFlow Protocol
+
+Le système nerveux événementiel.
+
+PulseFlow orchestre :
+- événements
+- décisions
+- actions
+- feedback
+
+Fonctions :
+- ingestion temps réel
+- routing contextuel
+- orchestration distribuée
+- boucle de feedback
+
+---
+
+### 4. Domain Pack System
+
+Le système de déploiement.
+
+Un Domain Pack est :
+> un Knowledge Graph + règles causales + templates + logique métier
+
+Il permet :
+- de rendre Atlas expert **immédiatement**
+- sans training data
+- sans fine-tuning
+
+Exemples :
+- ESG / CSRD
+- Finance
+- Growth
+- Governance
+
+---
+
+### 5. GreenCore™
+
+Layer d’efficience compute.
+
+Il route chaque requête vers :
+- local
+- edge
+- cloud
+
+Objectif :
+→ minimiser coût  
+→ maximiser souveraineté  
+→ contrôler la donnée  
+
+---
+
+### 6. Governance & Compliance Layer
+
+La gouvernance est native.
+
+Fonctions :
+- traçabilité complète des décisions
+- causal evidence logging
+- audit trails
+- conformité réglementaire
+
+Alignement :
+- GDPR
+- EU AI Act
+
+---
+
+## 🔁 Decision Intelligence Loop
+
+QORWAY fonctionne comme une boucle continue :
+
+1. ingestion des données
+2. modélisation (Knowledge Graph)
+3. raisonnement causal (Atlas)
+4. décision
+5. exécution (agents / systèmes)
+6. orchestration (PulseFlow)
+7. apprentissage
+
+---
+
+## 🏗️ Architecture
+DATA
+↓
+KNOWLEDGE GRAPH
+↓
+ATLAS (CAUSAL ENGINE)
+↓
+DOMAIN PACK LOGIC
+↓
+DECISION
+↓
+EXECUTION
+↓
+PULSEFLOW
+↓
+FEEDBACK LOOP
+
+---
+
+## 🧩 Applications (built on QORWAY)
+
+QORWAY n’est pas un produit unique.  
+C’est une infrastructure permettant de créer :
+
+- Decision Intelligence Systems
+- Risk Intelligence Systems
+- ESG / CSRD Systems
+- Financial Decision Systems
+- Organizational Simulation Systems
+
+---
+
+## 💰 Modèle économique
+
+QORWAY ne vend pas du software.
+
+Il opère en 3 couches :
+
+| Layer | Offre |
+|------|------|
+| Entry | Diagnostic (Decision Intelligence Scan) |
+| Core | System Design (Decision Architecture) |
+| Upside | Revenue Share / System Deployment |
+
+---
+
+## 🛡️ Sécurité & Souveraineté
+
+- Architecture Zero Trust
+- Isolation multi-tenant stricte
+- Chiffrement AES-256
+- TLS 1.3
+- Infrastructure européenne souveraine
+
+---
+
+## 📊 Innovation clé
+
+IA classique :
+- prédiction
+- non explicable
+- outputs isolés
+
+QORWAY :
+- raisonnement causal
+- décisions explicables
+- intelligence exécutable
+- boucle d’apprentissage continue
+
+---
+
+## 📜 Propriété Intellectuelle
+
+Les composants suivants sont propriétaires :
+
+- Atlas Causal Engine
+- Domain Pack Architecture
+- PulseFlow Protocol
+- Knowledge Graph Framework
+- Decision Intelligence System
+
+---
+
+## 🇪🇺 Vision
+
+QORWAY construit :
+> le standard européen de l’intelligence décisionnelle
+
+Une infrastructure où :
+- les décisions sont explicables
+- les systèmes sont auditables
+- l’intelligence est gouvernable
+
+---
+
+## 📜 License
+
+© QORWAY Technology — All rights reserved  
+Usage soumis à licence commerciale
