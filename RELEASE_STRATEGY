@@ -1,37 +1,237 @@
-🚀 STRATÉGIE DE RELEASE & CI/CD - QORIA TECHNOLOGY
-Version: 1.0.0 | Classification: USAGE INTERNE / AUDIT READY
-Applicabilité: GitHub Actions, Claude Code IA, DevSecOps
-1. Philosophie et Objectifs
-L'infrastructure QORIA OS doit garantir un SLA de 99.99% pour nos clients exécutifs. Pour atteindre ce standard tout en maintenant une vélocité de développement extrême via l'IA, notre pipeline CI/CD repose sur trois piliers :
-Shift-Left Security : La sécurité et l'isolation multi-tenant sont testées au moment du commit, pas après le déploiement.
-Zero-Trust AI : Le code généré par Claude Code est considéré comme "non fiable" jusqu'à ce qu'il passe avec succès les 4 portes de validation automatisées (CI).
-Zero-Downtime Deployment (ZDD) : Les mises en production s'effectuent sans aucune interruption de service pour la Suite Pulse ou les clients Ascendia.
-2. Le Workflow de Collaboration (Humain ↔ IA)
-Nous adoptons un modèle Trunk-Based Development strict :
-La branche main est sacrée. Elle reflète EXACTEMENT ce qui est en production.
-Claude Code travaille exclusivement sur des branches éphémères (feat/pulse-payroll, fix/causal-routing).
-L'Architecte (Humain) n'écrit pas le code métier, il intervient lors de la Pull Request (PR) pour valider l'architecture. La PR ne peut être mergée que si le pipeline CI est 100% au vert.
-3. Les 4 Portes de Validation (CI Pipeline)
-Dès que Claude Code pousse un commit sur GitHub, un workflow GitHub Actions se déclenche.
-🚪 Porte 1 : Analyse Statique et Contrats
-Linting & Typage : Vérification stricte de TypeScript (tsc --noEmit). Rejet immédiat si l'IA a utilisé le type any ou ignoré le snake_case pour Prisma.
-Validation AsyncAPI/OpenAPI : Un script vérifie que les modifications du code backend respectent à 100% les contrats d'API définis pour le frontend (Nexus/Ascendia).
-🚪 Porte 2 : Tests Automatisés (Le rempart métier)
-Tests Unitaires (Jest) : Couverture minimale exigée de 85%.
-Tests d'Intégration Multi-Tenant (Critique) : Le pipeline monte une base de données PostgreSQL éphémère (via Docker), applique le schema.prisma et le fichier de politiques RLS. Il exécute ensuite des tests vérifiant spécifiquement qu'un Tenant A ne peut jamais lire les données d'un Tenant B. Si Claude Code a mal conçu la requête, le test échoue et la PR est bloquée.
-🚪 Porte 3 : SecOps & Propriété Intellectuelle (IP)
-Secret Scanning : GitHub Advanced Security bloque le commit si Claude a accidentellement inclus une clé API (Stripe, Mistral) dans le code.
-SAST (Static Application Security Testing) : Exécution de CodeQL pour détecter les failles d'injection SQL, les vulnérabilités XSS ou les mauvaises gestions de la cryptographie.
-Audit des Dépendances : Refus d'intégrer des packages NPM ayant des vulnérabilités critiques connues (Dependabot).
-🚪 Porte 4 : Build & Containerization
-Compilation du code NestJS en JavaScript optimisé.
-Création d'une image Docker immuable, taguée avec le hash du commit (ex: qoria-os-gateway:a1b2c3d).
-Push de l'image vers notre registre privé de conteneurs (ex: AWS ECR ou GitHub Container Registry).
-4. Stratégie de Déploiement Continu (CD)
-Une fois la PR mergée sur main par l'Architecte, le déploiement vers le cloud (AWS ECS ou Scaleway) est entièrement automatisé selon le modèle Blue/Green Deployment.
-Migration Base de Données : Les scripts Prisma (npx prisma migrate deploy) sont exécutés de manière rétrocompatible. (Ex: on ajoute une colonne, mais on ne supprime/renomme jamais une colonne existante sans une phase de transition de 30 jours).
-Phase Green (Nouveau Code) : L'orchestrateur lance les nouveaux conteneurs (Green) contenant le nouveau code de Claude. L'ancien code (Blue) tourne toujours pour les clients actuels.
-Health Check : Le système vérifie que l'API Gateway Green répond correctement et que le protocole PulseFlow est connecté.
-Switch : Le Load Balancer redirige instantanément le trafic des clients (Nexus, Ascendia) vers les conteneurs Green.
-Phase Blue (Destruction) : Les anciens conteneurs sont détruits.
-Rollback Automatique : Si le taux d'erreur HTTP 500 augmente ou si la latence du moteur KYRA dépasse le SLA dans les 5 minutes suivant le déploiement, le Load Balancer re-bascule automatiquement sur la version Blue.
+# 🚀 QORWAY RELEASE STRATEGY & CI/CD
+Version: 2.0.0  
+Classification: INTERNAL / AUDIT READY / EU COMPLIANT  
+
+---
+
+## 🎯 1. OBJECTIF
+
+Garantir que chaque release QORWAY :
+
+- préserve l’intégrité des systèmes de décision
+- maintient l’isolation multi-tenant
+- assure la traçabilité causale (EU AI Act)
+- déploie sans interruption (zero downtime)
+- valide la cohérence entre :
+  → Knowledge Graph  
+  → Domain Packs  
+  → Decision Outputs  
+
+---
+
+## 🧠 2. PRINCIPE FONDAMENTAL
+
+QORWAY ne déploie pas du code.  
+QORWAY déploie :
+
+> **des systèmes de décision exécutables**
+
+Chaque release doit garantir :
+
+- cohérence causale
+- stabilité du raisonnement
+- auditabilité des décisions
+
+---
+
+## 🧩 3. UNITÉS DE RELEASE
+
+Une release QORWAY peut contenir :
+
+### A. Code
+- services backend
+- APIs
+- agents
+
+### B. Intelligence Layer
+- Knowledge Graph updates
+- causal chains
+- scoring logic
+
+### C. Domain Packs
+- nouvelles versions de packs
+- règles métier
+- templates ADN
+
+### D. Governance Layer
+- règles de conformité
+- logging
+- audit policies
+
+👉 Une release n’est valide que si les 4 couches sont cohérentes.
+
+---
+
+## 🔁 4. WORKFLOW (HUMAIN ↔ IA)
+
+### Modèle : Trunk-Based Development
+
+- `main` = production (source de vérité)
+- branches éphémères :  
+  `feat/domain-pack-esg-v2`  
+  `fix/atlas-causal-evaluation`
+
+### Rôles :
+
+**IA (Claude / autres)**
+- génère code + logique
+- propose structures
+
+**Architecte humain**
+- valide :
+  - cohérence système
+  - logique causale
+  - impact business
+
+👉 aucune PR n’est mergée sans validation humaine
+
+---
+
+## 🚪 5. LES 4 PORTES DE VALIDATION (CI)
+
+---
+
+### 🚪 PORTE 1 — STRUCTURE & CONTRATS
+
+Objectif : garantir cohérence système
+
+- Type checking strict
+- validation API (OpenAPI / AsyncAPI)
+- validation des schémas KG
+- validation structure Domain Packs
+
+❌ rejet si :
+- incohérence de modèle
+- violation des conventions KG
+- rupture des contrats API
+
+---
+
+### 🚪 PORTE 2 — VALIDATION CAUSALE (CRITIQUE)
+
+Objectif : garantir la logique de décision
+
+Tests exécutés :
+
+- activation des chaînes causales
+- cohérence des outputs Atlas
+- validation des règles Domain Pack
+- vérification des seuils
+
+Exemple :
+→ un IND hors seuil doit activer le bon RISK  
+→ générer la bonne ACTION  
+→ impacter la bonne GATE  
+
+❌ rejet si :
+- chaîne cassée
+- logique incohérente
+- décision non explicable
+
+---
+
+### 🚪 PORTE 3 — SÉCURITÉ & ISOLATION
+
+Objectif : protection des données et IP
+
+- Secret scanning
+- SAST (CodeQL)
+- audit dépendances
+- test isolation multi-tenant (RLS)
+
+Test critique :
+→ Tenant A ne peut jamais accéder à Tenant B
+
+❌ rejet immédiat si violation
+
+---
+
+### 🚪 PORTE 4 — BUILD & DÉPLOIEMENT
+
+- build services
+- création image Docker immuable
+- versioning (commit hash)
+- push registry privé
+
+---
+
+## 🚀 6. STRATÉGIE DE DÉPLOIEMENT (CD)
+
+### Modèle : Blue / Green
+
+1. déploiement version Green
+2. health checks :
+   - API
+   - Atlas Engine
+   - PulseFlow
+3. switch trafic
+4. suppression version Blue
+
+---
+
+## 🔁 7. ROLLBACK AUTOMATIQUE
+
+Déclenché si :
+
+- erreur API > seuil
+- latence Atlas > SLA
+- incohérence décision détectée
+- rupture event flow (PulseFlow)
+
+→ rollback immédiat
+
+---
+
+## 🧠 8. VALIDATION POST-DEPLOY (SPÉCIFIQUE QORWAY)
+
+Contrairement à un SaaS classique, QORWAY valide :
+
+### A. Stabilité décisionnelle
+- mêmes inputs → mêmes outputs
+
+### B. Cohérence KG
+- aucune rupture de graphe
+
+### C. Domain Pack Integrity
+- règles intactes
+- chaînes actives
+
+---
+
+## 📊 9. MÉTRIQUES CRITIQUES
+
+- Decision consistency rate
+- Causal chain activation accuracy
+- Atlas latency
+- failure rate
+- tenant isolation integrity
+
+---
+
+## 🛡️ 10. CONFORMITÉ
+
+Ce pipeline garantit :
+
+- EU AI Act (explicabilité)
+- GDPR (data isolation)
+- auditabilité complète
+
+---
+
+## ⚠️ 11. RÈGLE ABSOLUE
+
+Un déploiement QORWAY est invalide si :
+
+- une décision n’est pas traçable
+- une chaîne causale est incohérente
+- une règle Domain Pack est violée
+
+---
+
+## 🧭 12. PHILOSOPHIE
+
+> “Un bug chez QORWAY n’est pas une erreur de code.
+C’est une erreur de décision.”
+
+Le pipeline CI/CD n’est pas un outil technique.  
+C’est un système de protection de l’intelligence.
