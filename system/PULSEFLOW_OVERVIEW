@@ -1,0 +1,623 @@
+````md
+# PulseFlow Overview
+
+**QORWAY Execution Orchestration Layer**
+
+> PulseFlow turns validated intelligence into governed execution.
+
+---
+
+## 1. Definition
+
+PulseFlow is the event-driven execution orchestration layer of QORWAY.
+
+It transforms PolicyCore-validated Atlas decisions into:
+
+- execution events
+- workflows
+- agent tasks
+- system actions
+- audit logs
+- feedback signals
+
+PulseFlow is the nervous system of QORWAY.
+
+It ensures that decisions do not remain static recommendations, but become traceable actions inside enterprise systems.
+
+---
+
+## 2. Role in QORWAY OS
+
+PulseFlow exists to close the gap between intelligence and execution.
+
+Most enterprise systems can produce:
+
+- reports
+- insights
+- recommendations
+- dashboards
+- strategic plans
+
+But they fail when those decisions must become coordinated action across systems, teams, agents, and workflows.
+
+PulseFlow solves this by converting approved decisions into governed execution flows.
+
+It connects:
+
+```text
+decision → event → workflow → action → outcome → feedback
+````
+
+---
+
+## 3. Architecture Position
+
+PulseFlow sits after PolicyCore and before GreenCore.
+
+```text
+ATLAS
+  ↓
+DOMAIN PACKS
+  ↓
+POLICYCORE
+  ↓
+PULSEFLOW
+  ↓
+GREENCORE
+  ↓
+AGENT / SYSTEM EXECUTION
+  ↓
+FEEDBACK LOOP
+```
+
+Layer responsibilities:
+
+* Atlas reasons.
+* Domain Packs contextualize.
+* PolicyCore validates.
+* PulseFlow orchestrates.
+* GreenCore optimizes execution.
+* Agents and systems execute.
+* Feedback updates the Knowledge Graph.
+
+PulseFlow does not decide whether a decision is correct or allowed.
+
+It executes what has been validated.
+
+---
+
+## 4. Core Responsibilities
+
+PulseFlow is responsible for:
+
+* event creation
+* event ingestion
+* event normalization
+* event enrichment
+* workflow orchestration
+* agent activation
+* system coordination
+* execution tracking
+* outcome capture
+* feedback emission
+* audit-ready execution logging
+
+PulseFlow ensures that every validated decision has an execution path.
+
+---
+
+## 5. What PulseFlow Is Not
+
+PulseFlow is not:
+
+* a causal reasoning engine
+* a compliance authority
+* a Domain Pack
+* a compute optimization engine
+* a dashboard
+* a simple automation tool
+* a generic event bus
+
+PulseFlow is an execution orchestration system.
+
+It is event-driven, governed, tenant-scoped, and feedback-aware.
+
+---
+
+## 6. Why Event-Driven Execution Matters
+
+Enterprises behave like asynchronous systems.
+
+Events occur continuously across:
+
+* finance
+* operations
+* supply chain
+* compliance
+* ESG
+* risk
+* customer activity
+* human decisions
+* external regulation
+
+Traditional systems often process these signals too late or too separately.
+
+PulseFlow treats events as the operational language of the enterprise.
+
+This allows QORWAY to maintain state coherence across fragmented systems.
+
+---
+
+## 7. PulseFlow Event Model
+
+A PulseFlow event is the atomic execution unit of QORWAY.
+
+Every event must include:
+
+* event ID
+* tenant ID
+* event type
+* source layer
+* decision reference
+* causal chain reference where applicable
+* PolicyCore validation status where applicable
+* Domain Pack reference
+* priority
+* timestamp
+* audit metadata
+
+Example:
+
+```json
+{
+  "event_id": "evt_001",
+  "tenant_id": "tenant_001",
+  "event_type": "decision.execution.requested",
+  "source_layer": "policycore",
+  "decision_id": "dec_001",
+  "domain_pack": "supply_chain_pack",
+  "domain_pack_version": "1.0.0",
+  "policy_status": "approved",
+  "causal_chain_id": "chain_042",
+  "execution_target": "agent_runtime",
+  "priority": "high",
+  "timestamp": "2026-05-05T10:00:00Z",
+  "audit_status": "traceable"
+}
+```
+
+An event is invalid if it lacks tenant scope or audit traceability.
+
+---
+
+## 8. Event Lifecycle
+
+A PulseFlow event follows a governed lifecycle:
+
+```text
+1. Event created
+2. Event validated
+3. Event normalized
+4. Event enriched with context
+5. Event routed
+6. Workflow compiled
+7. Agent / system activated
+8. Execution tracked
+9. Outcome emitted
+10. Feedback stored
+11. Knowledge Graph updated
+```
+
+This lifecycle ensures that execution is observable, replayable, and auditable.
+
+---
+
+## 9. Decision-to-Execution Flow
+
+PulseFlow receives validated decisions and converts them into execution flows.
+
+```text
+PolicyCore-approved decision
+  ↓
+PulseFlow event creation
+  ↓
+workflow orchestration
+  ↓
+agent / system execution
+  ↓
+outcome event
+  ↓
+feedback signal
+```
+
+PulseFlow’s role is not to decide what should happen.
+
+Its role is to move validated decisions through the enterprise safely and coherently.
+
+---
+
+## 10. Relationship with Atlas
+
+Atlas produces structured causal decisions.
+
+PulseFlow receives validated decisions and turns them into execution events.
+
+Atlas answers:
+
+> What should happen?
+
+PulseFlow answers:
+
+> How does this move through systems?
+
+Atlas cannot execute directly.
+
+Every execution path must pass through PulseFlow.
+
+---
+
+## 11. Relationship with Domain Packs
+
+Domain Packs define the domain-specific execution context.
+
+They may define:
+
+* available actions
+* gates
+* dependencies
+* expected events
+* workflow templates
+* outcome structures
+* feedback rules
+
+PulseFlow uses these definitions to understand how a decision should become action inside a specific domain.
+
+Example:
+
+```text
+ESG / CSRD Domain Pack
+  ↓
+ACT_E1_001 = Carbon assessment
+  ↓
+esg.action.carbon_assessment.requested
+  ↓
+PulseFlow workflow
+```
+
+Core rule:
+
+> Domain Packs define the paths. PulseFlow executes the paths.
+
+---
+
+## 12. Relationship with PolicyCore
+
+PolicyCore validates whether a decision can move forward.
+
+PulseFlow can only execute decisions that are:
+
+* APPROVED
+* MODIFIED AND APPROVED
+
+PulseFlow must never execute:
+
+* rejected decisions
+* unvalidated decisions
+* decisions without causal lineage
+* decisions without tenant scope
+* decisions missing required human approval
+
+Core rule:
+
+> No PulseFlow execution can occur without PolicyCore validation.
+
+If PolicyCore returns:
+
+```text
+REJECTED
+```
+
+PulseFlow stops execution.
+
+If PolicyCore returns:
+
+```text
+MODIFIED
+```
+
+PulseFlow executes only the validated modified path.
+
+If PolicyCore returns:
+
+```text
+APPROVED
+```
+
+PulseFlow orchestrates execution.
+
+---
+
+## 13. Relationship with GreenCore
+
+GreenCore optimizes execution after PulseFlow creates the execution request.
+
+PulseFlow determines:
+
+> What must be executed?
+
+GreenCore determines:
+
+> Where and how should it execute optimally?
+
+GreenCore evaluates:
+
+* local execution
+* edge execution
+* cloud execution
+* cost
+* latency
+* carbon footprint
+* sovereignty constraints
+* tenant execution policies
+
+Flow:
+
+```text
+PulseFlow execution request
+  ↓
+GreenCore routing decision
+  ↓
+agent / system execution
+```
+
+GreenCore cannot override PolicyCore.
+
+GreenCore optimizes only valid execution paths.
+
+---
+
+## 14. Relationship with the Knowledge Graph
+
+PulseFlow turns execution into system memory.
+
+It emits and records events that update the Knowledge Graph.
+
+Examples:
+
+```text
+decision.execution.requested
+workflow.started
+workflow.completed
+action.failed
+outcome.observed
+feedback.generated
+diagnostic.signal.generated
+```
+
+These events may update:
+
+* decision status
+* action status
+* risk state
+* gate state
+* outcome evidence
+* causal confidence
+* feedback records
+
+Core rule:
+
+> PulseFlow turns reality into graph memory.
+
+---
+
+## 15. Agent Orchestration
+
+PulseFlow activates and coordinates bounded agents.
+
+Agents may include:
+
+* monitoring agents
+* validation agents
+* execution agents
+* reporting agents
+* feedback agents
+
+PulseFlow determines:
+
+* which agent is activated
+* which event triggers activation
+* what context the agent receives
+* what output the agent must return
+* how the result is logged
+
+Every agent action must produce an event.
+
+Agents cannot bypass PulseFlow.
+
+---
+
+## 16. Workflow Orchestration
+
+PulseFlow compiles validated decisions into workflows.
+
+A workflow may include:
+
+* task creation
+* system update
+* human approval
+* agent execution
+* API call
+* notification
+* reporting output
+* follow-up event
+* rollback path where possible
+
+Workflows must be:
+
+* tenant-scoped
+* idempotent
+* auditable
+* replayable where required
+* linked to a validated decision
+
+A workflow is invalid if it cannot be traced.
+
+---
+
+## 17. Feedback Loop
+
+PulseFlow is responsible for generating execution feedback.
+
+Feedback may include:
+
+* actual outcome
+* expected vs actual delta
+* execution delay
+* financial impact
+* operational impact
+* compliance result
+* carbon / compute impact
+* human approval outcome
+
+Feedback events update:
+
+* the Knowledge Graph
+* Atlas confidence scores
+* causal weights
+* Domain Pack feedback rules
+* future decision heuristics
+
+Without PulseFlow, QORWAY reasons.
+
+With PulseFlow, QORWAY acts, observes, and learns.
+
+---
+
+## 18. Reliability Requirements
+
+PulseFlow must guarantee:
+
+* deterministic event handling
+* event persistence
+* idempotent execution
+* replay capability
+* tenant isolation
+* failure containment
+* retry logic
+* dead letter handling
+* correlation IDs
+* audit-ready logging
+
+Recommended technical patterns:
+
+* Outbox Pattern
+* AsyncAPI contracts
+* Dead Letter Queue
+* Event Replay
+* Correlation ID propagation
+* Idempotent consumers
+
+No event should be processed without a traceable execution path.
+
+---
+
+## 19. Security & Governance
+
+PulseFlow operates under strict governance rules.
+
+Every event must be:
+
+* tenant-scoped
+* authenticated
+* authorized
+* encrypted in transit
+* logged
+* replayable where required
+* auditable
+
+PulseFlow must enforce:
+
+* event-level access control
+* no cross-tenant leakage
+* immutable execution logs
+* human override where required
+* PolicyCore validation before execution
+
+---
+
+## 20. System Constraints
+
+PulseFlow must never:
+
+* execute decisions without PolicyCore validation
+* execute rejected decisions
+* bypass tenant isolation
+* reason independently from Atlas
+* modify causal logic
+* override GreenCore routing decisions
+* emit unaudited execution events
+* call external systems without authorization
+* process events without correlation ID
+* allow agents to execute outside approved boundaries
+
+---
+
+## 21. What PulseFlow Replaces
+
+Traditional enterprise execution often looks like:
+
+```text
+recommendation → manual workflow → fragmented action → weak feedback
+```
+
+PulseFlow enables:
+
+```text
+validated decision → governed event → orchestrated execution → feedback learning
+```
+
+It replaces disconnected workflows with a governed execution nervous system.
+
+---
+
+## 22. Strategic Importance
+
+PulseFlow transforms QORWAY from a reasoning infrastructure into an operational infrastructure.
+
+It enables QORWAY to move from:
+
+```text
+intelligence output
+```
+
+to:
+
+```text
+governed execution system
+```
+
+This is the difference between AI that recommends and infrastructure that acts.
+
+PulseFlow is central to QORWAY’s ability to deliver:
+
+* execution traceability
+* real-time synchronization
+* agent coordination
+* enterprise system integration
+* closed-loop learning
+* audit-ready decision execution
+
+---
+
+## 23. Final Definition
+
+PulseFlow is the event-driven execution orchestration layer of QORWAY.
+
+It transforms PolicyCore-validated Atlas decisions into synchronized actions, agent workflows, execution logs, and feedback signals across enterprise systems.
+
+Final system statement:
+
+> PulseFlow is where QORWAY intelligence becomes governed execution.
+
+```
+```
