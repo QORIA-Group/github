@@ -1,0 +1,608 @@
+
+````md
+# Knowledge Graph Overview
+
+**QORWAY System Memory & Causal Structure Layer**
+
+> The Knowledge Graph is how QORWAY represents organizational reality as a causal system.
+
+---
+
+## 1. Definition
+
+The Knowledge Graph is the structured memory layer of QORWAY.
+
+It models an organization as a network of:
+
+- entities
+- indicators
+- actions
+- risks
+- gates
+- constraints
+- decisions
+- events
+- outcomes
+- feedback signals
+
+The Knowledge Graph gives Atlas the structured context required to reason causally.
+
+Without the Knowledge Graph, Atlas becomes generic.
+
+With the Knowledge Graph, Atlas becomes system-aware.
+
+---
+
+## 2. Role in QORWAY OS
+
+The Knowledge Graph exists to answer one foundational question:
+
+> What exists inside the system, how is it connected, and what has happened before?
+
+It provides:
+
+- organizational memory
+- causal structure
+- decision lineage
+- dependency mapping
+- risk propagation logic
+- evidence for auditability
+- feedback integration
+
+The Knowledge Graph is not only a data model.
+
+It is the system representation of the organization.
+
+---
+
+## 3. Architecture Position
+
+The Knowledge Graph sits between enterprise data ingestion and Atlas reasoning.
+
+```text
+ENTERPRISE DATA
+  ↓
+KNOWLEDGE GRAPH
+  ↓
+ATLAS
+  ↓
+DOMAIN PACKS
+  ↓
+POLICYCORE
+  ↓
+PULSEFLOW
+  ↓
+GREENCORE
+  ↓
+EXECUTION
+  ↓
+FEEDBACK LOOP
+````
+
+Enterprise data updates the graph.
+
+Atlas reasons over the graph.
+
+PulseFlow and GreenCore generate feedback that updates the graph again.
+
+---
+
+## 4. Core Responsibilities
+
+The Knowledge Graph is responsible for:
+
+* representing domain and tenant reality
+* storing causal relationships
+* linking decisions to evidence
+* tracking dependencies between systems
+* storing past decisions and outcomes
+* supporting risk propagation modeling
+* enabling explainable decision paths
+* integrating execution feedback into future reasoning
+
+The Knowledge Graph ensures that QORWAY reasons over structured reality, not disconnected data.
+
+---
+
+## 5. Graph Composition
+
+The Knowledge Graph is composed of nodes and relationships.
+
+### Typical Node Types
+
+* Indicator
+* Action
+* Risk
+* Gate
+* Outcome
+* Constraint
+* Event
+* Decision
+* Actor
+* System
+* Resource
+* Tenant
+* Workflow
+* Evidence
+
+### Typical Relationship Types
+
+* CAUSES
+* MITIGATES
+* REQUIRES
+* BLOCKS
+* ENABLES
+* AFFECTS
+* TRIGGERS
+* DEPENDS_ON
+* EVIDENCES
+* EXECUTED_BY
+* OBSERVED_AS
+* UPDATED_BY
+
+Example:
+
+```text
+Indicator → CAUSES → Risk
+Action → MITIGATES → Risk
+Gate → BLOCKS → Outcome
+Decision → TRIGGERS → Event
+Outcome → UPDATED_BY → Feedback
+```
+
+---
+
+## 6. Universal vs Private Graphs
+
+QORWAY uses two complementary graph levels:
+
+```text
+Universal Knowledge Graph
+  ↓
+Private Tenant Knowledge Graph
+```
+
+This separation is essential for scalability, sovereignty, and trust.
+
+---
+
+## 7. Universal Knowledge Graph
+
+The Universal Knowledge Graph contains reusable non-identifiable domain structures.
+
+It may contain:
+
+* generic domain ontologies
+* standard causal patterns
+* common risk structures
+* public regulatory logic
+* reusable decision templates
+* anonymized abstractions where governance allows
+
+It must never contain:
+
+* private tenant data
+* proprietary workflows
+* identifiable business relationships
+* sensitive operating structures
+* raw customer data
+
+Purpose:
+
+> The Universal Knowledge Graph provides reusable intelligence without compromising tenant sovereignty.
+
+---
+
+## 8. Private Tenant Knowledge Graph
+
+The Private Tenant Knowledge Graph represents a specific organization’s reality.
+
+It may contain:
+
+* tenant-specific decisions
+* internal systems
+* private workflows
+* proprietary causal relationships
+* organization-specific risks
+* operational dependencies
+* execution history
+* feedback records
+
+It is:
+
+* tenant-isolated
+* encrypted
+* access-controlled
+* non-transferable
+* never merged into another tenant graph
+
+Purpose:
+
+> The Private Tenant Knowledge Graph models the sovereign causal reality of one organization.
+
+---
+
+## 9. Relationship with Atlas
+
+Atlas uses the Knowledge Graph to reason.
+
+Atlas may query or traverse the graph to identify:
+
+* causal chains
+* risk activation paths
+* missing data
+* blocked gates
+* dependency conflicts
+* decision options
+* impact propagation
+* explanation paths
+
+Flow:
+
+```text
+Knowledge Graph state
+  ↓
+Atlas traversal
+  ↓
+causal chain extraction
+  ↓
+decision option generation
+  ↓
+explainable recommendation
+```
+
+Core rule:
+
+> Atlas cannot produce valid decisions without graph-backed causal lineage.
+
+---
+
+## 10. Relationship with Domain Packs
+
+Domain Packs define the reusable graph structure for a specific domain.
+
+A Domain Pack may provide:
+
+* node types
+* relationship types
+* causal rules
+* indicators
+* actions
+* risks
+* gates
+* outcomes
+* events
+* feedback rules
+* systemic impact model
+
+When instantiated, a Domain Pack enriches the Knowledge Graph.
+
+```text
+Domain Pack
+  ↓
+Graph schema
+  ↓
+Tenant graph instantiation
+  ↓
+Atlas domain-aware reasoning
+```
+
+Core rule:
+
+> Domain Packs define the domain structure. The Knowledge Graph stores the active system state.
+
+---
+
+## 11. Relationship with PolicyCore
+
+PolicyCore uses graph context to validate decisions.
+
+It may rely on graph data such as:
+
+* active risks
+* regulatory constraints
+* tenant policies
+* causal pathways
+* evidence nodes
+* human approval requirements
+* decision lineage
+
+PolicyCore adds constraint evaluation results back into the graph.
+
+Example:
+
+```text
+Decision → CHECKED_BY → PolicyCore Result
+PolicyCore Result → BLOCKS → Execution Event
+PolicyCore Result → EVIDENCES → Audit Trail
+```
+
+Core rule:
+
+> Constraint validation must be graph-linkable and audit-ready.
+
+---
+
+## 12. Relationship with PulseFlow
+
+PulseFlow updates the Knowledge Graph through execution events.
+
+Examples of PulseFlow events:
+
+* decision.execution.requested
+* workflow.started
+* workflow.completed
+* action.failed
+* outcome.observed
+* feedback.generated
+* diagnostic.signal.generated
+
+These events may update:
+
+* decision status
+* action status
+* risk state
+* gate state
+* outcome evidence
+* feedback records
+
+Core rule:
+
+> PulseFlow turns execution into graph memory.
+
+---
+
+## 13. Relationship with GreenCore
+
+GreenCore contributes execution optimization data to the Knowledge Graph.
+
+It may create or update:
+
+* routing decisions
+* execution zones
+* cost estimates
+* latency records
+* carbon traces
+* sovereignty scores
+* efficiency signals
+
+This allows Atlas and future Domain Pack logic to learn from execution efficiency.
+
+Example:
+
+```text
+Execution Task → ROUTED_BY → GreenCore Decision
+GreenCore Decision → PRODUCED → Carbon Trace
+Carbon Trace → UPDATES → Tenant Efficiency Profile
+```
+
+Core rule:
+
+> GreenCore makes execution efficiency visible to the Knowledge Graph.
+
+---
+
+## 14. Graph-Backed Explainability
+
+Every QORWAY decision must be explainable through graph structure.
+
+A decision explanation may include:
+
+* source signal
+* active indicator
+* causal rule
+* risk node
+* action node
+* gate node
+* PolicyCore result
+* execution event
+* feedback outcome
+
+Example explanation path:
+
+```text
+supplier_delay_detected
+  ↓
+inventory_pressure
+  ↓
+margin_degradation
+  ↓
+supplier_risk_activated
+  ↓
+reroute_supplier_allocation
+  ↓
+expected_margin_recovery
+```
+
+A decision is invalid if this path cannot be reconstructed.
+
+---
+
+## 15. Feedback Integration
+
+Feedback is reinjected into the Knowledge Graph after execution.
+
+Feedback may include:
+
+* actual outcome
+* expected vs actual delta
+* financial deviation
+* operational deviation
+* compliance result
+* carbon impact
+* execution delay
+* human approval outcome
+* diagnostic signal
+
+Feedback may update:
+
+* causal weights
+* confidence scores
+* risk patterns
+* gate conditions
+* decision heuristics
+* Domain Pack refinement suggestions
+
+Core rule:
+
+> The Knowledge Graph is continuously updated by reality.
+
+---
+
+## 16. Data Classification
+
+Graph data must be classified.
+
+Recommended classifications:
+
+```text
+UNIVERSAL
+PRIVATE
+SENSITIVE
+REGULATED
+```
+
+### UNIVERSAL
+
+Reusable non-identifiable domain structure.
+
+### PRIVATE
+
+Tenant-specific organizational data.
+
+### SENSITIVE
+
+Confidential or high-risk tenant data requiring enhanced controls.
+
+### REGULATED
+
+Data subject to legal, sectoral, or jurisdictional constraints.
+
+Each classification determines access, routing, logging, and export rules.
+
+---
+
+## 17. Tenant Isolation
+
+Private Tenant Knowledge Graphs must be strictly isolated.
+
+Isolation requirements:
+
+* tenant-scoped graph namespaces
+* access control at node and relationship level
+* no cross-tenant traversal
+* no inference leakage
+* encryption where required
+* audit logs for all sensitive graph access
+
+Core rule:
+
+> One tenant’s graph must never become another tenant’s intelligence.
+
+---
+
+## 18. Graph Governance
+
+The Knowledge Graph must be governed.
+
+Governance requirements:
+
+* versioned graph schema
+* controlled Domain Pack updates
+* audit logs for graph mutations
+* validation for causal rule changes
+* no orphan critical nodes
+* no risks without mitigation paths
+* no decisions without causal lineage
+* no outcomes without feedback reference
+
+Graph changes must be traceable.
+
+---
+
+## 19. Graph Validation Rules
+
+A graph state is invalid if:
+
+* it contains orphan critical nodes
+* it has risks without mitigation paths
+* it has decisions without causal chains
+* it has outcomes without feedback events
+* it contains private tenant data in universal space
+* it allows unauthorized traversal
+* it cannot support audit reconstruction
+* it breaks Domain Pack schema compatibility
+
+---
+
+## 20. Example Graph Pattern
+
+Example supply chain decision pattern:
+
+```text
+Supplier Delay
+  → CAUSES
+Inventory Pressure
+  → AFFECTS
+Margin Stability
+  → TRIGGERS
+Supplier Risk
+  → REQUIRES
+Rerouting Decision
+  → PRODUCES
+Execution Workflow
+  → OBSERVED_AS
+Outcome Feedback
+```
+
+This pattern allows QORWAY to understand why a supply chain event matters, what decision should be considered, how execution should happen, and what learning should be captured.
+
+---
+
+## 21. What the Knowledge Graph Is Not
+
+The Knowledge Graph is not:
+
+* a traditional database
+* a static ontology
+* a reporting schema
+* a dashboard backend
+* a free-form memory store
+* a generic vector database
+
+It is the causal system memory of QORWAY.
+
+---
+
+## 22. Strategic Importance
+
+The Knowledge Graph is one of QORWAY’s core strategic assets.
+
+It enables:
+
+* causal reasoning
+* domain-aware decision generation
+* tenant-specific intelligence
+* audit-ready explanations
+* risk propagation modeling
+* feedback-driven learning
+* scalable Domain Pack deployment
+
+Without it, QORWAY would be a workflow system.
+
+With it, QORWAY becomes decision intelligence infrastructure.
+
+---
+
+## 23. Final Definition
+
+The Knowledge Graph is the structured causal memory of QORWAY.
+
+It represents organizational reality, stores decision lineage, connects execution feedback to future reasoning, and enables Atlas to produce explainable decisions.
+
+Final system statement:
+
+> The Knowledge Graph is where QORWAY remembers, connects, and learns from organizational reality.
+
+```
+```
