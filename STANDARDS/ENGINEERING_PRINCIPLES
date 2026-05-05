@@ -1,0 +1,461 @@
+Here is the file ready to copy into:
+
+```text
+standards/ENGINEERING_PRINCIPLES.md
+```
+
+````md
+# Engineering Principles
+
+**QORWAY Decision Intelligence Infrastructure**
+
+> Engineering at QORWAY is not about building features.  
+> It is about building reliable decision infrastructure.
+
+---
+
+## 1. Purpose
+
+This document defines the engineering principles behind QORWAY.
+
+It is a public-safe standard that explains how QORWAY systems should be designed, governed, and maintained without exposing proprietary implementation details.
+
+The goal is to ensure that every technical component supports the same architectural mission:
+
+> transform fragmented enterprise systems into causal, constrained, executable, and auditable decision intelligence.
+
+---
+
+## 2. Core Engineering Philosophy
+
+QORWAY is not engineered as a SaaS application.
+
+QORWAY is engineered as a **decision infrastructure runtime**.
+
+This means every component must support:
+
+- causal reasoning
+- domain-aware context
+- constraint validation
+- governed execution
+- execution optimization
+- feedback learning
+- auditability
+- tenant sovereignty
+
+---
+
+## 3. System Before Features
+
+QORWAY does not prioritize isolated features.
+
+Every component must answer:
+
+```text
+Which part of the decision system does this strengthen?
+````
+
+A component is only valid if it improves one or more of the following:
+
+* reasoning quality
+* domain context
+* constraint enforcement
+* execution traceability
+* optimization efficiency
+* feedback learning
+* governance evidence
+
+Features that do not strengthen the system should not be built.
+
+---
+
+## 4. Five-Layer Alignment
+
+Every engineering decision must respect the five core layers of QORWAY.
+
+```text
+Atlas        → Causal Intelligence Engine
+Domain Packs → Context & Business Intelligence Layer
+PolicyCore   → Constraint Validation Layer
+PulseFlow    → Execution Orchestration Layer
+GreenCore    → Execution Optimization Layer
+```
+
+Each layer has a clear responsibility.
+
+No layer should absorb the responsibility of another.
+
+---
+
+## 5. Separation of Responsibilities
+
+QORWAY enforces strict separation of responsibilities.
+
+| Layer        | Responsibility         | Must Not Do          |
+| ------------ | ---------------------- | -------------------- |
+| Atlas        | Reason causally        | Execute decisions    |
+| Domain Packs | Provide domain context | Override constraints |
+| PolicyCore   | Validate constraints   | Generate decisions   |
+| PulseFlow    | Orchestrate execution  | Reason causally      |
+| GreenCore    | Optimize execution     | Override PolicyCore  |
+| Agents       | Execute bounded tasks  | Bypass PulseFlow     |
+
+This separation protects:
+
+* auditability
+* maintainability
+* scalability
+* regulatory alignment
+* tenant safety
+
+---
+
+## 6. Decision-Centric Engineering
+
+The core system object in QORWAY is the decision.
+
+A decision is not a text output.
+
+A decision is a structured object that must include:
+
+* tenant scope
+* domain context
+* causal lineage
+* expected impact
+* PolicyCore status
+* execution requirements
+* audit metadata
+* feedback pathway
+
+A system is incomplete if it cannot trace a decision from reasoning to outcome.
+
+---
+
+## 7. Causality Before Automation
+
+Automation without causal structure is not intelligence.
+
+QORWAY systems must not execute actions simply because a trigger occurred.
+
+Execution should follow:
+
+```text
+signal → causal interpretation → decision → validation → execution → feedback
+```
+
+This ensures that actions are not just automated, but justified.
+
+---
+
+## 8. Constraint-First Execution
+
+No decision may move to execution without PolicyCore validation.
+
+Engineering rule:
+
+```text
+No PolicyCore validation → no PulseFlow execution
+```
+
+PolicyCore must validate whether a decision is:
+
+```text
+APPROVED
+MODIFIED
+REJECTED
+```
+
+PulseFlow may execute only approved or modified-and-approved decisions.
+
+---
+
+## 9. Event-Driven by Design
+
+QORWAY execution must be event-driven.
+
+PulseFlow is the execution orchestration layer.
+
+Systems should communicate through events, not uncontrolled direct calls.
+
+Core requirements:
+
+* events must be tenant-scoped
+* events must be traceable
+* events must be replayable where required
+* events must support audit trails
+* events must be linked to decisions where applicable
+
+Recommended event lifecycle:
+
+```text
+created → validated → enriched → routed → executed → observed → stored
+```
+
+---
+
+## 10. Green Execution by Design
+
+Execution must be optimized for more than speed.
+
+GreenCore ensures that execution considers:
+
+* cost
+* latency
+* energy use
+* carbon footprint
+* sovereignty
+* tenant execution policy
+
+Engineering rule:
+
+```text
+GreenCore optimizes approved execution paths.
+GreenCore must never override PolicyCore.
+```
+
+---
+
+## 11. Domain Pack Discipline
+
+Domain Packs are declarative cognitive configurations.
+
+They must not become hidden applications or unmanaged custom logic.
+
+A valid Domain Pack should define:
+
+* graph schema
+* causal rules
+* decision policies
+* PolicyCore constraints
+* GreenCore execution preferences
+* events
+* agents
+* feedback rules
+* systemic impact model where required
+
+Core rule:
+
+> The core stays stable. Domain Packs inject domain configuration.
+
+---
+
+## 12. Knowledge Graph as System Memory
+
+The Knowledge Graph is the system memory of QORWAY.
+
+It must support:
+
+* causal lineage
+* decision history
+* risk propagation
+* dependency mapping
+* outcome feedback
+* audit reconstruction
+
+Engineering rule:
+
+> If the system cannot reconstruct why a decision happened, the decision is invalid.
+
+---
+
+## 13. Multi-Tenant Sovereignty
+
+Every system operation must be tenant-scoped.
+
+Tenant isolation applies to:
+
+* data
+* Knowledge Graphs
+* Domain Pack instantiations
+* PolicyCore constraints
+* PulseFlow events
+* GreenCore policies
+* execution logs
+* feedback loops
+
+Core rule:
+
+```text
+One tenant’s graph must never become another tenant’s intelligence.
+```
+
+---
+
+## 14. Security by Default
+
+Security is not a later phase.
+
+Every system component must assume:
+
+* no implicit trust
+* no global access
+* no unscoped data queries
+* no secrets in source files
+* no unlogged sensitive actions
+* no cross-tenant inference leakage
+
+Minimum standards:
+
+* Zero Trust architecture
+* strict tenant isolation
+* encrypted data at rest
+* encrypted data in transit
+* event-level access control
+* audit logging
+
+---
+
+## 15. Explainability as a Requirement
+
+Every decision must be explainable.
+
+A QORWAY decision should be reconstructable through:
+
+* source signal
+* Knowledge Graph state
+* causal chain
+* Domain Pack rules
+* PolicyCore result
+* PulseFlow event
+* GreenCore routing decision
+* execution outcome
+* feedback record
+
+Explainability is not post-hoc.
+
+It is part of the runtime.
+
+---
+
+## 16. Feedback Is Mandatory
+
+QORWAY must learn from execution.
+
+Every measurable execution should produce feedback.
+
+Feedback may include:
+
+* expected vs actual outcome
+* financial deviation
+* operational deviation
+* regulatory result
+* execution delay
+* carbon impact
+* human approval outcome
+* diagnostic signal
+
+Feedback updates future reasoning through the Knowledge Graph and controlled model refinement.
+
+---
+
+## 17. Reliability Over Velocity
+
+Fast iteration must never weaken:
+
+* tenant isolation
+* PolicyCore validation
+* auditability
+* causal lineage
+* execution traceability
+* security
+* governance evidence
+
+A faster release that breaks decision integrity is not progress.
+
+Engineering rule:
+
+> A bug in QORWAY is not only a software defect. It can become a decision defect.
+
+---
+
+## 18. Public vs Private Implementation Boundary
+
+Public repositories may contain:
+
+* vision
+* architecture overviews
+* governance principles
+* high-level system standards
+* public-safe examples
+
+Private repositories must contain:
+
+* implementation logic
+* internal prompts
+* causal engine internals
+* production schemas
+* full Domain Pack rules
+* scoring logic
+* routing rules
+* proprietary decision models
+
+Core rule:
+
+> Public GitHub builds trust. Private GitHub protects the moat.
+
+---
+
+## 19. What QORWAY Engineering Must Avoid
+
+QORWAY engineering must avoid:
+
+* feature-first development
+* dashboard-first thinking
+* unbounded agent execution
+* direct execution from Atlas
+* compliance after execution
+* Domain Packs as loose templates
+* prompts as the source of truth
+* hidden tenant data leakage
+* event flows without audit trails
+* optimization that bypasses governance
+
+---
+
+## 20. Engineering Checklist
+
+Before a component is accepted, it should answer:
+
+```text
+Does it preserve tenant isolation?
+Does it maintain causal traceability?
+Does it respect the five-layer architecture?
+Does it require PolicyCore validation before execution?
+Does it emit or consume traceable PulseFlow events?
+Does it preserve GreenCore optimization boundaries?
+Does it update the Knowledge Graph where required?
+Does it produce audit-ready evidence?
+Does it avoid exposing proprietary internals?
+```
+
+If the answer is no, the component is not ready.
+
+---
+
+## 21. Strategic Importance
+
+The engineering discipline of QORWAY is part of the product.
+
+QORWAY’s advantage depends on its ability to maintain:
+
+* clear system separation
+* reusable Domain Packs
+* governed execution
+* sovereign data handling
+* causal explainability
+* feedback-driven learning
+
+The infrastructure must remain coherent as it scales.
+
+---
+
+## 22. Final Principle
+
+QORWAY engineering exists to make intelligence safe to execute.
+
+Final system statement:
+
+> Build decisions as infrastructure, not features as software.
+
+```
+```
