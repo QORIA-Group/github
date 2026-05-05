@@ -1,0 +1,64 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+coverage/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# Secrets / keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+credentials/
+private/
+
+# Local databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Python cache if needed later
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Internal Qorway files - never push public
+/internal/
+CLAUDE.md
+/prompts/
+.strategy/
