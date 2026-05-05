@@ -1,0 +1,361 @@
+````md
+# Domain Pack Example — Public-Safe
+
+**QORWAY Decision Intelligence Infrastructure**
+
+> This example illustrates how a Domain Pack is conceptually structured without exposing proprietary rules, schemas, scoring models, prompts, or execution logic.
+
+---
+
+## 1. Purpose
+
+This document provides a simplified public example of a QORWAY Domain Pack.
+
+It is intended to show how QORWAY thinks about domain-specific decision intelligence at a conceptual level.
+
+It does not expose:
+
+- production schemas
+- causal rules
+- internal scoring logic
+- prompts
+- PolicyCore implementation
+- GreenCore routing logic
+- PulseFlow event contracts
+- tenant-specific data
+- proprietary Domain Pack internals
+
+---
+
+## 2. What This Example Represents
+
+This example uses a fictional domain:
+
+```text
+Operational Resilience Pack
+````
+
+This fictional pack is used only to demonstrate the structure of a Domain Pack.
+
+It is not a real production Domain Pack.
+
+---
+
+## 3. Conceptual Domain Pack Definition
+
+A Domain Pack defines how a domain is represented, reasoned about, constrained, executed, and improved.
+
+Conceptually, a Domain Pack contains:
+
+```text
+Domain Pack
+├── Domain Identity
+├── Knowledge Structure
+├── Causal Logic
+├── Decision Logic
+├── Constraint Context
+├── Execution Context
+├── Feedback Logic
+└── Impact Lens
+```
+
+Each section supports a different part of the QORWAY runtime.
+
+---
+
+## 4. Example Pack Identity
+
+```text
+Name: Operational Resilience Pack
+Purpose: Help an organization understand and respond to operational disruption risk.
+Domain Type: Resilience / Operations
+Version: Public Example
+Status: Illustrative Only
+```
+
+This identity helps the system understand what kind of domain context is being loaded.
+
+---
+
+## 5. Conceptual Knowledge Structure
+
+The Domain Pack defines the kinds of objects that may exist in the domain.
+
+Example conceptual entities:
+
+```text
+Operational Signal
+Risk
+Dependency
+Action
+Gate
+Outcome
+Feedback
+```
+
+These entities help QORWAY represent the domain as a structured system rather than a collection of unconnected data points.
+
+---
+
+## 6. Conceptual Relationship Types
+
+The Domain Pack may define how entities relate to each other.
+
+Example relationship types:
+
+```text
+Signal may indicate Risk
+Risk may affect Outcome
+Action may reduce Risk
+Dependency may block Action
+Outcome may generate Feedback
+```
+
+This enables causal reasoning without exposing proprietary graph models.
+
+---
+
+## 7. Conceptual Causal Logic
+
+A Domain Pack may define causal patterns such as:
+
+```text
+If a critical operational signal changes,
+then related risks should be evaluated.
+
+If a risk exceeds an acceptable threshold,
+then mitigation actions should be considered.
+
+If an action is executed,
+then the outcome should be observed and compared to the expected impact.
+```
+
+This is intentionally high-level.
+
+The actual causal rules, weights, thresholds, and logic are proprietary.
+
+---
+
+## 8. Conceptual Decision Logic
+
+A Domain Pack may help Atlas convert causal understanding into decision candidates.
+
+Example conceptual decision flow:
+
+```text
+1. Detect relevant signal
+2. Identify affected risk
+3. Evaluate possible action
+4. Validate constraints
+5. Prepare execution path
+6. Observe outcome
+```
+
+In QORWAY, decision logic is not free-form recommendation generation.
+
+It is structured, traceable, and governed.
+
+---
+
+## 9. PolicyCore Context
+
+A Domain Pack may define which constraints should be considered before execution.
+
+Example conceptual constraint categories:
+
+```text
+Regulatory constraint
+Financial exposure constraint
+Operational capacity constraint
+Human approval requirement
+Tenant-specific policy
+```
+
+PolicyCore remains the authority that validates whether a decision may move forward.
+
+Core rule:
+
+> Domain Packs provide context. PolicyCore validates constraints.
+
+---
+
+## 10. GreenCore Context
+
+A Domain Pack may provide execution preferences for GreenCore.
+
+Example conceptual preferences:
+
+```text
+Prefer local or edge execution for sensitive workloads.
+Track carbon impact for relevant workflows.
+Avoid unnecessary cloud execution.
+Respect tenant execution policies.
+```
+
+GreenCore optimizes approved execution paths only.
+
+Core rule:
+
+> GreenCore optimizes execution. It does not override PolicyCore.
+
+---
+
+## 11. PulseFlow Context
+
+A Domain Pack may define which kinds of execution events are expected.
+
+Example conceptual events:
+
+```text
+Risk detected
+Decision prepared
+Action requested
+Workflow started
+Outcome observed
+Feedback generated
+```
+
+This allows PulseFlow to orchestrate execution in a structured way.
+
+Core rule:
+
+> If a decision cannot become an event, it cannot become governed execution.
+
+---
+
+## 12. Feedback Logic
+
+A Domain Pack must define how outcomes are observed.
+
+Example conceptual feedback:
+
+```text
+Expected outcome compared to actual outcome.
+Execution delay measured.
+Risk reduction observed.
+Operational impact recorded.
+Decision quality updated.
+```
+
+Feedback allows QORWAY to improve future reasoning through the Knowledge Graph.
+
+---
+
+## 13. Impact Lens
+
+Some Domain Packs may include a systemic impact lens.
+
+Example conceptual dimensions:
+
+```text
+Social impact
+Technological impact
+Economic impact
+Policy impact
+Sustainability impact
+```
+
+This allows QORWAY to evaluate decisions beyond local optimization.
+
+The detailed impact model is proprietary.
+
+---
+
+## 14. How This Fits the QORWAY Runtime
+
+```text
+Domain Pack loaded
+  ↓
+Knowledge Graph enriched
+  ↓
+Atlas reasons with domain context
+  ↓
+PolicyCore validates constraints
+  ↓
+PulseFlow orchestrates execution
+  ↓
+GreenCore optimizes execution
+  ↓
+Feedback updates the Knowledge Graph
+```
+
+The Domain Pack does not replace the QORWAY core.
+
+It configures the core for a specific domain.
+
+---
+
+## 15. Public-Safe Example Flow
+
+Below is a simplified illustrative flow.
+
+```text
+Operational signal changes
+  ↓
+Related risk is identified
+  ↓
+Possible mitigation action is prepared
+  ↓
+PolicyCore checks constraints
+  ↓
+PulseFlow creates an execution workflow
+  ↓
+GreenCore selects an efficient execution path
+  ↓
+Outcome is observed
+  ↓
+Feedback updates future reasoning
+```
+
+This flow is conceptual only.
+
+It does not expose production logic.
+
+---
+
+## 16. What Is Not Included
+
+This public example intentionally excludes:
+
+* exact graph schemas
+* production node models
+* real causal chains
+* thresholds
+* scoring formulas
+* prompts
+* execution contracts
+* event payloads
+* tenant data
+* PolicyCore rules
+* GreenCore routing rules
+* agent implementation details
+
+These belong in private QORWAY repositories.
+
+---
+
+## 17. Why Domain Packs Matter
+
+Domain Packs allow QORWAY to become domain-aware without rewriting the core infrastructure.
+
+They enable:
+
+* reusable domain intelligence
+* faster deployment
+* governed execution
+* audit-ready decisions
+* tenant-specific extension
+* feedback-based refinement
+
+This is central to QORWAY’s platform model.
+
+---
+
+## 18. Final Statement
+
+A Domain Pack is the mechanism that turns the QORWAY core into a domain-specific decision system.
+
+> Domain Packs convert domain reality into causal, constrained, executable intelligence.
+
+```
+```
