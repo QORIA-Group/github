@@ -1,265 +1,191 @@
-# github
-# 🇪🇺 QORWAY TECHNOLOGY
-**Sovereign Decision Intelligence Infrastructure for Europe**
+🇪🇺 QORWAY TECHNOLOGY
+Sovereign Decision Intelligence Infrastructure for Europe
+From fragmented enterprise systems → to causal, constrained, executable intelligence.
 
-> From fragmented decisions → to causal, executable, and auditable systems.
+🎯 Mission
+QORWAY construit une infrastructure souveraine de Decision Intelligence qui transforme la manière dont les organisations prennent, valident et exécutent leurs décisions.
+Les entreprises n’ont pas un problème de données.
+ Elles ont un problème de structure décisionnelle.
+QORWAY unifie ce système en une boucle continue :
+data → reasoning → constraint validation → execution → learning
 
----
-
-## 🎯 Mission
-
-QORWAY construit une infrastructure souveraine qui transforme la manière dont les organisations prennent, exécutent et gouvernent leurs décisions.
-
-Aujourd’hui, les entreprises ne manquent pas de données.
-Elles manquent de **structure décisionnelle**.
-
-QORWAY remplace cette fragmentation par un système unifié où :
-
-data → reasoning → decision → execution → learning  
-devient une boucle continue et exploitable.
-
----
-
-## 🧠 Ce que QORWAY est réellement
-
+What QORWAY Is
 QORWAY n’est pas :
-- un SaaS
-- un outil d’analytics
-- un chatbot
-
+un SaaS
+un outil d’analytics
+un assistant IA
 QORWAY est :
-
-> **une infrastructure de Decision Intelligence exécutable**
-
+une infrastructure de décision exécutable et gouvernée
 Elle permet :
-- le raisonnement causal sur l’état d’une organisation
-- la génération de décisions structurées
-- leur exécution via des systèmes et agents
-- leur traçabilité complète (audit & conformité)
+le raisonnement causal sur des systèmes complexes
+la génération de décisions structurées
+leur validation par contraintes (réglementaires, ESG, financières)
+leur exécution via agents et systèmes
+leur traçabilité complète (audit-ready)
 
----
+🏗️ CORE SYSTEM ARCHITECTURE
+QORWAY operates as a 5-layer decision intelligence infrastructure:
+1. Atlas         → Causal Intelligence Engine
+2. Domain Packs  → Context & Business Intelligence Layer
+3. PolicyCore    → Constraint Validation Layer
+4. PulseFlow     → Execution Orchestration Layer
+5. GreenCore     → Execution Optimization Layer
 
-## ⚙️ Le cœur du système
-
-### 1. ATLAS — Causal Decision Engine
-
+🧠 1. ATLAS — Causal Intelligence Engine
 Atlas est le moteur de raisonnement.
+Il transforme les systèmes organisationnels en modèles causaux exploitables.
+Capabilities
+causal inference over business systems
+simulation of strategic outcomes
+decision graph generation
+system diagnosis & prioritization
+Output
+causal chains
+structured decisions
+ranked actions
+👉 Atlas répond :
+“What should happen?”
 
-Il ne génère pas du contenu.  
-Il produit des **décisions causales structurées**.
+📦 2. DOMAIN PACKS — CONTEXT INTELLIGENCE LAYER
+Domain Packs injectent l’intelligence métier dans Atlas.
+Un Domain Pack =
+Knowledge Graph + causal rules + domain templates + decision heuristics
+Role
+instant domain specialization of Atlas
+no fine-tuning required
+no training dependency
+Examples
+Finance Pack
+ESG / CSRD Pack
+Growth Pack
+Governance Pack
+👉 Domain Packs répondent :
+“How does this domain work structurally?”
 
-Capacités :
-- inférence causale sur variables business
-- simulation d’impact
-- diagnostic des systèmes décisionnels
-- génération de recommandations exécutables
+🧱 3. POLICYCORE — CONSTRAINT VALIDATION LAYER
+PolicyCore est la couche de validation de réalité.
+Elle détermine si une décision peut exister dans le monde réel.
+Constraint dimensions
+Regulatory (GDPR, EU AI Act)
+ESG / Environmental
+Financial risk
+Ethical governance
+System capacity
+Decision outcomes
+APPROVED
+MODIFIED
+REJECTED
+👉 PolicyCore répond :
+“Is this allowed to exist?”
 
-Output :
-→ chaînes causales  
-→ décisions  
-→ priorisation d’actions  
+⚙️ 4. PULSEFLOW — EXECUTION ORCHESTRATION LAYER
+PulseFlow est le système nerveux événementiel.
+Role
+event ingestion
+workflow orchestration
+distributed execution
+system feedback loops
+Architecture
+event-driven (strict)
+outbox pattern
+idempotent consumers
+👉 PulseFlow répond :
+“How does execution happen across systems?”
 
----
+🌱 5. GREENCORE — EXECUTION OPTIMIZATION LAYER
+GreenCore optimise l’exécution en temps réel.
+Routing decisions
+local execution
+edge execution
+cloud execution
+Optimization dimensions
+cost
+latency
+CO₂ footprint
+sovereignty constraints
+👉 GreenCore répond :
+“Where should this execute optimally?”
 
-### 2. Knowledge Graph Infrastructure
+🔁 DECISION INTELLIGENCE LOOP
+QORWAY operates as a continuous closed-loop system:
+1. Data ingestion
+2. Knowledge Graph update
+3. Atlas causal reasoning
+4. Domain Pack enrichment
+5. PolicyCore validation
+6. Decision generation
+7. PulseFlow orchestration
+8. GreenCore optimization
+9. Agent execution
+10. Feedback learning loop
 
-L’organisation est modélisée comme un système causal.
+🧩 SYSTEM APPLICATIONS
+QORWAY is not a product.
+ It is a foundation for building systems.
+Built systems include:
+Decision Intelligence Systems
+Risk Intelligence Systems
+ESG / CSRD Systems
+Financial Intelligence Systems
+Organizational Simulation Systems
 
-Structure :
-- indicateurs
-- actions
-- risques
-- gates
-- outcomes
+💰 BUSINESS MODEL
+QORWAY operates in three layers:
+Layer
+Offering
+Entry
+Decision Intelligence Scan
+Core
+System Design & Deployment
+Upside
+Revenue Share on outcomes
 
-Fonctions :
-- mémoire décisionnelle
-- propagation des risques
-- mapping des dépendances
-- logique système
 
----
+🛡️ SECURITY & SOVEREIGNTY
+Zero Trust architecture
+strict multi-tenant isolation
+AES-256 encryption at rest
+TLS 1.3 in transit
+EU sovereign infrastructure
 
-### 3. PulseFlow Protocol
+📊 KEY INNOVATION
+Traditional AI systems
+predictive
+non-explainable
+output-only
+QORWAY
+causal reasoning systems
+constraint-bound intelligence
+executable decisions
+full auditability
+continuous learning loop
 
-Le système nerveux événementiel.
+📜 INTELLECTUAL PROPERTY
+Core proprietary systems:
+Atlas Causal Engine
+Domain Pack Architecture
+PolicyCore Constraint Engine
+PulseFlow Protocol
+GreenCore Execution Layer
+Decision Intelligence System
 
-PulseFlow orchestre :
-- événements
-- décisions
-- actions
-- feedback
+🇪🇺 EUROPEAN VISION
+QORWAY defines:
+the sovereign standard for decision intelligence infrastructure in Europe
+A system where:
+decisions are explainable
+execution is governed
+intelligence is constrained by design
+systems are auditable by default
 
-Fonctions :
-- ingestion temps réel
-- routing contextuel
-- orchestration distribuée
-- boucle de feedback
-
----
-
-### 4. Domain Pack System
-
-Le système de déploiement.
-
-Un Domain Pack est :
-> un Knowledge Graph + règles causales + templates + logique métier
-
-Il permet :
-- de rendre Atlas expert **immédiatement**
-- sans training data
-- sans fine-tuning
-
-Exemples :
-- ESG / CSRD
-- Finance
-- Growth
-- Governance
-
----
-
-### 5. GreenCore™
-
-Layer d’efficience compute.
-
-Il route chaque requête vers :
-- local
-- edge
-- cloud
-
-Objectif :
-→ minimiser coût  
-→ maximiser souveraineté  
-→ contrôler la donnée  
-
----
-
-### 6. Governance & Compliance Layer
-
-La gouvernance est native.
-
-Fonctions :
-- traçabilité complète des décisions
-- causal evidence logging
-- audit trails
-- conformité réglementaire
-
-Alignement :
-- GDPR
-- EU AI Act
-
----
-
-## 🔁 Decision Intelligence Loop
-
-QORWAY fonctionne comme une boucle continue :
-
-1. ingestion des données
-2. modélisation (Knowledge Graph)
-3. raisonnement causal (Atlas)
-4. décision
-5. exécution (agents / systèmes)
-6. orchestration (PulseFlow)
-7. apprentissage
-
----
-
-## 🏗️ Architecture
-DATA
-↓
-KNOWLEDGE GRAPH
-↓
-ATLAS (CAUSAL ENGINE)
-↓
-DOMAIN PACK LOGIC
-↓
-DECISION
-↓
-EXECUTION
-↓
-PULSEFLOW
-↓
-FEEDBACK LOOP
-
----
-
-## 🧩 Applications (built on QORWAY)
-
-QORWAY n’est pas un produit unique.  
-C’est une infrastructure permettant de créer :
-
-- Decision Intelligence Systems
-- Risk Intelligence Systems
-- ESG / CSRD Systems
-- Financial Decision Systems
-- Organizational Simulation Systems
-
----
-
-## 💰 Modèle économique
-
-QORWAY ne vend pas du software.
-
-Il opère en 3 couches :
-
-| Layer | Offre |
-|------|------|
-| Entry | Diagnostic (Decision Intelligence Scan) |
-| Core | System Design (Decision Architecture) |
-| Upside | Revenue Share / System Deployment |
-
----
-
-## 🛡️ Sécurité & Souveraineté
-
-- Architecture Zero Trust
-- Isolation multi-tenant stricte
-- Chiffrement AES-256
-- TLS 1.3
-- Infrastructure européenne souveraine
-
----
-
-## 📊 Innovation clé
-
-IA classique :
-- prédiction
-- non explicable
-- outputs isolés
-
-QORWAY :
-- raisonnement causal
-- décisions explicables
-- intelligence exécutable
-- boucle d’apprentissage continue
-
----
-
-## 📜 Propriété Intellectuelle
-
-Les composants suivants sont propriétaires :
-
-- Atlas Causal Engine
-- Domain Pack Architecture
-- PulseFlow Protocol
-- Knowledge Graph Framework
-- Decision Intelligence System
-
----
-
-## 🇪🇺 Vision
-
-QORWAY construit :
-> le standard européen de l’intelligence décisionnelle
-
-Une infrastructure où :
-- les décisions sont explicables
-- les systèmes sont auditables
-- l’intelligence est gouvernable
-
+🧠 FINAL SYSTEM STATEMENT
+QORWAY is a sovereign decision intelligence infrastructure that transforms enterprise systems into causal, constrained, and executable intelligence loops.
 ---
 
 ## 📜 License
 
 © QORWAY Technology — All rights reserved  
 Usage soumis à licence commerciale
+
+
+
