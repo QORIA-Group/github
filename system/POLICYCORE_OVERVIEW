@@ -1,0 +1,626 @@
+````md
+# PolicyCore Overview
+
+**QORWAY Constraint Validation Layer**
+
+> PolicyCore ensures that intelligence is not only powerful, but valid, compliant, safe, and executable in the real world.
+
+---
+
+## 1. Definition
+
+PolicyCore is the constraint validation layer of QORWAY.
+
+It evaluates whether a causal decision produced by Atlas, contextualized by Domain Packs, can be approved, modified, or rejected before execution.
+
+PolicyCore answers one question:
+
+> Is this decision allowed to exist?
+
+It does not generate decisions.
+
+It does not execute workflows.
+
+It does not optimize compute.
+
+It validates whether a decision can move forward under regulatory, financial, ESG, ethical, operational, and tenant-specific constraints.
+
+---
+
+## 2. Role in QORWAY OS
+
+PolicyCore exists to prevent uncontrolled intelligence.
+
+Enterprise AI systems fail when:
+
+- compliance is applied after the fact
+- decisions are not auditable
+- constraints are external to reasoning
+- risk is reactive instead of embedded
+- human oversight is inconsistent
+- execution happens before validation
+
+QORWAY reverses this pattern.
+
+PolicyCore embeds constraints directly into the decision runtime.
+
+Core rule:
+
+> No decision becomes executable unless PolicyCore validates it.
+
+---
+
+## 3. Architecture Position
+
+PolicyCore sits after Atlas and Domain Packs, and before PulseFlow.
+
+```text
+ATLAS
+  ↓
+DOMAIN PACKS
+  ↓
+POLICYCORE
+  ↓
+PULSEFLOW
+  ↓
+GREENCORE
+  ↓
+EXECUTION
+  ↓
+FEEDBACK LOOP
+````
+
+Layer responsibilities:
+
+* Atlas reasons.
+* Domain Packs contextualize.
+* PolicyCore validates.
+* PulseFlow orchestrates.
+* GreenCore optimizes execution.
+* Agents and systems execute.
+
+PolicyCore is the gate between intelligence and execution.
+
+---
+
+## 4. Core Responsibilities
+
+PolicyCore is responsible for:
+
+* validating decisions before execution
+* enforcing regulatory constraints
+* enforcing ESG and sustainability constraints
+* enforcing financial exposure limits
+* enforcing ethical and human oversight rules
+* enforcing tenant-specific policies
+* producing constraint evaluation results
+* generating compliance traces
+* blocking invalid execution paths
+* modifying decisions where permitted
+* ensuring audit-ready governance evidence
+
+PolicyCore turns constraints into computable decision rules.
+
+---
+
+## 5. What PolicyCore Is Not
+
+PolicyCore is not:
+
+* an ESG dashboard
+* a reporting module
+* a compliance checklist
+* a legal advisor
+* an execution engine
+* a workflow orchestrator
+* a compute optimization layer
+
+PolicyCore is a runtime constraint intelligence system.
+
+It validates decisions before they become real-world actions.
+
+---
+
+## 6. Constraint Domains
+
+PolicyCore evaluates decisions across five primary constraint domains.
+
+---
+
+### 6.1 Regulatory Constraints
+
+Examples:
+
+* GDPR requirements
+* EU AI Act requirements
+* data usage restrictions
+* explainability requirements
+* auditability requirements
+* transparency requirements
+* sector-specific regulation
+
+---
+
+### 6.2 ESG / Sustainability Constraints
+
+Examples:
+
+* carbon intensity thresholds
+* supplier compliance scoring
+* environmental impact caps
+* sustainability risk propagation
+* CSRD / ESRS alignment requirements
+* Scope 3 exposure limits
+
+---
+
+### 6.3 Financial Constraints
+
+Examples:
+
+* capital exposure limits
+* liquidity safety thresholds
+* ROI floor requirements
+* risk-adjusted capital rules
+* budget ceilings
+* margin protection rules
+
+---
+
+### 6.4 Ethical Constraints
+
+Examples:
+
+* fairness rules
+* bias thresholds
+* human override requirements
+* sensitive domain restrictions
+* citizen / customer impact limits
+* employee impact constraints
+
+---
+
+### 6.5 System Constraints
+
+Examples:
+
+* operational capacity limits
+* execution bandwidth constraints
+* agent overload protection
+* dependency saturation rules
+* system availability constraints
+* tenant policy limits
+
+---
+
+## 7. PolicyCore Decision Outcomes
+
+PolicyCore may return three primary outcomes:
+
+```text
+APPROVED
+MODIFIED
+REJECTED
+```
+
+---
+
+### APPROVED
+
+The decision satisfies all required constraints and can move to PulseFlow execution.
+
+---
+
+### MODIFIED
+
+The decision is valid only under an adjusted execution or decision path.
+
+Example:
+
+```text
+Allowed only with human approval.
+Allowed only under reduced exposure.
+Allowed only through EU execution zone.
+Allowed only after data anonymization.
+```
+
+---
+
+### REJECTED
+
+The decision violates a hard constraint and cannot move to execution.
+
+Example:
+
+```text
+Rejected because it violates tenant policy.
+Rejected because data cannot leave approved boundary.
+Rejected because financial exposure exceeds threshold.
+Rejected because required human oversight is missing.
+```
+
+---
+
+## 8. PolicyCore Data Model
+
+A PolicyCore constraint may be represented as:
+
+```json
+{
+  "constraint_id": "CONSTRAINT_MAX_CARBON_INTENSITY",
+  "constraint": "max_carbon_intensity",
+  "scope": "supply_chain",
+  "threshold": 0.7,
+  "severity": "hard_block",
+  "enforcement": "pre_execution",
+  "linked_domain": "supply_chain_pack"
+}
+```
+
+A PolicyCore evaluation result may be represented as:
+
+```json
+{
+  "policycore_result_id": "pol_001",
+  "decision_id": "dec_001",
+  "tenant_id": "tenant_001",
+  "status": "MODIFIED",
+  "constraints_checked": [
+    "gdpr_data_scope",
+    "financial_exposure_limit",
+    "max_carbon_intensity"
+  ],
+  "modifications_required": [
+    "execute_on_edge",
+    "require_human_approval"
+  ],
+  "audit_status": "traceable"
+}
+```
+
+---
+
+## 9. Constraint Types
+
+PolicyCore supports several constraint types.
+
+| Constraint Type         | Behavior                            |
+| ----------------------- | ----------------------------------- |
+| Hard Block              | Execution forbidden                 |
+| Soft Limit              | Warning + degraded execution        |
+| Modification Rule       | Decision must be adjusted           |
+| Human Approval          | Execution requires human validation |
+| Simulation Constraint   | Affects scenario outcomes           |
+| Optimization Constraint | Influences GreenCore routing        |
+
+---
+
+## 10. PolicyCore × Atlas
+
+Atlas proposes decisions.
+
+PolicyCore validates whether those decisions can exist in the real world.
+
+```text
+Atlas decision
+  ↓
+PolicyCore evaluation
+  ↓
+Approved / Modified / Rejected
+```
+
+Example:
+
+```text
+Atlas:
+Increasing pricing by 8% may improve revenue by 12%.
+
+PolicyCore:
+Modified — allowed only for non-regulated customer segments and after fairness constraint check.
+```
+
+Core rule:
+
+> Atlas can propose. PolicyCore decides what is allowed.
+
+Atlas cannot override PolicyCore.
+
+If PolicyCore rejects a decision, Atlas must generate an alternative path or explain why the decision is blocked.
+
+---
+
+## 11. PolicyCore × Domain Packs
+
+Domain Packs provide domain-specific rules, evidence requirements, gates, risks, and constraints.
+
+PolicyCore uses Domain Pack context to validate decisions within a specific domain.
+
+Example:
+
+```text
+Finance Pack
+  ↓
+capital exposure rules
+  ↓
+PolicyCore validates allocation decision
+```
+
+Example:
+
+```text
+ESG / CSRD Pack
+  ↓
+carbon thresholds + ESRS evidence requirements
+  ↓
+PolicyCore validates sustainability decision
+```
+
+Core rule:
+
+> Domain Packs structure domain logic. PolicyCore validates real-world constraints.
+
+---
+
+## 12. PolicyCore × PulseFlow
+
+PulseFlow can execute only PolicyCore-approved decisions.
+
+```text
+PolicyCore result
+  ↓
+PulseFlow execution request
+```
+
+PulseFlow must never execute:
+
+* rejected decisions
+* unvalidated decisions
+* decisions without causal lineage
+* decisions outside tenant boundaries
+* decisions missing required human approval
+
+Core rule:
+
+> No PulseFlow execution can occur without PolicyCore validation.
+
+---
+
+## 13. PolicyCore × GreenCore
+
+PolicyCore defines what is allowed.
+
+GreenCore defines the best way to execute what is allowed.
+
+```text
+PolicyCore approved path
+  ↓
+GreenCore execution optimization
+```
+
+GreenCore cannot:
+
+* legalize rejected decisions
+* override regulatory constraints
+* bypass tenant policies
+* ignore human oversight requirements
+* route execution outside approved boundaries
+
+Core rule:
+
+> GreenCore optimizes only paths that PolicyCore has approved.
+
+---
+
+## 14. PolicyCore × Knowledge Graph
+
+PolicyCore uses graph context to validate decisions.
+
+It may evaluate:
+
+* active risks
+* constraint nodes
+* regulatory references
+* causal chains
+* tenant policies
+* evidence nodes
+* human approval requirements
+
+PolicyCore also writes results back to the Knowledge Graph.
+
+Example relationships:
+
+```text
+Decision → CHECKED_BY → PolicyCore Result
+PolicyCore Result → BLOCKS → Execution Event
+PolicyCore Result → EVIDENCES → Audit Trail
+```
+
+This ensures constraint validation is graph-linked and audit-ready.
+
+---
+
+## 15. Human-in-the-Loop Governance
+
+PolicyCore can require human approval before execution.
+
+Human approval may be required when:
+
+* financial exposure exceeds threshold
+* regulatory sensitivity is high
+* tenant policy requires review
+* public interest is affected
+* human impact is material
+* system confidence is below threshold
+* simulation drift exceeds allowed tolerance
+
+Example human approval requirement:
+
+```json
+{
+  "constraint": "human_approval_required",
+  "scope": "capital_allocation",
+  "required_role": "CFO",
+  "severity": "hard_block",
+  "enforcement": "pre_execution"
+}
+```
+
+No execution may proceed until the required approval is logged.
+
+---
+
+## 16. Compliance Trace Log
+
+Every PolicyCore evaluation must produce a compliance trace.
+
+A trace should include:
+
+* decision ID
+* tenant ID
+* Domain Pack name and version
+* causal chain reference
+* constraints checked
+* constraint results
+* approval status
+* modification requirements
+* human approval requirements
+* timestamp
+* audit metadata
+
+A decision is invalid if PolicyCore validation cannot be reconstructed.
+
+---
+
+## 17. PolicyCore Outputs
+
+PolicyCore produces four primary outputs.
+
+---
+
+### 17.1 Constraint Pass / Fail Matrix
+
+Shows which constraints passed, failed, or required modification.
+
+---
+
+### 17.2 Risk-Adjusted Decision Graph
+
+A constrained version of the Atlas decision graph.
+
+It shows how constraints reshape, block, or modify decision paths.
+
+---
+
+### 17.3 Compliance Trace Log
+
+The audit-ready record of why a decision was approved, modified, or rejected.
+
+---
+
+### 17.4 Constraint Impact Score
+
+Measures how constraints reduce, reshape, or redirect potential value creation.
+
+---
+
+## 18. Feedback and Learning
+
+PolicyCore outcomes become part of the feedback loop.
+
+Feedback may include:
+
+* blocked decision frequency
+* most common constraint violations
+* human approval delays
+* regulatory risk concentration
+* ESG threshold breaches
+* financial exposure rejections
+* system capacity bottlenecks
+
+This feedback can update:
+
+* Domain Pack constraints
+* tenant policy settings
+* Atlas recommendation patterns
+* risk thresholds
+* governance dashboards
+
+PolicyCore does not learn uncontrolled behavior.
+
+All updates must remain governed and auditable.
+
+---
+
+## 19. System Constraints
+
+PolicyCore must never:
+
+* execute decisions directly
+* generate decisions independently from Atlas
+* bypass tenant boundaries
+* weaken regulatory constraints
+* ignore Domain Pack evidence requirements
+* approve decisions without causal lineage
+* silently modify decisions without trace
+* let PulseFlow execute rejected decisions
+* allow GreenCore to override hard constraints
+
+---
+
+## 20. What PolicyCore Replaces
+
+Traditional enterprise systems handle governance like this:
+
+```text
+decision → execution → reporting → audit reconstruction
+```
+
+PolicyCore enables:
+
+```text
+decision → constraint validation → governed execution → audit evidence
+```
+
+It replaces post-hoc compliance with runtime governance.
+
+---
+
+## 21. Strategic Importance
+
+PolicyCore is one of QORWAY’s strongest defensibility layers.
+
+Competitors can build:
+
+* dashboards
+* agents
+* workflow automations
+* LLM interfaces
+* analytics systems
+
+But real-time multi-dimensional constraint computation embedded into causal decision infrastructure is much harder to replicate.
+
+PolicyCore makes QORWAY deployable in:
+
+* regulated enterprises
+* public institutions
+* ESG-sensitive environments
+* financial decision systems
+* risk-heavy operational domains
+* AI Act-relevant contexts
+
+It turns compliance from a reporting burden into a runtime capability.
+
+---
+
+## 22. Final Definition
+
+PolicyCore is the constraint validation layer of QORWAY.
+
+It ensures that every causal decision remains legally, financially, ethically, operationally, and systemically valid before execution.
+
+Final system statement:
+
+> PolicyCore is where intelligence becomes safe enough to execute.
+
+```
+```
