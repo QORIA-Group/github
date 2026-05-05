@@ -1,0 +1,841 @@
+````md
+# GreenCore Overview
+
+**QORWAY Execution Optimization Layer**
+
+> GreenCore makes QORWAY not only intelligent and executable, but efficient, sovereign, and sustainable by design.
+
+---
+
+## 1. Definition
+
+GreenCore™ is the execution optimization layer of QORWAY.
+
+It determines where and how validated decisions should be executed across local, edge, and cloud environments while optimizing for:
+
+- compute cost
+- latency
+- carbon footprint
+- energy efficiency
+- data sovereignty
+- tenant execution policies
+
+GreenCore answers one question:
+
+> Where and how should this execute optimally?
+
+GreenCore does not validate whether a decision is allowed.
+
+That is PolicyCore.
+
+GreenCore optimizes only approved execution paths.
+
+---
+
+## 2. Role in QORWAY OS
+
+GreenCore exists because intelligence is not only about producing the right decision.
+
+In enterprise and public-sector environments, execution must also be:
+
+- cost-efficient
+- energy-aware
+- sovereign
+- auditable
+- aligned with tenant policies
+- compatible with data sensitivity constraints
+
+A decision may be:
+
+- causally valid through Atlas
+- contextualized by Domain Packs
+- approved by PolicyCore
+- orchestrated by PulseFlow
+
+…but still require an execution strategy.
+
+GreenCore provides that strategy.
+
+It turns QORWAY from:
+
+```text
+decision intelligence
+````
+
+into:
+
+```text
+decision intelligence + optimized execution intelligence
+```
+
+---
+
+## 3. Architecture Position
+
+GreenCore sits after PolicyCore validation and after PulseFlow creates the execution request.
+
+```text
+ATLAS
+  ↓
+DOMAIN PACKS
+  ↓
+POLICYCORE
+  ↓
+PULSEFLOW
+  ↓
+GREENCORE
+  ↓
+LOCAL / EDGE / CLOUD EXECUTION
+  ↓
+FEEDBACK LOOP
+```
+
+Layer responsibilities:
+
+* Atlas reasons.
+* Domain Packs contextualize.
+* PolicyCore validates.
+* PulseFlow orchestrates execution.
+* GreenCore optimizes execution.
+* Agents and systems execute.
+* Feedback updates the Knowledge Graph.
+
+Core rule:
+
+> PolicyCore defines what is allowed. GreenCore defines the best execution path for what is allowed.
+
+---
+
+## 4. What GreenCore Is Not
+
+GreenCore is not:
+
+* an ESG reporting module
+* a carbon dashboard
+* a compliance authority
+* a decision engine
+* a workflow orchestrator
+* a legal validation layer
+* a replacement for PolicyCore
+* a replacement for PulseFlow
+
+GreenCore is a runtime execution intelligence layer.
+
+It optimizes execution conditions without weakening governance constraints.
+
+---
+
+## 5. Core Responsibilities
+
+GreenCore is responsible for:
+
+* execution routing
+* local / edge / cloud selection
+* energy-aware workload allocation
+* carbon impact estimation
+* compute cost optimization
+* sovereignty-aware execution decisions
+* tenant execution policy enforcement
+* routing audit logs
+* execution efficiency scoring
+* carbon trace generation
+* feedback into the Knowledge Graph
+
+GreenCore ensures that every approved execution path is optimized before being carried out.
+
+---
+
+## 6. Routing Engine
+
+The GreenCore Routing Engine determines the optimal execution environment for each task.
+
+Execution targets include:
+
+```text
+local
+edge
+cloud
+```
+
+---
+
+### 6.1 Routing Inputs
+
+The Routing Engine evaluates:
+
+* task type
+* tenant ID
+* decision ID
+* PolicyCore status
+* Domain Pack context
+* data sensitivity
+* required latency
+* compute complexity
+* estimated energy usage
+* infrastructure availability
+* tenant execution policy
+* sovereignty requirements
+* carbon tracking requirements
+
+Example input:
+
+```json
+{
+  "task_id": "task_001",
+  "tenant_id": "tenant_001",
+  "decision_id": "dec_001",
+  "domain_pack": "finance_pack",
+  "task_type": "financial_scenario_simulation",
+  "data_sensitivity": "high",
+  "latency_requirement": "medium",
+  "compute_complexity": "high",
+  "policy_status": "approved",
+  "preferred_region": "EU",
+  "tenant_policy": {
+    "cloud_allowed": false,
+    "edge_preferred": true
+  }
+}
+```
+
+---
+
+### 6.2 Routing Outputs
+
+GreenCore produces an execution routing decision.
+
+Example output:
+
+```json
+{
+  "routing_decision_id": "route_001",
+  "task_id": "task_001",
+  "routing_decision": "edge",
+  "execution_zone": "EU_EDGE_NODE",
+  "reason": "High data sensitivity + cloud not allowed + medium latency requirement.",
+  "estimated_cost": "low",
+  "estimated_carbon": "reduced",
+  "sovereignty_score": 0.94,
+  "audit_status": "traceable"
+}
+```
+
+---
+
+### 6.3 Routing Priority
+
+GreenCore follows this priority order:
+
+```text
+1. PolicyCore status
+2. Tenant execution policy
+3. Data sensitivity
+4. Sovereignty requirement
+5. Latency requirement
+6. Compute complexity
+7. Carbon / cost optimization
+8. Infrastructure availability
+```
+
+GreenCore cannot route execution if PolicyCore has rejected the decision.
+
+---
+
+## 7. Execution Modes
+
+GreenCore supports three primary execution modes.
+
+---
+
+### 7.1 Local / On-Device Execution
+
+Used when:
+
+* data is highly sensitive
+* cloud execution is forbidden
+* latency must be minimal
+* task complexity is low or moderate
+* tenant policy requires local processing
+
+Benefits:
+
+* maximum sovereignty
+* minimal data movement
+* low latency
+* reduced exposure
+* lower carbon footprint for lightweight tasks
+
+---
+
+### 7.2 Edge Execution
+
+Used when:
+
+* moderate compute is required
+* data should remain regionally constrained
+* latency matters
+* cloud execution is unnecessary or restricted
+* tenant policy prefers sovereign distributed execution
+
+Benefits:
+
+* regional execution
+* reduced cloud dependency
+* lower network overhead
+* stronger sovereignty posture
+* balanced performance profile
+
+---
+
+### 7.3 EU Cloud Execution
+
+Used when:
+
+* high compute is required
+* task complexity exceeds local or edge capability
+* data can be anonymized or securely processed
+* PolicyCore and tenant policies allow cloud execution
+* EU-based infrastructure is available
+
+Benefits:
+
+* scalable compute
+* complex simulation capacity
+* fallback execution path
+* controlled sovereign cloud processing
+
+---
+
+## 8. Carbon Intelligence System
+
+The Carbon Intelligence System measures, estimates, and records the environmental footprint of QORWAY execution.
+
+It tracks carbon impact across:
+
+* tasks
+* workflows
+* agents
+* tenants
+* Domain Packs
+* execution zones
+* routing modes
+
+---
+
+### 8.1 What Carbon Intelligence Measures
+
+Carbon Intelligence may track:
+
+* estimated compute energy
+* execution location
+* workload intensity
+* model usage
+* network transfer cost
+* carbon equivalent
+* carbon avoided through routing decisions
+* carbon per workflow
+* carbon per tenant
+* carbon per Domain Pack
+
+---
+
+### 8.2 Carbon Trace
+
+Each execution can generate a carbon trace.
+
+Example:
+
+```json
+{
+  "carbon_trace_id": "co2_001",
+  "tenant_id": "tenant_001",
+  "decision_id": "dec_001",
+  "workflow_id": "wf_001",
+  "execution_zone": "EU_EDGE_NODE",
+  "estimated_energy_kwh": 0.42,
+  "estimated_co2e_kg": 0.018,
+  "baseline_cloud_co2e_kg": 0.073,
+  "estimated_savings_pct": 75.3
+}
+```
+
+---
+
+### 8.3 Strategic Role
+
+Carbon Intelligence makes the environmental cost of intelligence visible.
+
+It enables:
+
+* ESG-aware execution
+* CSRD-aligned IT carbon reporting
+* tenant-level sustainability dashboards
+* compute budget governance
+* carbon-aware enterprise AI adoption
+* feedback into execution routing
+
+Core rule:
+
+> Carbon Intelligence is not reporting only. It feeds future routing decisions.
+
+---
+
+## 9. Edge Execution Layer
+
+The Edge Execution Layer enables QORWAY workloads to run closer to the data source.
+
+It supports:
+
+* lightweight agents
+* preprocessing tasks
+* local inference
+* event filtering
+* sensitive data handling
+* reduced cloud dependency
+* regional execution
+
+---
+
+### 9.1 Edge Use Cases
+
+Edge execution is preferred for:
+
+* preprocessing sensitive data
+* lightweight event classification
+* tenant-specific workflow checks
+* local agent tasks
+* filtering before cloud escalation
+* first-pass reasoning for low-risk workloads
+* execution in sovereignty-sensitive environments
+
+---
+
+### 9.2 Edge Flow
+
+```text
+PulseFlow execution request
+  ↓
+GreenCore Routing Engine
+  ↓
+Edge Execution Layer
+  ↓
+Agent / workload execution
+  ↓
+Carbon trace generated
+  ↓
+Feedback to Knowledge Graph
+```
+
+---
+
+### 9.3 Edge Constraints
+
+Edge Execution must never:
+
+* bypass tenant isolation
+* process unauthorized data
+* execute unvalidated decisions
+* bypass PulseFlow audit logging
+* override PolicyCore constraints
+* remove audit metadata
+
+---
+
+## 10. Green Policy Engine
+
+The Green Policy Engine defines execution policies for energy, compute, carbon, and sovereignty.
+
+Green policies may define:
+
+* local-first execution
+* edge-preferred execution
+* EU cloud only
+* no cloud for sensitive data
+* GPU usage limits
+* carbon cap per workflow
+* carbon tracking requirements
+* tenant-specific execution preferences
+
+---
+
+### 10.1 Policy Levels
+
+Green policies may exist at several levels:
+
+```text
+Global QORWAY policy
+  ↓
+Tenant policy
+  ↓
+Domain Pack policy
+  ↓
+Workflow policy
+  ↓
+Task policy
+```
+
+---
+
+### 10.2 Example Policy
+
+```json
+{
+  "policy_id": "green_policy_001",
+  "scope": "tenant",
+  "tenant_id": "tenant_001",
+  "rule": "no_cloud_for_sensitive_data",
+  "severity": "hard_block",
+  "fallback": "edge",
+  "applies_to": ["finance_pack", "risk_pack"]
+}
+```
+
+---
+
+### 10.3 Relationship with PolicyCore
+
+Green policies must remain compatible with PolicyCore.
+
+If a GreenCore policy creates a hard execution boundary, PolicyCore may use it as a constraint.
+
+However:
+
+> GreenCore cannot weaken or override PolicyCore constraints.
+
+If PolicyCore blocks a decision, GreenCore cannot reroute it into execution.
+
+---
+
+## 11. Observability Layer
+
+The GreenCore Observability Layer monitors execution efficiency across the QORWAY runtime.
+
+It provides visibility into:
+
+* routing decisions
+* local vs edge vs cloud distribution
+* compute cost
+* carbon footprint
+* latency
+* tenant efficiency
+* Domain Pack efficiency
+* workflow efficiency
+* agent efficiency
+* sovereignty score
+
+---
+
+### 11.1 Core Metrics
+
+GreenCore tracks:
+
+* % local execution
+* % edge execution
+* % cloud execution
+* estimated CO₂ saved
+* compute cost saved
+* average routing efficiency score
+* carbon per workflow
+* carbon per tenant
+* carbon per Domain Pack
+* latency by execution mode
+* cloud fallback rate
+* sovereignty score
+
+---
+
+### 11.2 Admin View
+
+The admin view may show:
+
+* global infrastructure distribution
+* total CO₂ saved
+* cost optimization trends
+* cloud fallback rate
+* infrastructure pressure points
+* routing anomalies
+
+---
+
+### 11.3 Tenant View
+
+The tenant view may show:
+
+* execution efficiency score
+* local / edge / cloud ratio
+* estimated carbon savings
+* compute cost savings
+* sovereignty score
+* policy compliance status
+
+---
+
+## 12. Relationship with Atlas
+
+Atlas defines what should happen.
+
+GreenCore does not change the causal decision.
+
+However, GreenCore feedback can influence future Atlas recommendations by surfacing:
+
+* high-cost workflows
+* high-carbon workflows
+* high-latency execution paths
+* sovereignty-sensitive tasks
+* inefficient execution patterns
+
+Flow:
+
+```text
+Execution feedback
+  ↓
+GreenCore metrics
+  ↓
+Knowledge Graph update
+  ↓
+Future Atlas reasoning
+```
+
+Core rule:
+
+> Atlas reasons about decisions. GreenCore informs future reasoning through execution efficiency feedback.
+
+---
+
+## 13. Relationship with Domain Packs
+
+Domain Packs may define execution preferences used by GreenCore.
+
+Example:
+
+### ESG / CSRD Pack
+
+* carbon tracking required
+* green routing preferred
+* ESG execution evidence required
+
+### Finance Pack
+
+* sensitive data must remain local or edge
+* cloud execution only after anonymization
+* execution must preserve audit trail
+
+### Risk Pack
+
+* high-risk workflows require strict execution boundaries
+* cloud fallback may require human approval
+
+Core rule:
+
+> Domain Packs define execution preferences. GreenCore applies them within approved constraints.
+
+---
+
+## 14. Relationship with PolicyCore
+
+PolicyCore is the constraint authority.
+
+GreenCore is the optimization authority.
+
+PolicyCore defines:
+
+> What is allowed?
+
+GreenCore defines:
+
+> What is the best execution path for what is allowed?
+
+GreenCore cannot:
+
+* legalize rejected decisions
+* override regulatory constraints
+* bypass tenant policies
+* ignore human oversight requirements
+* route execution outside approved boundaries
+
+---
+
+## 15. Relationship with PulseFlow
+
+PulseFlow orchestrates execution.
+
+GreenCore optimizes execution routing.
+
+```text
+PulseFlow creates execution request
+  ↓
+GreenCore evaluates routing
+  ↓
+PulseFlow executes optimized route
+```
+
+PulseFlow remains responsible for:
+
+* event lifecycle
+* workflow orchestration
+* agent activation
+* execution logs
+* feedback emission
+
+GreenCore remains responsible for:
+
+* routing decision
+* compute optimization
+* carbon estimation
+* sovereignty scoring
+
+---
+
+## 16. Relationship with the Knowledge Graph
+
+GreenCore writes execution optimization data back into the Knowledge Graph.
+
+It may create or update:
+
+* routing decisions
+* execution zones
+* cost estimates
+* latency records
+* carbon traces
+* sovereignty scores
+* efficiency signals
+
+Example:
+
+```text
+Execution Task → ROUTED_BY → GreenCore Decision
+GreenCore Decision → PRODUCED → Carbon Trace
+Carbon Trace → UPDATES → Tenant Efficiency Profile
+```
+
+Core rule:
+
+> GreenCore makes execution efficiency visible to the Knowledge Graph.
+
+---
+
+## 17. Feedback and Learning
+
+GreenCore feedback may update:
+
+* future routing decisions
+* tenant execution policies
+* Domain Pack execution preferences
+* Atlas decision heuristics
+* carbon baselines
+* cost baselines
+* infrastructure planning
+
+GreenCore does not create uncontrolled learning.
+
+All policy changes must remain governed, tenant-scoped, and auditable.
+
+---
+
+## 18. Reliability Requirements
+
+GreenCore must guarantee:
+
+* deterministic routing decisions
+* full routing traceability
+* tenant-scoped execution policies
+* PolicyCore compatibility
+* fallback execution paths
+* carbon trace persistence
+* no silent routing changes
+* no execution outside approved boundaries
+
+Every routing decision must be explainable.
+
+---
+
+## 19. Security & Governance
+
+GreenCore must enforce:
+
+* tenant execution boundaries
+* data sensitivity rules
+* approved execution zones
+* encrypted transport where required
+* carbon trace integrity
+* routing audit logs
+* no unauthorized cloud escalation
+
+GreenCore must operate within the full QORWAY governance model.
+
+---
+
+## 20. System Constraints
+
+GreenCore must never:
+
+* execute decisions directly
+* bypass PulseFlow
+* override PolicyCore
+* weaken tenant policies
+* process unauthorized data
+* hide carbon or cost impact
+* route sensitive workloads outside approved boundaries
+* remove audit metadata from execution logs
+* silently change routing behavior without traceability
+
+---
+
+## 21. What GreenCore Replaces
+
+GreenCore replaces fragmented approaches to:
+
+* cloud cost management
+* manual compute routing
+* carbon reporting disconnected from execution
+* sustainability dashboards without runtime enforcement
+* FinOps without causal intelligence
+* local vs cloud execution decisions made ad hoc
+
+GreenCore turns execution optimization into a native runtime capability.
+
+---
+
+## 22. Strategic Importance
+
+GreenCore gives QORWAY a unique strategic position.
+
+Traditional AI systems optimize for:
+
+* model performance
+* output quality
+* speed
+
+QORWAY optimizes for:
+
+* decision quality
+* execution feasibility
+* compute cost
+* latency
+* carbon footprint
+* sovereignty
+* auditability
+
+This makes GreenCore critical for:
+
+* European enterprise adoption
+* public-sector trust
+* CSRD-aligned intelligence systems
+* sovereign AI infrastructure
+* cost-controlled AI deployment
+* sustainable AI execution
+
+---
+
+## 23. Final Definition
+
+GreenCore™ is the execution optimization layer of QORWAY.
+
+It routes validated workloads across local, edge, and cloud environments while optimizing for cost, latency, carbon footprint, and sovereignty.
+
+Final system statement:
+
+> GreenCore is where QORWAY makes execution efficient, sovereign, and sustainable by design.
+
+```
+```
