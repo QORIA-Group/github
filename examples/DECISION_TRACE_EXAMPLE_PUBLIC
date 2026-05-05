@@ -1,0 +1,504 @@
+````md
+# Decision Trace Example 
+
+**QORWAY Decision Intelligence Infrastructure**
+
+> This example illustrates how QORWAY conceptually traces a decision from signal to reasoning, validation, execution, and feedback without exposing proprietary schemas, scoring models, rules, prompts, or production logic.
+
+---
+
+## 1. Purpose
+
+This document provides a simplified public example of a QORWAY decision trace.
+
+It demonstrates how a decision can move through the QORWAY runtime:
+
+```text
+signal → graph → reasoning → constraint validation → execution → optimization → feedback
+````
+
+This example is intentionally high-level.
+
+It does not expose:
+
+* internal schemas
+* production event contracts
+* causal weights
+* scoring formulas
+* PolicyCore rules
+* GreenCore routing rules
+* prompts
+* tenant-specific data
+* implementation logic
+
+---
+
+## 2. What This Example Represents
+
+This example uses a fictional situation:
+
+```text
+Operational delay detected in a critical business process.
+```
+
+The goal is to show how QORWAY would conceptually trace the decision lifecycle.
+
+This is not a real customer case.
+
+It is not a production trace.
+
+It is a public-safe illustration.
+
+---
+
+## 3. Decision Trace Overview
+
+A QORWAY decision trace connects:
+
+```text
+Source Signal
+  ↓
+Knowledge Graph Context
+  ↓
+Atlas Reasoning
+  ↓
+Domain Pack Context
+  ↓
+PolicyCore Validation
+  ↓
+PulseFlow Orchestration
+  ↓
+GreenCore Optimization
+  ↓
+Execution
+  ↓
+Feedback
+  ↓
+Learning Update
+```
+
+Each stage creates evidence that can be reviewed, audited, and linked back to the original decision.
+
+---
+
+## 4. Step 1 — Source Signal
+
+A source signal indicates that something meaningful has changed.
+
+Example conceptual signal:
+
+```text
+A critical workflow is taking longer than expected.
+```
+
+Possible signal categories:
+
+* operational signal
+* financial signal
+* compliance signal
+* ESG signal
+* risk signal
+* human decision signal
+* external regulatory signal
+
+The signal becomes relevant only when it is connected to system context.
+
+---
+
+## 5. Step 2 — Knowledge Graph Context
+
+The signal updates or activates part of the Knowledge Graph.
+
+Example conceptual graph context:
+
+```text
+Workflow delay
+  ↓
+Operational dependency
+  ↓
+Delivery risk
+  ↓
+Potential financial impact
+```
+
+The Knowledge Graph helps QORWAY understand that the signal is not isolated.
+
+It may affect:
+
+* risks
+* gates
+* outcomes
+* dependencies
+* execution priorities
+
+---
+
+## 6. Step 3 — Atlas Reasoning
+
+Atlas reasons over the Knowledge Graph.
+
+Atlas identifies:
+
+* what changed
+* why it matters
+* which causal path is active
+* which risk or opportunity is emerging
+* what decision path should be considered
+
+Example conceptual reasoning:
+
+```text
+The workflow delay may increase delivery risk.
+Delivery risk may affect expected business outcome.
+A mitigation decision should be considered.
+```
+
+Atlas does not execute.
+
+Atlas produces structured decision intelligence.
+
+---
+
+## 7. Step 4 — Domain Pack Context
+
+The relevant Domain Pack contextualizes the decision.
+
+The Domain Pack may define:
+
+* domain-specific entities
+* allowed actions
+* risks
+* gates
+* outcomes
+* feedback expectations
+* systemic impact lens
+
+Example conceptual context:
+
+```text
+This type of delay belongs to an operational resilience domain.
+Relevant actions may include escalation, rerouting, or human review.
+```
+
+The Domain Pack ensures the decision is not generic.
+
+---
+
+## 8. Step 5 — Decision Candidate
+
+QORWAY generates a decision candidate.
+
+Conceptual structure:
+
+```text
+Decision Candidate
+├── reason
+├── causal explanation
+├── recommended action
+├── expected impact
+├── required validation
+├── execution requirement
+└── feedback expectation
+```
+
+Example conceptual decision:
+
+```text
+Prepare a mitigation workflow to reduce the operational delay risk.
+```
+
+This is not yet executable.
+
+It must pass constraint validation.
+
+---
+
+## 9. Step 6 — PolicyCore Validation
+
+PolicyCore checks whether the decision is allowed to move forward.
+
+PolicyCore may evaluate:
+
+* tenant policy
+* regulatory constraints
+* operational capacity
+* financial exposure
+* ESG constraints
+* human approval requirements
+* data handling restrictions
+
+Possible outcomes:
+
+```text
+APPROVED
+MODIFIED
+REJECTED
+```
+
+Example conceptual validation:
+
+```text
+Decision approved with human oversight required before execution.
+```
+
+Core rule:
+
+> No decision can become executable without PolicyCore validation.
+
+---
+
+## 10. Step 7 — PulseFlow Orchestration
+
+Once validated, PulseFlow converts the decision into an execution flow.
+
+PulseFlow may create:
+
+* execution event
+* workflow
+* agent task
+* human approval request
+* system update
+* execution log
+* feedback requirement
+
+Example conceptual orchestration:
+
+```text
+Create mitigation workflow.
+Notify responsible operator.
+Prepare execution task.
+Track outcome.
+```
+
+PulseFlow ensures the decision becomes governed execution.
+
+---
+
+## 11. Step 8 — GreenCore Optimization
+
+GreenCore determines how the approved execution should happen.
+
+GreenCore may evaluate:
+
+* local execution
+* edge execution
+* cloud execution
+* cost
+* latency
+* carbon footprint
+* data sensitivity
+* sovereignty policy
+
+Example conceptual optimization:
+
+```text
+Execute locally or at the edge because the task is low-compute and tenant-sensitive.
+```
+
+Core rule:
+
+> GreenCore optimizes approved paths only. It cannot override PolicyCore.
+
+---
+
+## 12. Step 9 — Execution
+
+The approved and optimized execution path is carried out.
+
+Execution may involve:
+
+* agent action
+* workflow update
+* human approval
+* system notification
+* enterprise tool update
+* external API call where authorized
+
+Example conceptual execution:
+
+```text
+The mitigation workflow is activated and assigned to the appropriate operator.
+```
+
+Execution must remain tenant-scoped and auditable.
+
+---
+
+## 13. Step 10 — Feedback
+
+After execution, QORWAY captures feedback.
+
+Feedback may include:
+
+* actual outcome
+* expected vs actual deviation
+* execution delay
+* financial impact
+* operational impact
+* compliance result
+* carbon / compute impact
+* human approval outcome
+
+Example conceptual feedback:
+
+```text
+The delay was reduced, but the improvement was lower than expected.
+```
+
+Feedback allows the system to compare prediction with reality.
+
+---
+
+## 14. Step 11 — Learning Update
+
+Feedback updates the Knowledge Graph and future reasoning.
+
+Possible learning updates:
+
+* causal confidence adjusted
+* risk pattern updated
+* action effectiveness updated
+* feedback rule triggered
+* diagnostic signal generated
+* future recommendation refined
+
+Example conceptual learning:
+
+```text
+The mitigation action was partially effective.
+Future recommendations should consider an alternative path when similar delays occur.
+```
+
+Learning remains governed and tenant-scoped.
+
+---
+
+## 15. Conceptual Trace Summary
+
+```text
+Signal:
+Operational delay detected
+
+Graph Context:
+Delay linked to operational dependency and delivery risk
+
+Atlas:
+Identifies causal path and proposes mitigation
+
+Domain Pack:
+Adds domain-specific action options and expected outcomes
+
+PolicyCore:
+Approves with human oversight requirement
+
+PulseFlow:
+Creates workflow and execution events
+
+GreenCore:
+Selects efficient local / edge execution path
+
+Execution:
+Mitigation workflow activated
+
+Feedback:
+Outcome observed and compared to expected impact
+
+Learning:
+Knowledge Graph updated for future reasoning
+```
+
+---
+
+## 16. Trace Evidence
+
+A complete QORWAY decision trace should be able to answer:
+
+```text
+What happened?
+Why did it matter?
+Which causal path was activated?
+Which domain context applied?
+What decision was proposed?
+Which constraints were checked?
+Was human approval required?
+How was execution orchestrated?
+Where was execution optimized?
+What happened after execution?
+What did the system learn?
+```
+
+This is what makes the decision auditable.
+
+---
+
+## 17. Public-Safe Trace Diagram
+
+```text
+[Source Signal]
+      ↓
+[Knowledge Graph Context]
+      ↓
+[Atlas Reasoning]
+      ↓
+[Domain Pack Context]
+      ↓
+[PolicyCore Validation]
+      ↓
+[PulseFlow Orchestration]
+      ↓
+[GreenCore Optimization]
+      ↓
+[Execution]
+      ↓
+[Feedback]
+      ↓
+[Learning Update]
+```
+
+---
+
+## 18. What Is Not Included
+
+This public example intentionally excludes:
+
+* production decision object
+* production event schema
+* internal JSON contracts
+* causal weights
+* scoring algorithms
+* exact thresholds
+* prompts
+* PolicyCore implementation rules
+* GreenCore routing rules
+* PulseFlow orchestration contracts
+* tenant-specific graph structures
+* proprietary Domain Pack logic
+
+These components belong in private QORWAY repositories.
+
+---
+
+## 19. Why Decision Traces Matter
+
+Decision traces are central to QORWAY because they make intelligence:
+
+* explainable
+* governable
+* executable
+* auditable
+* improvable
+
+Traditional systems often produce outputs without traceable reasoning.
+
+QORWAY is designed to preserve the full path from signal to outcome.
+
+---
+
+## 20. Final Statement
+
+A QORWAY decision trace shows how a signal becomes a governed decision, how that decision becomes execution, and how execution becomes learning.
+
+> Decision traces are how QORWAY makes intelligence accountable.
+
+```
+```
