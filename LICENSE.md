@@ -10,7 +10,7 @@ The materials contained in this repository, including but not limited to concept
 
 ## Restrictions
 
-You may not, without prior written permission from Nicole Valey :
+You may not, without prior written permission from Nicole Valey:
 
 - copy, reproduce, or redistribute this material;
 - modify, adapt, or create derivative works from this material;
@@ -41,7 +41,7 @@ Internal logic, implementation details, prompts, causal models, scoring systems,
 
 ## No License Granted
 
-Access to this repository does not grant any license, express or implied, to use QORWAY Technology intellectual property.
+Access to this repository does not grant any license, express or implied, to use Nicole Valey’s QORWAY Technology intellectual property.
 
 Any use requires a separate written commercial agreement.
 
@@ -51,9 +51,3 @@ For licensing, partnership, or authorized use inquiries:
 
 **QORWAY Technology**  
 Sovereign Decision Intelligence Infrastructure for Europe
-
-```
----
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
-All rights reserved.
-```
