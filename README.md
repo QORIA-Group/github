@@ -18,7 +18,7 @@ QORWAY connects data, reasoning, constraints, execution, and feedback into one c
 
 ```text
 data → reasoning → constraint validation → execution → feedback → learning
-````
+```
 
 ---
 
@@ -337,7 +337,7 @@ Public documentation is available in this repository:
 * [`system/PULSEFLOW_OVERVIEW.md`](system/PULSEFLOW_OVERVIEW.md)
 * [`system/GREENCORE_OVERVIEW.md`](system/GREENCORE_OVERVIEW.md)
 
-### Standards & Interfaces
+### Standards
 
 * [`standards/ENGINEERING_PRINCIPLES.md`](standards/ENGINEERING_PRINCIPLES.md)
 * [`standards/SECURITY_COMPLIANCE.md`](standards/SECURITY_COMPLIANCE.md)
@@ -345,7 +345,7 @@ Public documentation is available in this repository:
 * [`standards/DATA_GOVERNANCE.md`](standards/DATA_GOVERNANCE.md)
 
 ### Interfaces
-  
+
 * [`standards/DECISION_MODEL.md`](standards/DECISION_MODEL.md)
 * [`standards/EVENT_MODEL.md`](standards/EVENT_MODEL.md)
 
