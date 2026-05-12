@@ -620,6 +620,9 @@ Final system statement:
 
 ```
 ---
-*© QORWAY Technology SAS — www.qorway.com*  
-*Proprietary. All rights reserved.*
+*© QORWAY Technology — www.qorway.com*  
+```
+---
+© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
+All rights reserved.
 ```
