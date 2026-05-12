@@ -1,16 +1,14 @@
-
 # CI/CD Standards
 
 **QORWAY Decision Intelligence Infrastructure**
 
-> QORWAY does not only release code.  
-> It releases decision infrastructure.
+> QORWAY does not only release code. It releases decision infrastructure.
 
 ---
 
 ## 1. Purpose
 
-This document defines the CI/CD standard for QORWAY.
+This document defines the public CI/CD standard for QORWAY.
 
 The goal is to ensure that every release preserves:
 
@@ -33,12 +31,12 @@ Traditional CI/CD validates:
 
 ```text
 code → build → deploy
-````
+```
 
 QORWAY CI/CD must validate:
 
 ```text
-code → graph → causal rules → constraints → events → execution → feedback
+code → graph → causal context → constraints → events → execution → feedback
 ```
 
 A release is not valid if it breaks the Decision Intelligence Loop.
@@ -49,23 +47,23 @@ Core principle:
 
 ---
 
-## 3. Release Units
+## 3. Release Surfaces
 
-A QORWAY release may include updates to:
+A QORWAY release may affect:
 
-* application code
-* system services
-* Knowledge Graph schemas
-* Domain Packs
-* causal rules
-* PolicyCore constraints
-* PulseFlow event schemas
-* GreenCore routing policies
-* agent definitions
-* feedback rules
-* governance documentation
+- application code
+- system services
+- Knowledge Graph structures
+- Domain Packs
+- causal context
+- PolicyCore constraints
+- PulseFlow event categories
+- GreenCore execution policies
+- agent boundaries
+- feedback rules
+- governance documentation
 
-Each release must declare what type of system surface it affects.
+Each release must declare which system surface it affects.
 
 ---
 
@@ -85,10 +83,10 @@ chore/<maintenance-task>
 
 Rules:
 
-* `main` represents the stable public or production-ready state.
-* all changes must go through pull requests.
-* no direct commits to `main` for system-critical repositories.
-* every pull request must include a clear description of system impact.
+- `main` represents the stable public or production-ready state.
+- all changes should go through pull requests.
+- direct commits to `main` should be avoided for system-critical repositories.
+- every pull request should include a clear description of system impact.
 
 ---
 
@@ -96,14 +94,14 @@ Rules:
 
 Every pull request should include:
 
-* purpose of the change
-* affected layer
-* risk level
-* testing performed
-* security impact
-* tenant isolation impact
-* documentation impact
-* rollback considerations
+- purpose of the change
+- affected layer
+- risk level
+- testing performed
+- security impact
+- tenant isolation impact
+- documentation impact
+- rollback considerations
 
 Example affected layers:
 
@@ -118,105 +116,72 @@ Security
 Documentation
 ```
 
-A PR is incomplete if it does not explain how it affects the QORWAY system map.
+A pull request is incomplete if it does not explain how it affects the QORWAY system map.
 
 ---
 
 ## 6. Validation Gates
 
-Every release should pass a set of validation gates before merge or deployment.
+Every release should pass validation gates before merge or deployment.
 
----
+### Gate 1 — Structure & Type Validation
 
-## Gate 1 — Structure & Type Validation
-
-Purpose:
-
-> Ensure the system structure remains coherent.
+Ensures the system structure remains coherent.
 
 Checks may include:
 
-* linting
-* type checking
-* schema validation
-* documentation formatting
-* repository structure validation
-* broken link checks
-* naming convention validation
-
-For technical repositories, this may include:
-
-* TypeScript strict mode
-* OpenAPI validation
-* AsyncAPI validation
-* JSON Schema validation
-* YAML validation
+- linting
+- type checking
+- schema validation
+- documentation formatting
+- repository structure validation
+- broken link checks
+- naming convention validation
 
 A release fails if it breaks structural contracts.
 
----
+### Gate 2 — Domain Pack Integrity
 
-## Gate 2 — Domain Pack Integrity
-
-Purpose:
-
-> Ensure Domain Packs remain valid executable intelligence structures.
+Ensures Domain Packs remain valid intelligence structures.
 
 Checks should validate:
 
-* `domain.yaml` exists
-* graph schema is valid
-* causal rules are explainable
-* decision policies are linked to actions
-* PolicyCore constraints exist where required
-* GreenCore policies exist where required
-* events are mapped to PulseFlow
-* feedback rules exist for measurable outcomes
-* STEPS impact model exists where required
-* no orphan critical nodes
-* no risk without mitigation path
-* no action without event path
-* no private tenant data in Standard Domain Packs
+- clear domain identity
+- valid structure
+- no private tenant data in public or standard packs
+- no orphaned critical concepts
+- no decision path without validation context
+- no action without execution context
+- no measurable outcome without feedback pathway
 
 Core rule:
 
-> A Domain Pack cannot be released if it cannot produce an audit-ready decision trace.
+> A Domain Pack cannot be released if it cannot support an audit-ready decision trace.
 
----
+### Gate 3 — Causal Reasoning Validation
 
-## Gate 3 — Causal Reasoning Validation
-
-Purpose:
-
-> Ensure decision logic remains causal, explainable, and traceable.
+Ensures decision logic remains causal, explainable, and traceable.
 
 Checks should validate:
 
-* every decision can reference causal lineage
-* every causal rule has a defined cause and effect
-* causal weights or confidence values are present where required
-* impact simulations are linked to outcomes
-* decision outputs remain explainable
-* feedback rules exist for recalibration
+- every decision can reference causal lineage
+- causal context remains explainable
+- impact simulations are linked to outcomes where applicable
+- feedback pathways exist for measurable decisions
 
 A release fails if it introduces untraceable reasoning.
 
----
+### Gate 4 — PolicyCore Constraint Validation
 
-## Gate 4 — PolicyCore Constraint Validation
-
-Purpose:
-
-> Ensure no decision path bypasses governance.
+Ensures no decision path bypasses governance.
 
 Checks should validate:
 
-* decisions requiring validation are routed through PolicyCore
-* rejected decisions cannot move to PulseFlow execution
-* modified decisions preserve modification trace
-* human approval constraints are enforced
-* tenant policies are respected
-* regulatory and ESG constraints are not weakened silently
+- decisions requiring validation are routed through PolicyCore
+- rejected decisions cannot move to execution
+- modified decisions preserve modification trace
+- human approval constraints are enforced where required
+- tenant policies are respected
 
 Core rule:
 
@@ -224,93 +189,61 @@ Core rule:
 No PolicyCore validation → no PulseFlow execution.
 ```
 
----
+### Gate 5 — PulseFlow Event Validation
 
-## Gate 5 — PulseFlow Event Validation
-
-Purpose:
-
-> Ensure execution remains event-driven, traceable, and replayable.
+Ensures execution remains event-driven, traceable, and replayable.
 
 Checks should validate:
 
-* event schemas are valid
-* events include `tenant_id`
-* events include correlation IDs where required
-* decision execution events reference decision IDs
-* event consumers are idempotent
-* events are compatible with AsyncAPI contracts
-* execution paths produce audit logs
-* feedback events exist for measurable outcomes
+- event structures remain coherent
+- execution references decision context
+- execution paths produce audit logs
+- feedback events exist for measurable outcomes
+- consumers are idempotent where required
 
-A release fails if it creates execution without event traceability.
+A release fails if it creates execution without traceability.
 
----
+### Gate 6 — GreenCore Routing Validation
 
-## Gate 6 — GreenCore Routing Validation
-
-Purpose:
-
-> Ensure execution optimization remains within approved boundaries.
+Ensures execution optimization remains within approved boundaries.
 
 Checks should validate:
 
-* GreenCore cannot override PolicyCore
-* sensitive workloads remain within approved execution zones
-* routing decisions are logged
-* carbon traces are produced where required
-* tenant execution policies are respected
-* cloud escalation is not silent
-* fallback routes are defined
+- GreenCore cannot override PolicyCore
+- sensitive workloads remain within approved execution zones
+- routing decisions are logged
+- carbon or compute traces are produced where required
+- tenant execution policies are respected
 
 Core rule:
 
 > GreenCore optimizes approved execution paths only.
 
----
+### Gate 7 — Security & Tenant Isolation
 
-## Gate 7 — Security & Tenant Isolation
-
-Purpose:
-
-> Ensure the release does not compromise sovereignty or security.
+Ensures the release does not compromise sovereignty or security.
 
 Checks should validate:
 
-* no secrets committed
-* no sensitive data included in public repositories
-* no cross-tenant access path
-* no private tenant data in Standard Domain Packs
-* access control rules remain intact
-* encrypted data handling is preserved
-* logs avoid unnecessary sensitive data exposure
-
-Recommended automated checks:
-
-* secret scanning
-* dependency audit
-* static application security testing
-* container scanning where applicable
-* permission review
+- no secrets committed
+- no sensitive data included in public repositories
+- no cross-tenant access path
+- no private tenant data in standard assets
+- access control rules remain intact
+- logs avoid unnecessary sensitive data exposure
 
 A release fails immediately if tenant isolation is weakened.
 
----
+### Gate 8 — Feedback Loop Validation
 
-## Gate 8 — Feedback Loop Validation
-
-Purpose:
-
-> Ensure execution outcomes can update the system safely.
+Ensures execution outcomes can update the system safely.
 
 Checks should validate:
 
-* execution produces outcome events
-* feedback events map back to decisions
-* feedback updates are tenant-scoped
-* simulation drift thresholds are defined where required
-* diagnostic signals trigger human review where required
-* feedback cannot leak into Universal Knowledge Graph without governance
+- execution produces outcome signals where required
+- feedback maps back to decisions
+- feedback updates are tenant-scoped
+- feedback cannot leak into shared structures without governance
 
 A release fails if it breaks the learning loop.
 
@@ -320,31 +253,31 @@ A release fails if it breaks the learning loop.
 
 For production-grade systems, QORWAY should use controlled deployment strategies.
 
-Recommended models:
+Recommended models include:
 
-* blue / green deployment
-* canary deployment
-* staged rollout
-* feature flags for critical logic
-* rollback-ready migrations
+- blue / green deployment
+- canary deployment
+- staged rollout
+- feature flags for critical logic
+- rollback-ready migrations
 
 Critical changes should never be deployed without rollback planning.
 
 ---
 
-## 8. Database & Graph Migration Rules
+## 8. Migration Rules
 
-Schema and graph changes require special care.
+Schema, graph, or Domain Pack changes require special care.
 
 Rules:
 
-* migrations must be versioned
-* destructive migrations require approval
-* graph schema changes must be backward-compatible where possible
-* Domain Pack schema changes must declare version impact
-* tenant graph migrations must preserve isolation
-* rollback path must be documented
-* audit data must not be deleted silently
+- migrations must be versioned
+- destructive migrations require approval
+- graph changes should preserve historical traceability
+- Domain Pack changes must declare version impact
+- tenant graph migrations must preserve isolation
+- rollback paths must be documented
+- audit data must not be deleted silently
 
 Core rule:
 
@@ -352,61 +285,17 @@ Core rule:
 
 ---
 
-## 9. Domain Pack Versioning
-
-Every Domain Pack release must include:
-
-* version number
-* changelog
-* affected graph nodes
-* affected causal rules
-* affected PolicyCore constraints
-* affected PulseFlow events
-* affected GreenCore policies
-* affected feedback rules
-* migration notes
-
-Example version format:
-
-```text
-finance_pack@1.2.0
-csrd_pack@1.1.0
-supply_chain_pack@1.0.3
-```
-
-Production tenants must not be silently upgraded to a critical Domain Pack version without governance approval.
-
----
-
-## 10. Audit Trail Preservation
-
-Releases must preserve the ability to reconstruct historical decisions.
-
-A historical audit trail may reference:
-
-* Domain Pack version
-* graph schema version
-* causal rule version
-* PolicyCore result
-* PulseFlow event schema
-* GreenCore routing policy
-* feedback rule version
-
-If any version changes, historical references must remain interpretable.
-
----
-
-## 11. Public Repository CI/CD
+## 9. Public Repository CI/CD
 
 For public repositories, CI/CD should focus on:
 
-* markdown validation
-* broken link checks
-* file structure checks
-* no secrets scanning
-* no internal-only terms accidentally exposed
-* no private Domain Pack content
-* no prompts or proprietary implementation logic
+- Markdown validation
+- broken link checks
+- file structure checks
+- secret scanning
+- no internal-only terms accidentally exposed
+- no private Domain Pack content
+- no prompts or proprietary implementation logic
 
 Public repositories build trust.
 
@@ -414,20 +303,20 @@ They should never expose the moat.
 
 ---
 
-## 12. Private Repository CI/CD
+## 10. Private Repository CI/CD
 
 For private repositories, CI/CD should validate:
 
-* source code
-* schemas
-* prompts
-* Domain Packs
-* causal rules
-* constraints
-* event contracts
-* tests
-* deployment artifacts
-* security scans
+- source code
+- schemas
+- prompts
+- Domain Packs
+- causal rules
+- constraints
+- event contracts
+- tests
+- deployment artifacts
+- security scans
 
 Private repositories protect implementation and IP.
 
@@ -435,7 +324,7 @@ They may contain the real system logic.
 
 ---
 
-## 13. AI-Assisted Development Rules
+## 11. AI-Assisted Development Rules
 
 AI-generated code or documentation must be treated as untrusted until validated.
 
@@ -443,14 +332,14 @@ AI-assisted changes must pass the same gates as human-written changes.
 
 AI must not:
 
-* create unscoped tenant access
-* introduce hidden execution paths
-* bypass PolicyCore
-* create events without audit metadata
-* expose private prompts
-* expose Domain Pack internals in public repos
-* weaken security or governance language
-* invent unsupported system behavior
+- create unscoped tenant access
+- introduce hidden execution paths
+- bypass PolicyCore
+- create events without audit metadata
+- expose private prompts
+- expose Domain Pack internals in public repositories
+- weaken security or governance language
+- invent unsupported system behavior
 
 Core rule:
 
@@ -458,106 +347,57 @@ Core rule:
 
 ---
 
-## 14. Rollback Conditions
+## 12. Rollback Conditions
 
 A release should be rolled back if it causes:
 
-* tenant isolation failure
-* PolicyCore validation failure
-* PulseFlow execution failure
-* GreenCore routing violation
-* missing audit trails
-* broken decision lineage
-* graph schema incompatibility
-* major latency degradation
-* security incident
-* Domain Pack misclassification
-* feedback loop corruption
+- tenant isolation failure
+- PolicyCore validation failure
+- PulseFlow execution failure
+- GreenCore routing violation
+- missing audit trails
+- broken decision lineage
+- graph schema incompatibility
+- security incident
+- Domain Pack misclassification
+- feedback loop corruption
 
 ---
 
-## 15. Monitoring After Release
+## 13. Monitoring After Release
 
 After release, the system should monitor:
 
-* error rates
-* execution failures
-* PolicyCore rejections
-* PulseFlow dead letter events
-* GreenCore routing anomalies
-* latency by layer
-* tenant boundary violations
-* missing feedback events
-* audit trace completeness
-* unexpected causal drift
+- error rates
+- execution failures
+- PolicyCore rejections
+- PulseFlow dead letter events
+- GreenCore routing anomalies
+- latency by layer
+- tenant boundary violations
+- missing feedback events
+- audit trace completeness
+- unexpected causal drift
 
 Monitoring must include decision integrity signals, not only infrastructure health.
 
 ---
 
-## 16. Release Documentation
-
-Every release should include a release note.
-
-A release note should contain:
-
-* version
-* release date
-* affected components
-* affected tenants if applicable
-* risk level
-* validation summary
-* rollback plan
-* known limitations
-* audit impact
-
-Example:
-
-```text
-Release: domain-pack-csrd@1.1.0
-Affected layers: Domain Packs, PolicyCore, PulseFlow
-Risk level: Medium
-Validation: Passed Gates 1–8
-Rollback: csrd_pack@1.0.0
-```
-
----
-
-## 17. What QORWAY CI/CD Is Not
+## 14. What QORWAY CI/CD Is Not
 
 QORWAY CI/CD is not:
 
-* deployment automation only
-* a build pipeline only
-* a software release checklist
-* a DevOps afterthought
-* a speed optimization tool
+- deployment automation only
+- a build pipeline only
+- a software release checklist
+- a DevOps afterthought
+- a speed optimization tool
 
 It is a decision integrity protection system.
 
 ---
 
-## 18. Strategic Importance
-
-QORWAY’s credibility depends on the reliability of its releases.
-
-A release can affect:
-
-* causal reasoning
-* governance boundaries
-* execution behavior
-* tenant trust
-* regulatory compliance
-* auditability
-* learning quality
-
-CI/CD is therefore part of the product.
-
-It ensures that QORWAY remains safe to execute as it evolves.
-
----
-
-## 19. Final Statement
+## 15. Final Statement
 
 QORWAY CI/CD protects the integrity of the full decision lifecycle:
 
@@ -565,15 +405,8 @@ QORWAY CI/CD protects the integrity of the full decision lifecycle:
 data → graph → reasoning → constraints → execution → feedback
 ```
 
-Final system statement:
-
 > QORWAY releases must never break decision integrity.
 
-```
 ---
-*© QORWAY Technology — www.qorway.com*  
-```
----
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
-All rights reserved.
-```
+
+© 2026 Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey. All rights reserved.
