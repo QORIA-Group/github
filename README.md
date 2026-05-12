@@ -337,17 +337,14 @@ Public documentation is available in this repository:
 * [`system/PULSEFLOW_OVERVIEW.md`](system/PULSEFLOW_OVERVIEW.md)
 * [`system/GREENCORE_OVERVIEW.md`](system/GREENCORE_OVERVIEW.md)
 
-### Standards
+### Standards & Interfaces
 
-* [`standards/ENGINEERING_PRINCIPLES.md`](STANDARDS/ENGINEERING_PRINCIPLES.md)
-* [`standards/SECURITY_COMPLIANCE.md`](STANDARDS/SECURITY_COMPLIANCE.md)
-* [`standards/CI_CD_STANDARD.md`](STANDARDS/CI_CD_STANDARD.md)
-* [`standards/DATA_GOVERNANCE.md`](STANDARDS/DATA_GOVERNANCE.md)
-
-### Public Interfaces
-
-* [`interfaces/DECISION_MODEL.md`](interfaces/DECISION_MODEL.md)
-* [`interfaces/EVENT_MODEL.md`](interfaces/EVENT_MODEL.md)
+* [`standards/ENGINEERING_PRINCIPLES.md`](standards/ENGINEERING_PRINCIPLES.md)
+* [`standards/SECURITY_COMPLIANCE.md`](standards/SECURITY_COMPLIANCE.md)
+* [`standards/CI_CD_STANDARD.md`](standards/CI_CD_STANDARD.md)
+* [`standards/DATA_GOVERNANCE.md`](standards/DATA_GOVERNANCE.md)
+* [`standards/DECISION_MODEL.md`](standards/DECISION_MODEL.md)
+* [`standards/EVENT_MODEL.md`](standards/EVENT_MODEL.md)
 
 ### Public Examples
 
