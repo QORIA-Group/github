@@ -2,8 +2,7 @@
 
 **QORWAY Decision Intelligence Infrastructure**
 
-> In QORWAY, a decision is not a text output.  
-> A decision is a structured, traceable, constrained, and executable system object.
+> In QORWAY, a decision is not a text output. A decision is a structured, traceable, constrained, and executable system object.
 
 ---
 
@@ -15,7 +14,7 @@ The Decision Model explains how QORWAY treats decisions as governed system objec
 
 ```text
 data → graph → Atlas → Domain Packs → PolicyCore → PulseFlow → GreenCore → execution → feedback
-````
+```
 
 This document is intentionally high-level.
 
@@ -29,13 +28,13 @@ A QORWAY decision is a structured system object representing a proposed course o
 
 A decision must be:
 
-* causal
-* contextual
-* constrained
-* executable
-* auditable
-* tenant-scoped
-* feedback-linked
+- causal
+- contextual
+- constrained
+- executable
+- auditable
+- tenant-scoped
+- feedback-linked
 
 A decision is invalid if it cannot be traced.
 
@@ -121,14 +120,7 @@ The internal data model is proprietary.
 
 Each decision must have a unique identity.
 
-Identity allows the system to track a decision across:
-
-* reasoning
-* validation
-* execution
-* optimization
-* feedback
-* audit
+Identity allows the system to track a decision across reasoning, validation, execution, optimization, feedback, and audit.
 
 A decision without identity cannot be governed.
 
@@ -138,13 +130,7 @@ A decision without identity cannot be governed.
 
 Every decision must belong to a tenant boundary.
 
-Tenant scope ensures:
-
-* data isolation
-* graph isolation
-* execution isolation
-* feedback isolation
-* audit isolation
+Tenant scope ensures data isolation, graph isolation, execution isolation, feedback isolation, and audit isolation.
 
 Core rule:
 
@@ -156,15 +142,7 @@ Core rule:
 
 A decision must be linked to the signal or situation that triggered it.
 
-Source context may include:
-
-* enterprise data signal
-* Knowledge Graph update
-* operational event
-* human input
-* regulatory change
-* feedback signal
-* risk activation
+Source context may include enterprise data signals, Knowledge Graph updates, operational events, human inputs, regulatory changes, feedback signals, and risk activations.
 
 This ensures the system can explain why the decision exists.
 
@@ -174,15 +152,7 @@ This ensures the system can explain why the decision exists.
 
 A decision must be linked to its Domain Pack where domain logic is required.
 
-Domain context may include:
-
-* Domain Pack name
-* Domain Pack version
-* relevant domain rules
-* available actions
-* gates
-* risks
-* outcomes
+Domain context may include Domain Pack name, version, relevant domain rules, available actions, gates, risks, and outcomes.
 
 Domain context ensures that decisions are not generic.
 
@@ -196,13 +166,7 @@ Core rule:
 
 Every QORWAY decision must include causal lineage.
 
-Causal lineage explains:
-
-* what signal changed
-* what causal chain was activated
-* what risk or opportunity emerged
-* why the recommended action exists
-* what outcome is expected
+Causal lineage explains what signal changed, what causal path was activated, what risk or opportunity emerged, why the recommended action exists, and what outcome is expected.
 
 A decision without causal lineage is not a QORWAY decision.
 
@@ -212,13 +176,7 @@ A decision without causal lineage is not a QORWAY decision.
 
 A decision may produce one or more recommended actions.
 
-A recommended action must be:
-
-* linked to causal reasoning
-* compatible with the Domain Pack
-* eligible for PolicyCore validation
-* executable through PulseFlow where required
-* measurable through feedback
+A recommended action must be linked to causal reasoning, compatible with the Domain Pack, eligible for PolicyCore validation, executable through PulseFlow where required, and measurable through feedback.
 
 Recommended actions are not free-form suggestions.
 
@@ -250,14 +208,7 @@ Core rule:
 
 Executable decisions must be linked to PulseFlow.
 
-PulseFlow converts validated decisions into:
-
-* execution events
-* workflows
-* agent tasks
-* system actions
-* execution logs
-* feedback signals
+PulseFlow converts validated decisions into execution events, workflows, agent tasks, system actions, execution logs, and feedback signals.
 
 Core rule:
 
@@ -269,16 +220,7 @@ Core rule:
 
 Approved execution paths may be optimized by GreenCore.
 
-GreenCore evaluates:
-
-* local execution
-* edge execution
-* cloud execution
-* compute cost
-* latency
-* carbon footprint
-* sovereignty constraints
-* tenant execution policy
+GreenCore evaluates local execution, edge execution, cloud execution, compute cost, latency, carbon footprint, sovereignty constraints, and tenant execution policy.
 
 Core rule:
 
@@ -290,16 +232,7 @@ Core rule:
 
 Every measurable decision should define how the system will observe the result.
 
-Feedback may include:
-
-* actual outcome
-* expected vs actual deviation
-* execution delay
-* financial impact
-* operational impact
-* compliance impact
-* carbon / compute impact
-* human approval outcome
+Feedback may include actual outcome, expected vs actual deviation, execution delay, financial impact, operational impact, compliance impact, carbon or compute impact, and human approval outcome.
 
 Feedback enables QORWAY to learn from execution reality.
 
@@ -330,17 +263,7 @@ A decision is invalid if the audit trail cannot be reconstructed.
 
 Some decisions may require human approval.
 
-Human approval may be required by:
-
-* PolicyCore
-* tenant policy
-* Domain Pack rules
-* regulatory classification
-* financial exposure
-* ESG impact
-* public interest
-* low confidence
-* simulation drift
+Human approval may be required by PolicyCore, tenant policy, Domain Pack rules, regulatory classification, financial exposure, ESG impact, public interest, low confidence, or simulation drift.
 
 Human approval must be logged and linked to the decision trace.
 
@@ -350,24 +273,9 @@ Human approval must be logged and linked to the decision trace.
 
 QORWAY may attach quality signals to decisions.
 
-Examples include:
+Examples include clarity, complexity, expected impact, confidence, reversibility, risk exposure, constraint burden, and execution feasibility.
 
-* clarity
-* complexity
-* expected impact
-* confidence
-* reversibility
-* risk exposure
-* constraint burden
-* execution feasibility
-
-These signals help determine:
-
-* priority
-* review depth
-* human oversight needs
-* execution urgency
-* monitoring intensity
+These signals help determine priority, review depth, human oversight needs, execution urgency, and monitoring intensity.
 
 The detailed scoring model is proprietary.
 
@@ -377,15 +285,15 @@ The detailed scoring model is proprietary.
 
 A QORWAY decision is invalid if:
 
-* it has no tenant boundary
-* it has no causal lineage
-* it lacks required domain context
-* it bypasses PolicyCore
-* it executes outside PulseFlow
-* it has no audit metadata
-* it has no execution path where execution is required
-* it has no feedback pathway where outcome is measurable
-* it cannot be reconstructed from evidence
+- it has no tenant boundary
+- it has no causal lineage
+- it lacks required domain context
+- it bypasses PolicyCore
+- it executes outside PulseFlow
+- it has no audit metadata
+- it has no execution path where execution is required
+- it has no feedback pathway where outcome is measurable
+- it cannot be reconstructed from evidence
 
 ---
 
@@ -395,15 +303,15 @@ This public document defines the conceptual interface of the QORWAY Decision Mod
 
 It does not expose:
 
-* internal schemas
-* production JSON contracts
-* scoring algorithms
-* PolicyCore rule implementation
-* PulseFlow event contracts
-* GreenCore routing logic
-* Domain Pack internals
-* prompts
-* proprietary causal models
+- internal schemas
+- production JSON contracts
+- scoring algorithms
+- PolicyCore rule implementation
+- PulseFlow event contracts
+- GreenCore routing logic
+- Domain Pack internals
+- prompts
+- proprietary causal models
 
 Those components belong in private repositories.
 
@@ -411,15 +319,7 @@ Those components belong in private repositories.
 
 ## 21. What the Decision Model Is Not
 
-The Decision Model is not:
-
-* a prompt format
-* a chatbot answer
-* a report template
-* a task list
-* a dashboard card
-* a workflow alone
-* a public implementation contract
+The Decision Model is not a prompt format, chatbot answer, report template, task list, dashboard card, workflow alone, or public implementation contract.
 
 It is the conceptual system object that links reasoning, governance, execution, and learning.
 
@@ -429,15 +329,7 @@ It is the conceptual system object that links reasoning, governance, execution, 
 
 The Decision Model is central to QORWAY’s architecture.
 
-It ensures that every decision is:
-
-* structured
-* explainable
-* governed
-* executable
-* measurable
-* auditable
-* reusable for learning
+It ensures that every decision is structured, explainable, governed, executable, measurable, auditable, and reusable for learning.
 
 Without a structured decision model, QORWAY would produce recommendations.
 
@@ -449,17 +341,8 @@ With it, QORWAY produces decision infrastructure.
 
 A QORWAY decision is a causal, contextual, constrained, executable, and auditable system object.
 
-Final system statement:
-
 > The Decision Model is where QORWAY turns reasoning into governable action.
 
 ---
 
-```
----
-*© QORWAY Technology — www.qorway.com*  
-```
----
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
-All rights reserved.
-```
+© 2026 Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey. All rights reserved.
