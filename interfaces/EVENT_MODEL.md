@@ -2,14 +2,13 @@
 
 **QORWAY Decision Intelligence Infrastructure**
 
-> In QORWAY, events are not simple technical messages.  
-> Events are the operational language of governed execution.
+> In QORWAY, events are not simple technical messages. Events are the operational language of governed execution.
 
 ---
 
 ## 1. Purpose
 
-This document defines the Event Model used by QORWAY.
+This document defines the public-facing Event Model used by QORWAY.
 
 The Event Model explains how QORWAY represents system changes, decision execution, workflow progress, and feedback signals across the infrastructure.
 
@@ -47,7 +46,7 @@ They allow the system to move from:
 
 ```text
 decision → execution → outcome → feedback
-````
+```
 
 to a fully traceable runtime loop:
 
@@ -89,14 +88,7 @@ The internal event schema is proprietary.
 
 Each event must have a unique identity.
 
-Identity allows QORWAY to track an event across:
-
-* ingestion
-* routing
-* orchestration
-* execution
-* feedback
-* audit
+Identity allows QORWAY to track an event across ingestion, routing, orchestration, execution, feedback, and audit.
 
 An event without identity cannot be reliably processed or audited.
 
@@ -106,13 +98,7 @@ An event without identity cannot be reliably processed or audited.
 
 Every event must belong to a tenant boundary.
 
-Tenant scope ensures:
-
-* data isolation
-* event isolation
-* execution isolation
-* audit isolation
-* feedback isolation
+Tenant scope ensures data isolation, event isolation, execution isolation, audit isolation, and feedback isolation.
 
 Core rule:
 
@@ -126,16 +112,16 @@ Each event must declare what kind of system occurrence it represents.
 
 Conceptual event categories may include:
 
-* data events
-* graph events
-* decision events
-* validation events
-* execution events
-* routing events
-* human approval events
-* outcome events
-* feedback events
-* diagnostic events
+- data events
+- graph events
+- decision events
+- validation events
+- execution events
+- routing events
+- human approval events
+- outcome events
+- feedback events
+- diagnostic events
 
 Event types define how PulseFlow and other system layers interpret the event.
 
@@ -145,17 +131,7 @@ Event types define how PulseFlow and other system layers interpret the event.
 
 Each event must identify the layer or system that produced it.
 
-Possible source layers include:
-
-* Knowledge Graph
-* Atlas
-* Domain Packs
-* PolicyCore
-* PulseFlow
-* GreenCore
-* Agent Runtime
-* Human Operator
-* External System
+Possible source layers include Knowledge Graph, Atlas, Domain Packs, PolicyCore, PulseFlow, GreenCore, Agent Runtime, Human Operator, and External System.
 
 Source layer identity ensures that event provenance is auditable.
 
@@ -165,16 +141,7 @@ Source layer identity ensures that event provenance is auditable.
 
 Many QORWAY events are linked to a decision.
 
-A decision-linked event may represent:
-
-* decision generated
-* decision validated
-* decision modified
-* decision rejected
-* execution requested
-* execution completed
-* outcome observed
-* feedback generated
+A decision-linked event may represent decision generation, validation, modification, rejection, execution request, execution completion, outcome observation, or feedback generation.
 
 Core rule:
 
@@ -186,15 +153,7 @@ Core rule:
 
 Events may include Domain Pack context.
 
-Domain context may identify:
-
-* the relevant Domain Pack
-* the Domain Pack version
-* the domain area
-* the related action
-* the related gate
-* the related risk
-* the related outcome
+Domain context may identify the relevant Domain Pack, version, domain area, related action, related gate, related risk, or related outcome.
 
 This ensures that events are interpreted within the correct business or institutional context.
 
@@ -222,16 +181,7 @@ Core rule:
 
 ## 12. Execution Context
 
-Execution-related events may reference:
-
-* workflow stage
-* agent task
-* system action
-* execution target
-* human approval requirement
-* retry state
-* completion state
-* failure state
+Execution-related events may reference workflow stage, agent task, system action, execution target, human approval requirement, retry state, completion state, or failure state.
 
 Execution context allows QORWAY to track how a decision becomes action.
 
@@ -241,15 +191,7 @@ Execution context allows QORWAY to track how a decision becomes action.
 
 Some events may include GreenCore optimization context.
 
-GreenCore-related event information may include:
-
-* execution mode
-* local / edge / cloud route
-* sovereignty score
-* carbon trace reference
-* estimated cost
-* latency profile
-* execution boundary
+GreenCore-related event information may include execution mode, route category, sovereignty context, carbon trace reference, estimated cost, latency profile, and execution boundary.
 
 GreenCore routing context must never override PolicyCore constraints.
 
@@ -259,25 +201,9 @@ GreenCore routing context must never override PolicyCore constraints.
 
 Feedback events close the loop between execution and learning.
 
-Feedback may describe:
+Feedback may describe actual outcome, expected vs actual deviation, execution delay, financial impact, operational impact, compliance result, carbon or compute impact, human approval outcome, or diagnostic signal.
 
-* actual outcome
-* expected vs actual deviation
-* execution delay
-* financial impact
-* operational impact
-* compliance result
-* carbon / compute impact
-* human approval outcome
-* diagnostic signal
-
-Feedback events may update:
-
-* Knowledge Graph state
-* Atlas confidence signals
-* causal weights
-* Domain Pack feedback rules
-* governance evidence
+Feedback events may update Knowledge Graph state, Atlas confidence signals, causal understanding, Domain Pack feedback context, and governance evidence.
 
 Core rule:
 
@@ -289,18 +215,7 @@ Core rule:
 
 Every event should include enough metadata to support audit reconstruction.
 
-Audit metadata may include:
-
-* correlation reference
-* timestamp
-* source layer
-* tenant boundary
-* related decision
-* related workflow
-* related Domain Pack
-* validation status
-* execution status
-* feedback reference
+Audit metadata may include correlation reference, timestamp, source layer, tenant boundary, related decision, related workflow, related Domain Pack, validation status, execution status, and feedback reference.
 
 A system event is invalid if it cannot be reconstructed during audit.
 
@@ -340,95 +255,43 @@ Not every event passes through every stage, but every critical event must remain
 
 Represent new or updated enterprise signals.
 
-Examples:
-
-* new financial signal
-* operational metric updated
-* ESG indicator updated
-* external regulatory change detected
-
----
+Examples include financial signals, operational metrics, ESG indicators, and external regulatory changes.
 
 ### 17.2 Graph Events
 
 Represent changes to the Knowledge Graph.
 
-Examples:
-
-* node created
-* relationship updated
-* causal chain activated
-* risk node triggered
-* gate status changed
-
----
+Examples include node creation, relationship updates, causal chain activation, risk activation, and gate status changes.
 
 ### 17.3 Decision Events
 
 Represent decision lifecycle changes.
 
-Examples:
-
-* decision created
-* decision reasoned
-* decision contextualized
-* decision ready for validation
-
----
+Examples include decision created, decision reasoned, decision contextualized, and decision ready for validation.
 
 ### 17.4 Policy Events
 
 Represent PolicyCore validation outcomes.
 
-Examples:
-
-* decision approved
-* decision modified
-* decision rejected
-* human approval required
-* constraint triggered
-
----
+Examples include decision approved, decision modified, decision rejected, human approval required, and constraint triggered.
 
 ### 17.5 Execution Events
 
 Represent PulseFlow orchestration steps.
 
-Examples:
-
-* execution requested
-* workflow started
-* agent activated
-* task completed
-* workflow failed
-
----
+Examples include execution requested, workflow started, agent activated, task completed, and workflow failed.
 
 ### 17.6 Routing Events
 
 Represent GreenCore execution optimization outcomes.
 
-Examples:
-
-* local execution selected
-* edge execution selected
-* cloud execution selected
-* carbon trace generated
-* routing fallback activated
-
----
+Examples include local execution selected, edge execution selected, cloud execution selected, carbon trace generated, and fallback routing activated.
 
 ### 17.7 Feedback Events
 
 Represent outcome and learning signals.
 
-Examples:
-
-* outcome observed
-* expected impact missed
-* simulation drift detected
-* diagnostic signal generated
-* feedback stored
+Examples include outcome observed, expected impact missed, simulation drift detected, diagnostic signal generated, and feedback stored.
 
 ---
 
@@ -436,12 +299,7 @@ Examples:
 
 Atlas may produce decision-related events or consume feedback-related events.
 
-Atlas uses events to understand:
-
-* what changed
-* what decision was made
-* what outcome occurred
-* what feedback should influence future reasoning
+Atlas uses events to understand what changed, what decision was made, what outcome occurred, and what feedback should influence future reasoning.
 
 Atlas does not orchestrate execution directly.
 
@@ -451,17 +309,9 @@ PulseFlow handles execution events.
 
 ## 19. Relationship with Domain Packs
 
-Domain Packs define which events exist inside a domain.
+Domain Packs define which event categories exist inside a domain.
 
-A Domain Pack may define:
-
-* allowed event types
-* required event fields
-* action-triggering events
-* gate-related events
-* risk-related events
-* outcome-related events
-* feedback events
+A Domain Pack may define allowed event types, required event fields, action-triggering events, gate-related events, risk-related events, outcome-related events, and feedback events.
 
 Core rule:
 
@@ -475,12 +325,7 @@ PolicyCore produces validation events.
 
 These events determine whether execution may proceed.
 
-PulseFlow must not execute:
-
-* rejected decisions
-* unvalidated decisions
-* decisions missing required human approval
-* events outside tenant scope
+PulseFlow must not execute rejected decisions, unvalidated decisions, decisions missing required human approval, or events outside tenant scope.
 
 Core rule:
 
@@ -492,15 +337,7 @@ Core rule:
 
 PulseFlow is the primary event orchestration layer.
 
-It is responsible for:
-
-* event ingestion
-* event normalization
-* event enrichment
-* event routing
-* workflow orchestration
-* event logging
-* feedback emission
+It is responsible for event ingestion, normalization, enrichment, routing, workflow orchestration, event logging, and feedback emission.
 
 PulseFlow turns events into governed execution.
 
@@ -510,13 +347,7 @@ PulseFlow turns events into governed execution.
 
 GreenCore produces routing and optimization events.
 
-These events may describe:
-
-* where execution should happen
-* why that route was selected
-* what cost / carbon profile was estimated
-* whether fallback routing was required
-* how sovereignty constraints influenced execution
+These events may describe where execution should happen, why that route was selected, what cost or carbon profile was estimated, whether fallback routing was required, and how sovereignty constraints influenced execution.
 
 GreenCore events are linked to execution and feedback.
 
@@ -526,17 +357,7 @@ GreenCore events are linked to execution and feedback.
 
 Events update the Knowledge Graph.
 
-They may create or update:
-
-* decision status
-* risk state
-* gate state
-* action state
-* outcome evidence
-* feedback records
-* execution history
-* carbon traces
-* audit evidence
+They may create or update decision status, risk state, gate state, action state, outcome evidence, feedback records, execution history, carbon traces, and audit evidence.
 
 Core rule:
 
@@ -548,16 +369,16 @@ Core rule:
 
 An event is invalid if:
 
-* it has no identity
-* it has no tenant boundary
-* it lacks required source context
-* it cannot be audited
-* it triggers execution without PolicyCore validation
-* it bypasses PulseFlow where orchestration is required
-* it crosses tenant boundaries
-* it contains unnecessary sensitive payloads
-* it cannot be linked to a decision where required
-* it cannot be linked to feedback where required
+- it has no identity
+- it has no tenant boundary
+- it lacks required source context
+- it cannot be audited
+- it triggers execution without PolicyCore validation
+- it bypasses PulseFlow where orchestration is required
+- it crosses tenant boundaries
+- it contains unnecessary sensitive payloads
+- it cannot be linked to a decision where required
+- it cannot be linked to feedback where required
 
 ---
 
@@ -567,15 +388,15 @@ This public document defines the conceptual interface of the QORWAY Event Model.
 
 It does not expose:
 
-* internal event schemas
-* AsyncAPI contracts
-* production payloads
-* routing rules
-* private event names
-* agent execution contracts
-* internal retry policies
-* queue configuration
-* proprietary orchestration logic
+- internal event schemas
+- AsyncAPI contracts
+- production payloads
+- routing rules
+- private event names
+- agent execution contracts
+- internal retry policies
+- queue configuration
+- proprietary orchestration logic
 
 Those components belong in private repositories.
 
@@ -583,14 +404,7 @@ Those components belong in private repositories.
 
 ## 26. What the Event Model Is Not
 
-The Event Model is not:
-
-* a message queue specification
-* a public AsyncAPI contract
-* an implementation schema
-* a webhook catalog
-* a workflow automation recipe
-* a logging format only
+The Event Model is not a message queue specification, public AsyncAPI contract, implementation schema, webhook catalog, workflow automation recipe, or logging format only.
 
 It is the conceptual system model for how QORWAY moves intelligence into execution and feeds reality back into learning.
 
@@ -602,15 +416,7 @@ The Event Model is critical because QORWAY is not only a reasoning system.
 
 It is an executable intelligence infrastructure.
 
-Events allow QORWAY to:
-
-* move validated decisions into action
-* coordinate agents and systems
-* preserve execution traceability
-* produce feedback
-* update the Knowledge Graph
-* support audit and governance
-* maintain tenant-scoped execution
+Events allow QORWAY to move validated decisions into action, coordinate agents and systems, preserve execution traceability, produce feedback, update the Knowledge Graph, support audit and governance, and maintain tenant-scoped execution.
 
 Without events, QORWAY would generate decisions.
 
@@ -622,15 +428,8 @@ With events, QORWAY operates as a live decision infrastructure.
 
 A QORWAY event is a tenant-scoped, traceable system signal that connects reasoning, validation, execution, optimization, and feedback.
 
-Final system statement:
-
 > The Event Model is how QORWAY turns governed decisions into operational reality.
 
-```
 ---
-*© QORWAY Technology — www.qorway.com*  
-```
----
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
-All rights reserved.
-```
+
+© 2026 Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey. All rights reserved.
