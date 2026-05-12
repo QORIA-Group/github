@@ -1,3 +1,4 @@
+````md
 # Decision Intelligence Loop
 
 **QORWAY Decision Intelligence Infrastructure**
