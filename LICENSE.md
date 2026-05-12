@@ -1,14 +1,16 @@
 # LICENSE
 
-© 2026 QORWAY Technology. All rights reserved.
+© 2026 Nicole Valey. All rights reserved.
+
+QORWAY Technology is a proprietary project created and owned by Nicole Valey.
 
 This repository and its contents are proprietary.
 
-The materials contained in this repository, including but not limited to concepts, architecture, documentation, system designs, naming, diagrams, frameworks, specifications, and strategic models, are the intellectual property of QORWAY Technology.
+The materials contained in this repository, including but not limited to concepts, architecture, documentation, system designs, naming, diagrams, frameworks, specifications, and strategic models, are the intellectual property of Nicole Valey.
 
 ## Restrictions
 
-You may not, without prior written permission from QORWAY Technology:
+You may not, without prior written permission from Nicole Valey :
 
 - copy, reproduce, or redistribute this material;
 - modify, adapt, or create derivative works from this material;
@@ -52,5 +54,6 @@ Sovereign Decision Intelligence Infrastructure for Europe
 
 ```
 ---
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey. All rights reserved.
+© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
+All rights reserved.
 ```
