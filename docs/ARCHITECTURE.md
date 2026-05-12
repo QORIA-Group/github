@@ -429,6 +429,9 @@ Together, they form the foundation for sovereign decision intelligence in Europe
 
 ```
 ---
+*© QORWAY Technology — www.qorway.com*  
+```
+---
 © Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
 All rights reserved.
 ```
