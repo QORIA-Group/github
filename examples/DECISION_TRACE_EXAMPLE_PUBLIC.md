@@ -1,4 +1,4 @@
-# Decision Trace Example 
+# Decision Trace Example — Public-Safe
 
 **QORWAY Decision Intelligence Infrastructure**
 
@@ -14,21 +14,21 @@ It demonstrates how a decision can move through the QORWAY runtime:
 
 ```text
 signal → graph → reasoning → constraint validation → execution → optimization → feedback
-````
+```
 
 This example is intentionally high-level.
 
 It does not expose:
 
-* internal schemas
-* production event contracts
-* causal weights
-* scoring formulas
-* PolicyCore rules
-* GreenCore routing rules
-* prompts
-* tenant-specific data
-* implementation logic
+- internal schemas
+- production event contracts
+- causal weights
+- scoring formulas
+- PolicyCore rules
+- GreenCore routing rules
+- prompts
+- tenant-specific data
+- implementation logic
 
 ---
 
@@ -92,13 +92,13 @@ A critical workflow is taking longer than expected.
 
 Possible signal categories:
 
-* operational signal
-* financial signal
-* compliance signal
-* ESG signal
-* risk signal
-* human decision signal
-* external regulatory signal
+- operational signal
+- financial signal
+- compliance signal
+- ESG signal
+- risk signal
+- human decision signal
+- external regulatory signal
 
 The signal becomes relevant only when it is connected to system context.
 
@@ -124,11 +124,11 @@ The Knowledge Graph helps QORWAY understand that the signal is not isolated.
 
 It may affect:
 
-* risks
-* gates
-* outcomes
-* dependencies
-* execution priorities
+- risks
+- gates
+- outcomes
+- dependencies
+- execution priorities
 
 ---
 
@@ -138,11 +138,11 @@ Atlas reasons over the Knowledge Graph.
 
 Atlas identifies:
 
-* what changed
-* why it matters
-* which causal path is active
-* which risk or opportunity is emerging
-* what decision path should be considered
+- what changed
+- why it matters
+- which causal path is active
+- which risk or opportunity is emerging
+- what decision path should be considered
 
 Example conceptual reasoning:
 
@@ -164,13 +164,13 @@ The relevant Domain Pack contextualizes the decision.
 
 The Domain Pack may define:
 
-* domain-specific entities
-* allowed actions
-* risks
-* gates
-* outcomes
-* feedback expectations
-* systemic impact lens
+- domain-specific entities
+- allowed actions
+- risks
+- gates
+- outcomes
+- feedback expectations
+- systemic impact lens
 
 Example conceptual context:
 
@@ -218,13 +218,13 @@ PolicyCore checks whether the decision is allowed to move forward.
 
 PolicyCore may evaluate:
 
-* tenant policy
-* regulatory constraints
-* operational capacity
-* financial exposure
-* ESG constraints
-* human approval requirements
-* data handling restrictions
+- tenant policy
+- regulatory constraints
+- operational capacity
+- financial exposure
+- ESG constraints
+- human approval requirements
+- data handling restrictions
 
 Possible outcomes:
 
@@ -252,13 +252,13 @@ Once validated, PulseFlow converts the decision into an execution flow.
 
 PulseFlow may create:
 
-* execution event
-* workflow
-* agent task
-* human approval request
-* system update
-* execution log
-* feedback requirement
+- execution event
+- workflow
+- agent task
+- human approval request
+- system update
+- execution log
+- feedback requirement
 
 Example conceptual orchestration:
 
@@ -279,14 +279,14 @@ GreenCore determines how the approved execution should happen.
 
 GreenCore may evaluate:
 
-* local execution
-* edge execution
-* cloud execution
-* cost
-* latency
-* carbon footprint
-* data sensitivity
-* sovereignty policy
+- local execution
+- edge execution
+- cloud execution
+- cost
+- latency
+- carbon footprint
+- data sensitivity
+- sovereignty policy
 
 Example conceptual optimization:
 
@@ -306,12 +306,12 @@ The approved and optimized execution path is carried out.
 
 Execution may involve:
 
-* agent action
-* workflow update
-* human approval
-* system notification
-* enterprise tool update
-* external API call where authorized
+- agent action
+- workflow update
+- human approval
+- system notification
+- enterprise tool update
+- external API call where authorized
 
 Example conceptual execution:
 
@@ -329,14 +329,14 @@ After execution, QORWAY captures feedback.
 
 Feedback may include:
 
-* actual outcome
-* expected vs actual deviation
-* execution delay
-* financial impact
-* operational impact
-* compliance result
-* carbon / compute impact
-* human approval outcome
+- actual outcome
+- expected vs actual deviation
+- execution delay
+- financial impact
+- operational impact
+- compliance result
+- carbon / compute impact
+- human approval outcome
 
 Example conceptual feedback:
 
@@ -354,12 +354,12 @@ Feedback updates the Knowledge Graph and future reasoning.
 
 Possible learning updates:
 
-* causal confidence adjusted
-* risk pattern updated
-* action effectiveness updated
-* feedback rule triggered
-* diagnostic signal generated
-* future recommendation refined
+- causal confidence adjusted
+- risk pattern updated
+- action effectiveness updated
+- feedback rule triggered
+- diagnostic signal generated
+- future recommendation refined
 
 Example conceptual learning:
 
@@ -460,18 +460,18 @@ This is what makes the decision auditable.
 
 This public example intentionally excludes:
 
-* production decision object
-* production event schema
-* internal JSON contracts
-* causal weights
-* scoring algorithms
-* exact thresholds
-* prompts
-* PolicyCore implementation rules
-* GreenCore routing rules
-* PulseFlow orchestration contracts
-* tenant-specific graph structures
-* proprietary Domain Pack logic
+- production decision object
+- production event schema
+- internal JSON contracts
+- causal weights
+- scoring algorithms
+- exact thresholds
+- prompts
+- PolicyCore implementation rules
+- GreenCore routing rules
+- PulseFlow orchestration contracts
+- tenant-specific graph structures
+- proprietary Domain Pack logic
 
 These components belong in private QORWAY repositories.
 
@@ -481,11 +481,11 @@ These components belong in private QORWAY repositories.
 
 Decision traces are central to QORWAY because they make intelligence:
 
-* explainable
-* governable
-* executable
-* auditable
-* improvable
+- explainable
+- governable
+- executable
+- auditable
+- improvable
 
 Traditional systems often produce outputs without traceable reasoning.
 
@@ -499,11 +499,6 @@ A QORWAY decision trace shows how a signal becomes a governed decision, how that
 
 > Decision traces are how QORWAY makes intelligence accountable.
 
-```
 ---
-*© QORWAY Technology — www.qorway.com*  
-```
----
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
-All rights reserved.
-```
+
+© 2026 Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey. All rights reserved.
