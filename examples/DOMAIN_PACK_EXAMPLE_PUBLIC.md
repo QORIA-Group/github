@@ -357,7 +357,12 @@ A Domain Pack is the mechanism that turns the QORWAY core into a domain-specific
 > Domain Packs convert domain reality into causal, constrained, executable intelligence.
 
 ```
+```
 ---
-*© QORWAY Technology SAS — www.qorway.com*  
-*Proprietary. All rights reserved.*
+*© QORWAY Technology — www.qorway.com*  
+```
+---
+© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
+All rights reserved.
+```
 ```
