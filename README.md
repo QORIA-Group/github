@@ -394,6 +394,8 @@ QORWAY is designed to align infrastructure value with measurable organizational 
 
 ## 📜 Intellectual Property
 
+QORWAY Technology is a proprietary project created and owned by **Nicole Valey**.
+
 Core proprietary systems include:
 
 * Atlas Causal Intelligence Engine
@@ -404,7 +406,9 @@ Core proprietary systems include:
 * Knowledge Graph Framework
 * Decision Intelligence System
 
-This repository does not grant implementation rights to the underlying systems.
+This repository does not grant implementation, reproduction, commercial usage, derivative, sublicensing, or transfer rights to the underlying systems.
+
+Any future transfer, contribution, assignment, or licensing of this intellectual property to a dedicated holding company or operating entity must be governed by a separate written agreement.
 
 ---
 
@@ -430,11 +434,8 @@ A system where:
 
 ## 📜 License
 
-© QORWAY Technology — All rights reserved.
+© 2026 Nicole Valey. All rights reserved.
 
-Usage is subject to commercial licensing agreements.
+QORWAY Technology is a proprietary project created and owned by Nicole Valey.
 
-
-
-
-
+Usage is subject to separate written commercial licensing agreements.
