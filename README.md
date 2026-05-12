@@ -1,6 +1,3 @@
-
-
-````md
 # 🇪🇺 QORWAY TECHNOLOGY
 
 **Sovereign Decision Intelligence Infrastructure for Europe**
