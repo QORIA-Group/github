@@ -342,10 +342,10 @@ Public documentation is available in this repository:
 
 ### Standards
 
-* [`standards/ENGINEERING_PRINCIPLES.md`](standards/ENGINEERING_PRINCIPLES.md)
-* [`standards/SECURITY_COMPLIANCE.md`](standards/SECURITY_COMPLIANCE.md)
-* [`standards/CI_CD_STANDARD.md`](standards/CI_CD_STANDARD.md)
-* [`standards/DATA_GOVERNANCE.md`](standards/DATA_GOVERNANCE.md)
+* [`STANDARDS/ENGINEERING_PRINCIPLES.md`](standards/ENGINEERING_PRINCIPLES.md)
+* [`STANDARDS/SECURITY_COMPLIANCE.md`](standards/SECURITY_COMPLIANCE.md)
+* [`STANDARDS/CI_CD_STANDARD.md`](standards/CI_CD_STANDARD.md)
+* [`STANDARDS/DATA_GOVERNANCE.md`](standards/DATA_GOVERNANCE.md)
 
 ### Public Interfaces
 
