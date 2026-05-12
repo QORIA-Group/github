@@ -343,6 +343,9 @@ Public documentation is available in this repository:
 * [`standards/SECURITY_COMPLIANCE.md`](standards/SECURITY_COMPLIANCE.md)
 * [`standards/CI_CD_STANDARD.md`](standards/CI_CD_STANDARD.md)
 * [`standards/DATA_GOVERNANCE.md`](standards/DATA_GOVERNANCE.md)
+
+### Interfaces
+  
 * [`standards/DECISION_MODEL.md`](standards/DECISION_MODEL.md)
 * [`standards/EVENT_MODEL.md`](standards/EVENT_MODEL.md)
 
