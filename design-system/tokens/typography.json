@@ -1,0 +1,49 @@
+{
+  "fontFamily": {
+    "display": "Space Grotesk, system-ui, sans-serif",
+    "body": "Inter, system-ui, sans-serif",
+    "mono": "IBM Plex Mono, SF Mono, monospace"
+  },
+  "scale": {
+    "display": {
+      "fontFamily": "display",
+      "fontSize": "64px",
+      "lineHeight": "0.95",
+      "letterSpacing": "-0.04em",
+      "fontWeight": 700
+    },
+    "h1": {
+      "fontFamily": "display",
+      "fontSize": "48px",
+      "lineHeight": "1",
+      "letterSpacing": "-0.035em",
+      "fontWeight": 700
+    },
+    "h2": {
+      "fontFamily": "display",
+      "fontSize": "32px",
+      "lineHeight": "1.1",
+      "letterSpacing": "-0.025em",
+      "fontWeight": 600
+    },
+    "body": {
+      "fontFamily": "body",
+      "fontSize": "15px",
+      "lineHeight": "1.55",
+      "fontWeight": 400
+    },
+    "label": {
+      "fontFamily": "mono",
+      "fontSize": "11px",
+      "lineHeight": "1.2",
+      "letterSpacing": "0.08em",
+      "textTransform": "uppercase"
+    },
+    "data": {
+      "fontFamily": "mono",
+      "fontSize": "13px",
+      "lineHeight": "1.45",
+      "fontWeight": 400
+    }
+  }
+}
