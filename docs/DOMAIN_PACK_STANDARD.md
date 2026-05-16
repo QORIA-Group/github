@@ -1,1144 +1,257 @@
-````md
-# Domain Pack Standard v2.0
+# Domain Pack Standard
 
-**QORWAY Decision Intelligence Infrastructure**  
-**Declarative Cognitive Configuration + Systemic Impact Model**
+**QORWAY Decision Intelligence Infrastructure**
 
-> A Domain Pack is how QORWAY turns a business, institutional, or operational domain into an executable causal decision system.
+> A Domain Pack is how QORWAY converts domain reality into causal, constrained, and governed decision intelligence.
 
 ---
 
 ## 1. Definition
 
-A Domain Pack is a declarative cognitive configuration that transforms the QORWAY core into a domain-specific decision system.
+A Domain Pack is a structured domain intelligence layer that makes QORWAY context-aware.
 
-It defines:
+It defines, at a public-safe level:
 
-- how the domain is represented
-- how causal relationships are understood
-- how decisions are generated
-- which constraints apply
-- how execution should be routed
-- which agents may act
-- which events exist
-- how outcomes are measured
-- how the system learns from feedback
-- how systemic impact is evaluated
+- how a domain is represented
+- which types of risks and constraints matter
+- which decision contexts must be considered
+- which governance boundaries apply
+- how execution and feedback should remain traceable
 
-A Domain Pack is not a database.
+A Domain Pack is not a SaaS module.
 
-It is not a SaaS module.
+It is not a database.
 
 It is not a prompt library.
 
-It is a structured intelligence package that makes Atlas operational inside a specific domain.
+It is a domain structure that helps Atlas reason, PolicyCore validate, PulseFlow orchestrate, GreenCore optimize, and the Knowledge Graph preserve context.
 
 ---
 
-## 2. Role in QORWAY OS
+## 2. Role in QORWAY
 
 Domain Packs are the Context & Business Intelligence Layer of QORWAY.
 
-They sit between Atlas and PolicyCore.
+They sit between Atlas and PolicyCore:
 
 ```text
-ATLAS
-  ↓
-DOMAIN PACKS
-  ↓
-POLICYCORE
-  ↓
-PULSEFLOW
-  ↓
-GREENCORE
-  ↓
-EXECUTION
-  ↓
-FEEDBACK LOOP
-````
+Atlas → Domain Packs → PolicyCore → PulseFlow → GreenCore → Execution → Feedback
+```
 
-Atlas provides causal reasoning.
+Atlas reasons.
 
-Domain Packs provide domain structure.
+Domain Packs contextualize.
 
-PolicyCore validates constraints.
+PolicyCore validates.
 
-PulseFlow orchestrates execution.
+PulseFlow orchestrates.
 
-GreenCore optimizes the execution path.
+GreenCore optimizes.
 
 ---
 
 ## 3. Why Domain Packs Exist
 
-Generic AI systems fail in enterprise and institutional environments because they do not understand domain structure.
+Generic AI systems struggle in regulated and complex enterprise environments because they do not understand domain structure.
 
-They may generate fluent outputs, but they lack:
+They may generate fluent outputs, but they often lack:
 
-* domain ontologies
-* causal dependencies
-* regulatory logic
-* decision gates
-* execution pathways
-* measurable outcomes
-* feedback rules
-* systemic impact modeling
+- domain boundaries
+- causal dependencies
+- regulatory context
+- evidence requirements
+- execution constraints
+- feedback expectations
+- tenant boundaries
 
-Domain Packs solve this by encoding structured domain intelligence into QORWAY.
-
-They make Atlas domain-aware without training data, fine-tuning, or custom core development.
+Domain Packs solve this by giving QORWAY structured context for a specific domain without changing the core infrastructure.
 
 ---
 
-## 4. Core Principle
+## 4. Public Domain Pack Categories
 
-A Domain Pack does not train Atlas.
+Public-safe Domain Pack categories include:
 
-A Domain Pack structures reality for Atlas.
+| Domain | Public role |
+|---|---|
+| Finance | Capital allocation, financial exposure, margin dynamics, and decision economics. |
+| Supply Chain | Supplier dependency, operational continuity, logistics risk, and resilience exposure. |
+| CSRD / RSE | Sustainability, double materiality, evidence, auditability, and reporting readiness. |
+| Regulator | Jurisdictional context, obligations, policy constraints, and accountable review. |
+| Workforce Capital | Human capability, AI-assisted work, upskilling, oversight, and operational autonomy. |
+| Sovereign Resilience | Provider dependency, data residency, crash readiness, and digital autonomy. |
 
-QORWAY does not rely on fine-tuning to become domain-aware.
+These are public categories only.
 
-It relies on:
-
-```text
-GRAPH → CAUSAL → DECISION → CONSTRAINT → EXECUTION → FEEDBACK
-```
-
-Domain Packs allow QORWAY to create domain-specific decision systems without modifying the core infrastructure.
-
----
-
-## 5. Canonical Domain Pack Structure
-
-Every Domain Pack should follow this canonical structure:
-
-```text
-domains/<domain_name>/
-│
-├── domain.yaml
-│
-├── graph.schema.json
-├── causal.rules.json
-├── decision.policies.json
-├── policycore.constraints.json
-├── greencore.policy.json
-├── agents.registry.json
-├── events.schema.json
-├── feedback.rules.json
-│
-├── steps.impact_model.json
-│
-└── prompts/
-    ├── reasoning.prompt.md
-    ├── decision.prompt.md
-    ├── explanation.prompt.md
-    └── agent.prompt.md
-```
-
-This structure enables QORWAY to load a Domain Pack as an executable domain configuration.
-
-The QORWAY core does not change.
-
-The Domain Pack injects:
-
-* graph structure
-* causal rules
-* decision policies
-* constraint rules
-* execution preferences
-* agents
-* events
-* feedback logic
-* impact model
-* prompt behavior
+Private Domain Pack internals remain private.
 
 ---
 
-## 6. Domain Metadata
+## 5. Conceptual Components
 
-The `domain.yaml` file is the entry point of the Domain Pack.
+A Domain Pack may include public-safe conceptual components such as:
 
-It defines the identity, scope, jurisdiction, and internal references of the pack.
+- domain boundary
+- core entities
+- domain risks
+- decision contexts
+- evidence expectations
+- governance constraints
+- execution considerations
+- feedback signals
+- versioning discipline
 
-Example:
-
-```yaml
-name: "ESG / CSRD Pack"
-version: "1.0.0"
-domain_type: "esg_csrd"
-description: "Causal decision intelligence pack for ESG and CSRD compliance."
-
-jurisdiction:
-  - EU
-  - FR
-
-core_entities:
-  - indicator
-  - action
-  - risk
-  - gate
-  - outcome
-  - constraint
-  - event
-  - decision
-
-entry_graph: graph.schema.json
-causal_model: causal.rules.json
-decision_engine: decision.policies.json
-policy_constraints: policycore.constraints.json
-execution_policy: greencore.policy.json
-agents: agents.registry.json
-events: events.schema.json
-feedback_rules: feedback.rules.json
-impact_model: steps.impact_model.json
-```
+The public repository does not expose private file contracts, registries, thresholds, scoring models, or implementation schemas.
 
 ---
 
-## 7. Knowledge Graph Schema
+## 6. Relationship with Atlas
 
-The `graph.schema.json` file defines how the domain is represented.
+Atlas uses Domain Packs to reason inside a domain context.
 
-Typical node types include:
+Domain Packs help Atlas understand:
 
-* Indicator
-* Action
-* Risk
-* Gate
-* Outcome
-* Constraint
-* Event
-* Decision
-* Actor
-* Resource
-* System
-* Stakeholder
-
-Typical relationship types include:
-
-* CAUSES
-* MITIGATES
-* REQUIRES
-* BLOCKS
-* ENABLES
-* AFFECTS
-* YIELDS
-* TRIGGERS
-* DEPENDS_ON
-* EVIDENCES
-
-Example:
-
-```json
-{
-  "nodes": [
-    { "type": "Indicator", "id": "IND_E1_004", "label": "Scope 3 emissions" },
-    { "type": "Risk", "id": "RISK_E1_001", "label": "CSRD non-compliance risk" },
-    { "type": "Action", "id": "ACT_E1_002", "label": "Decarbonization plan" },
-    { "type": "Gate", "id": "GATE_RSE_3", "label": "CSRD reporting readiness" }
-  ],
-  "edges": [
-    {
-      "from": "IND_E1_004",
-      "to": "RISK_E1_001",
-      "type": "CAUSES",
-      "weight": 0.92
-    },
-    {
-      "from": "ACT_E1_002",
-      "to": "RISK_E1_001",
-      "type": "MITIGATES",
-      "weight": 0.86
-    }
-  ]
-}
-```
-
-The graph schema defines what exists.
-
-It does not execute.
-
-It gives Atlas the domain structure required for reasoning.
-
----
-
-## 8. Causal Rules
-
-The `causal.rules.json` file defines how the system understands cause and effect inside the domain.
-
-A causal rule must include:
-
-* cause
-* effect
-* weight or confidence
-* trigger condition
-* expected lag where relevant
-* business meaning
-* expected impact
-* explainability metadata
-
-Example:
-
-```json
-{
-  "rule_id": "RULE_E1_SCOPE3_RISK",
-  "cause": "IND_E1_004",
-  "condition": "value > threshold_critical",
-  "effect": "RISK_E1_001",
-  "confidence": 0.92,
-  "lag_months": 0,
-  "impact": "CSRD reporting risk increases",
-  "recommended_action": "ACT_E1_002",
-  "explainability": "Scope 3 emissions above critical threshold increase CSRD non-compliance exposure."
-}
-```
+- what entities matter
+- what dependencies matter
+- what risks may propagate
+- what decisions are structurally relevant
+- what evidence or validation may be required
 
 Core rule:
 
-> No causal rule is valid unless it can be explained and audited.
+> Atlas reasons. Domain Packs contextualize.
 
 ---
 
-## 9. Decision Policies
+## 7. Relationship with PolicyCore
 
-The `decision.policies.json` file defines which domain-level decisions or actions Atlas may recommend.
+Domain Packs may identify domain-level constraints and evidence expectations.
 
-Decision policies transform causal understanding into possible action.
-
-Example:
-
-```json
-{
-  "policy_id": "POLICY_ESG_REPORTING_READINESS",
-  "condition": "RISK_E1_001.active = true",
-  "allowed_actions": [
-    "ACT_E1_001",
-    "ACT_E1_002"
-  ],
-  "blocked_actions": [
-    "SUBMIT_REPORT"
-  ],
-  "requires_policycore_validation": true
-}
-```
-
-Decision policies do not replace PolicyCore.
-
-They define domain-level logic.
-
-PolicyCore validates whether the proposed decision can exist under real-world constraints.
-
----
-
-## 10. PolicyCore Constraints
-
-The `policycore.constraints.json` file defines the constraint layer attached to the Domain Pack.
-
-PolicyCore determines whether a decision is:
-
-```text
-APPROVED
-MODIFIED
-REJECTED
-```
-
-Constraints may include:
-
-* regulatory constraints
-* GDPR constraints
-* EU AI Act constraints
-* ESG constraints
-* financial constraints
-* ethical constraints
-* system capacity constraints
-* tenant-specific constraints
-
-Example:
-
-```json
-{
-  "constraint_id": "CONSTRAINT_MAX_CARBON_INTENSITY",
-  "constraint": "max_carbon_intensity",
-  "scope": "supply_chain",
-  "threshold": 0.7,
-  "severity": "hard_block",
-  "enforcement": "pre_execution",
-  "linked_domain": "supply_chain_pack"
-}
-```
-
-Constraint types:
-
-| Type                    | Behavior                            |
-| ----------------------- | ----------------------------------- |
-| Hard Block              | Execution forbidden                 |
-| Soft Limit              | Warning + degraded execution        |
-| Modification Rule       | Decision must be adjusted           |
-| Human Approval          | Execution requires human validation |
-| Simulation Constraint   | Affects scenario outcomes           |
-| Optimization Constraint | Influences GreenCore routing        |
+PolicyCore remains the authority that validates whether a proposed decision is allowed to move forward.
 
 Core rule:
 
-> Domain Packs can propose. PolicyCore decides whether the proposal is valid.
+> Domain Packs structure domain context. PolicyCore validates constraints.
 
 ---
 
-## 11. GreenCore Execution Policy
+## 8. Relationship with PulseFlow
 
-The `greencore.policy.json` file defines how approved decisions should be executed efficiently and sovereignly.
+Domain Packs help define which kinds of actions and transitions may need orchestration.
 
-GreenCore does not validate legality.
-
-GreenCore optimizes execution.
-
-It evaluates:
-
-* compute cost
-* latency
-* carbon footprint
-* energy usage
-* data sensitivity
-* execution location
-* sovereignty preference
-* tenant policies
-
-Example:
-
-```json
-{
-  "preferred_execution": "edge",
-  "cloud_allowed": false,
-  "carbon_tracking_required": true,
-  "sovereignty_priority": "high",
-  "sensitive_data": true,
-  "fallback_execution": "local"
-}
-```
+PulseFlow turns validated decisions into governed execution flows.
 
 Core rule:
 
-> PolicyCore defines what is allowed. GreenCore defines the best execution path for what is allowed.
+> If a decision cannot be orchestrated and traced, it is not operationally complete.
 
 ---
 
-## 12. Action Registry
+## 9. Relationship with GreenCore
 
-The `actions.registry.json` file defines available actions inside the Domain Pack.
+Domain Packs may influence execution preferences such as locality, energy sensitivity, resilience, or data boundary requirements.
 
-Each action must include:
-
-* action ID
-* label
-* domain
-* prerequisites
-* expected impact
-* estimated effort
-* execution requirements
-* linked PulseFlow event
-* feedback expectation
-
-Example:
-
-```json
-{
-  "action_id": "ACT_E1_002",
-  "label": "Create decarbonization plan",
-  "domain": "esg_csrd",
-  "prerequisites": ["ACT_E1_001"],
-  "expected_impact": {
-    "metric": "IND_E1_005",
-    "direction": "decrease",
-    "timeline_months": 6
-  },
-  "effort_days": 12,
-  "execution_event": "esg.action.decarbonization_plan.requested",
-  "expected_feedback_event": "esg.outcome.decarbonization_plan.completed"
-}
-```
-
-An action is invalid if it cannot be translated into a PulseFlow event.
-
----
-
-## 13. Gate Model
-
-The `gates.model.json` file defines maturity, readiness, compliance, or progression milestones.
-
-A gate must include:
-
-* gate ID
-* label
-* required actions
-* required indicators
-* blocking rules
-* unlock conditions
-* outcome produced
-* related PolicyCore constraints
-
-Example:
-
-```json
-{
-  "gate_id": "GATE_RSE_3",
-  "label": "CSRD reporting readiness",
-  "required_indicators": [
-    "IND_E1_001",
-    "IND_E1_002",
-    "IND_E1_004"
-  ],
-  "required_actions": [
-    "ACT_E1_001"
-  ],
-  "blocks": [
-    "OUT_CSRD_REPORT_SUBMISSION"
-  ],
-  "unlock_condition": "all_required_indicators_available = true",
-  "requires_policycore_validation": true
-}
-```
-
-Gates are not UI milestones.
-
-They are system control points.
-
----
-
-## 14. Risk Model
-
-The `risks.model.json` file defines risk structures inside the domain.
-
-A risk must include:
-
-* risk ID
-* label
-* source indicators
-* probability model
-* financial impact
-* regulatory impact
-* operational impact
-* mitigation actions
-* escalation level
-
-Example:
-
-```json
-{
-  "risk_id": "RISK_E1_001",
-  "label": "CSRD non-compliance risk",
-  "source_indicators": ["IND_E1_004"],
-  "probability": 0.78,
-  "impact": {
-    "financial": "high",
-    "regulatory": "high",
-    "operational": "medium"
-  },
-  "mitigation_actions": [
-    "ACT_E1_001",
-    "ACT_E1_002"
-  ]
-}
-```
-
-Every risk must have a mitigation path.
-
----
-
-## 15. Outcome Model
-
-The `outcomes.model.json` file defines the expected results of decisions and actions.
-
-An outcome must include:
-
-* outcome ID
-* label
-* measurable metric
-* expected timeline
-* evidence required
-* feedback event
-* drift tolerance
-
-Example:
-
-```json
-{
-  "outcome_id": "OUT_CSRD_READY",
-  "label": "CSRD reporting readiness achieved",
-  "metric": "CSRD readiness score",
-  "expected_timeline_months": 6,
-  "evidence_required": [
-    "IND_E1_001",
-    "IND_E1_002",
-    "IND_E1_004"
-  ],
-  "feedback_event": "esg.outcome.csrd_ready.observed",
-  "drift_tolerance": 0.15
-}
-```
-
-Outcomes are required for feedback learning.
-
----
-
-## 16. Agents Registry
-
-The `agents.registry.json` file declares which agents may act inside the Domain Pack.
-
-Agents are not coded inside the Domain Pack.
-
-They are declared as bounded execution roles.
-
-Example:
-
-```json
-[
-  {
-    "name": "analysis_agent",
-    "role": "interprets causal output",
-    "allowed_events": [
-      "decision.generated",
-      "risk.activated"
-    ]
-  },
-  {
-    "name": "execution_agent",
-    "role": "executes approved decisions",
-    "allowed_events": [
-      "action.execution.requested"
-    ]
-  },
-  {
-    "name": "monitoring_agent",
-    "role": "tracks outcomes and emits feedback",
-    "allowed_events": [
-      "outcome.observed"
-    ]
-  }
-]
-```
-
-Agents must operate within PolicyCore, PulseFlow, and tenant boundaries.
-
----
-
-## 17. Event Schema
-
-The `events.schema.json` file defines the events that PulseFlow can use.
-
-Events may include:
-
-* decision requested
-* decision approved
-* decision rejected
-* action started
-* gate blocked
-* gate unlocked
-* risk activated
-* outcome observed
-* feedback generated
-* diagnostic signal generated
-
-Example:
-
-```json
-{
-  "event_type": "esg.gate.blocked",
-  "domain_pack": "esg_csrd_pack",
-  "required_fields": [
-    "tenant_id",
-    "decision_id",
-    "gate_id",
-    "reason",
-    "timestamp"
-  ]
-}
-```
+GreenCore optimizes only approved execution paths.
 
 Core rule:
 
-> If a Domain Pack action cannot emit or consume events, it is not executable.
+> GreenCore optimizes execution within PolicyCore-approved boundaries.
 
 ---
 
-## 18. Feedback Rules
+## 10. Relationship with the Knowledge Graph
 
-The `feedback.rules.json` file defines how the Domain Pack learns from execution outcomes.
+Domain Packs help define reusable domain structures.
 
-Feedback rules define:
-
-* simulation drift threshold
-* outcome deviation behavior
-* human review trigger
-* causal weight update logic
-* confidence score update logic
-* diagnostic signal events
-
-Example:
-
-```json
-{
-  "simulation_drift_threshold": 0.15,
-  "drift_behavior": "trigger_human_review",
-  "event": "diagnostic.signal.generated",
-  "updates": [
-    "causal_weight",
-    "confidence_score",
-    "risk_pattern"
-  ]
-}
-```
-
-This means:
-
-> If Atlas simulation and real execution diverge by more than 15%, the system must generate a diagnostic signal for human review.
-
-Feedback rules prevent the system from silently drifting into false intelligence.
-
----
-
-## 19. STEPS Impact Model
-
-The `steps.impact_model.json` file defines the systemic impact lens of the Domain Pack.
-
-STEPS stands for:
-
-```text
-S — Social
-T — Technological
-E — Economic
-P — Political / Policy
-S — Sustainability
-```
-
-The STEPS model evaluates how a decision affects broader systems beyond local optimization.
-
-It is especially important for:
-
-* public-sector Domain Packs
-* regulated industries
-* ESG / CSRD Packs
-* Supply Chain Packs
-* Risk Packs
-* Finance Packs with systemic exposure
-* Regulator Packs
-
-Example:
-
-```json
-{
-  "dimensions": {
-    "social": {
-      "inputs": ["citizen_acceptance", "inequality_index"],
-      "outputs": ["social_cohesion_impact"]
-    },
-    "technological": {
-      "inputs": ["digital_maturity", "technical_debt"],
-      "outputs": ["automation_roi"]
-    },
-    "economic": {
-      "inputs": ["budget_allocated", "inflation_rate"],
-      "outputs": ["budget_efficiency"]
-    },
-    "political": {
-      "inputs": ["regulatory_alignment", "policy_risk"],
-      "outputs": ["non_compliance_risk"]
-    },
-    "sustainability": {
-      "inputs": ["energy_consumption", "co2_impact"],
-      "outputs": ["greencore_execution_score"]
-    }
-  }
-}
-```
+The Knowledge Graph stores active organizational reality, tenant context, dependencies, decisions, outcomes, and feedback.
 
 Core rule:
 
-> STEPS is not the full domain schema. It is the systemic impact lens applied to domain decisions.
+> The Domain Pack defines domain structure. The Knowledge Graph preserves active reality.
 
 ---
 
-## 20. Prompts Layer
+## 11. Standard vs Private Domain Packs
 
-The `prompts/` folder defines the cognitive behavior of Atlas and agents within the domain.
+QORWAY distinguishes between public-safe domain categories and private tenant-specific instantiations.
 
-Prompts are used only as controlled interfaces.
+### Standard Domain Structure
 
-They do not replace graph structure, causal rules, or PolicyCore constraints.
+Standard domain structures may describe reusable, non-identifiable concepts such as:
 
-### `reasoning.prompt.md`
+- domain roles
+- common risk types
+- decision categories
+- governance patterns
+- evidence expectations
 
-Defines how Atlas should reason over domain structures.
+### Private Domain Instantiation
 
-Example:
+Private domain instantiation represents organization-specific operating reality.
 
-```text
-You are the causal reasoning engine for the {domain} system.
-Analyze relationships between entities and produce causal insights.
-All outputs must reference graph structure and causal rules.
-```
-
-### `decision.prompt.md`
-
-Defines how causal insights are converted into structured decisions.
-
-Example:
-
-```text
-Convert causal insights into structured, prioritized decisions.
-Ensure explainability, traceability, and PolicyCore compatibility.
-```
-
-### `explanation.prompt.md`
-
-Defines how explanations are generated for users or audit outputs.
-
-Example:
-
-```text
-Explain the decision using causal chains, constraints checked, and expected impact.
-Do not introduce unsupported reasoning.
-```
-
-### `agent.prompt.md`
-
-Defines how agents operate inside bounded execution roles.
-
-Example:
-
-```text
-Execute only PolicyCore-approved decisions using available PulseFlow events.
-Log all outputs into the event system.
-```
+It may include tenant-specific workflows, policies, dependencies, extensions, and graph state.
 
 Core rule:
 
-> Prompts format intelligence. They do not create domain truth.
+> Public Domain Pack documentation explains the concept. Private Domain Packs contain the implementation depth.
 
 ---
 
-## 21. Runtime Loader
+## 12. Validation Principles
 
-The QORWAY core loads Domain Packs without changing the core system.
+A Domain Pack concept is not valid for QORWAY if it cannot support:
 
-```text
-Domain Pack
-    ↓
-Core Runtime Loader
-    ↓
-Registers:
-  - graph schema
-  - causal rules
-  - decision policies
-  - PolicyCore constraints
-  - GreenCore policies
-  - agents
-  - events
-  - feedback rules
-  - impact model
-    ↓
-Atlas becomes domain-aware
-    ↓
-QORWAY becomes a domain-specific decision system
-```
-
-The core remains stable.
-
-The Domain Pack injects configuration.
+- tenant boundaries
+- causal explanation
+- constraint validation
+- audit-ready decision traces
+- feedback learning
+- versioning discipline
+- governed execution
 
 ---
 
-## 22. Standard vs Private Domain Packs
-
-QORWAY supports two Domain Pack categories.
-
----
-
-### 22.1 Standard Domain Packs
-
-Standard Domain Packs are reusable across organizations.
-
-They contain:
-
-* generic domain ontology
-* reusable causal rules
-* public regulatory structures
-* common risk patterns
-* standardized decision templates
-
-Examples:
-
-* ESG / CSRD Pack
-* Finance Pack
-* Risk Pack
-* Supply Chain Pack
-* Governance Pack
-* Regulator Pack
-
-They must never contain private tenant data.
-
----
-
-### 22.2 Private Domain Packs
-
-Private Domain Packs are tenant-specific extensions.
-
-They contain:
-
-* organization-specific workflows
-* proprietary decision logic
-* private causal relationships
-* internal dependencies
-* sensitive operating structures
-
-They are:
-
-* tenant-isolated
-* access-controlled
-* encrypted
-* non-transferable
-* never merged into another tenant graph
-
-Core rule:
-
-> Standard Packs define shared domain structure. Private Packs define sovereign organizational reality.
-
----
-
-## 23. Deployment Lifecycle
-
-A Domain Pack lifecycle follows six phases:
-
-```text
-1. Definition
-2. Validation
-3. Instantiation
-4. Execution
-5. Feedback refinement
-6. Versioning
-```
-
----
-
-### 23.1 Definition
-
-The pack is defined through schemas, causal rules, policies, events, and impact model.
-
----
-
-### 23.2 Validation
-
-The pack is validated for:
-
-* schema integrity
-* causal consistency
-* no orphan nodes
-* no risk without mitigation
-* no action without event path
-* PolicyCore compatibility
-* GreenCore compatibility
-* feedback rules completeness
-* STEPS impact completeness where required
-
----
-
-### 23.3 Instantiation
-
-The pack is instantiated inside a tenant environment.
-
-This creates:
-
-* tenant-specific graph nodes
-* active domain logic
-* execution mappings
-* policy bindings
-* feedback pathways
-
----
-
-### 23.4 Execution
-
-The pack becomes operational through:
-
-```text
-Atlas → Domain Pack → PolicyCore → PulseFlow → GreenCore → Execution
-```
-
----
-
-### 23.5 Feedback Refinement
-
-Execution outcomes update:
-
-* confidence scores
-* causal weights
-* risk patterns
-* decision heuristics
-* feedback rules where authorized
-
-Private tenant feedback must not leak into the universal graph without anonymization and governance approval.
-
----
-
-### 23.6 Versioning
-
-Each Domain Pack must be versioned.
-
-Versioning must track:
-
-* graph changes
-* causal rule changes
-* policy changes
-* event changes
-* feedback rule changes
-* impact model changes
-
-Production environments must never silently upgrade critical Domain Packs without governance approval.
-
----
-
-## 24. Domain Pack Validation Rules
-
-A Domain Pack is invalid if:
-
-* it has orphan nodes
-* it contains actions without execution events
-* it lacks PolicyCore compatibility
-* it lacks GreenCore compatibility
-* it contains untraceable causal rules
-* it has risks without mitigation paths
-* it has outcomes without feedback events
-* it includes private tenant data in a Standard Pack
-* it cannot generate audit-ready decision traces
-* it lacks STEPS impact modeling where required
-* it has no versioning metadata
-
----
-
-## 25. Example Domain Pack Categories
-
-### ESG / CSRD Pack
-
-Purpose:
-
-* CSRD readiness
-* ESRS indicator mapping
-* ESG risk detection
-* audit-ready reporting paths
-* GreenCore carbon trace integration
-
----
-
-### Finance Pack
-
-Purpose:
-
-* capital allocation
-* margin causality
-* cashflow risk propagation
-* financial decision simulation
-* risk-adjusted capital logic
-
----
-
-### Supply Chain Pack
-
-Purpose:
-
-* supplier risk modeling
-* logistics optimization
-* Scope 3 impact mapping
-* operational resilience
-* route and dependency simulation
-
----
-
-### Risk Pack
-
-Purpose:
-
-* enterprise risk propagation
-* systemic exposure modeling
-* mitigation path generation
-* compliance escalation
-* scenario stress testing
-
----
-
-### Governance Pack
-
-Purpose:
-
-* decision accountability
-* control frameworks
-* role-based decision authority
-* executive traceability
-* human oversight rules
-
----
-
-### Regulator Pack
-
-Purpose:
-
-* public-sector decision traceability
-* policy impact simulation
-* institutional risk modeling
-* regulatory alignment checks
-* STEPS systemic impact evaluation
-
----
-
-## 26. What Domain Packs Are Not
+## 13. What Domain Packs Are Not
 
 Domain Packs are not:
 
-* SaaS modules
-* static templates
-* dashboards
-* prompt libraries
-* consulting reports
-* fine-tuned models
-* standalone applications
-* raw databases
+- SaaS modules
+- static templates
+- dashboards
+- prompt libraries
+- consulting reports
+- fine-tuned models
+- standalone applications
+- raw databases
 
-Domain Packs are executable intelligence structures.
-
----
-
-## 27. Strategic Importance
-
-Domain Packs are central to QORWAY’s platform logic.
-
-They enable QORWAY to create domain-specific decision systems without rewriting the core.
-
-This creates:
-
-* faster deployment
-* reusable intelligence
-* domain scalability
-* lower implementation cost
-* stronger auditability
-* standardized execution logic
-* sovereign tenant-specific extensions
-
-The strategic moat is not only the core engine.
-
-It is the ability to create unlimited domain-specific decision systems through declarative intelligence.
+They are governed domain intelligence structures.
 
 ---
 
-## 28. Final Definition
+## 14. Public Boundary
 
-A Domain Pack is a declarative cognitive configuration that transforms the QORWAY causal intelligence core into a domain-specific executable decision system by defining its Knowledge Graph, causal rules, decision policies, PolicyCore constraints, GreenCore execution preferences, agents, events, feedback rules, prompts, and systemic impact model.
+This public document does not expose:
 
-Final system statement:
+- private Domain Pack registries
+- internal graph schemas
+- causal rule libraries
+- PolicyCore gates
+- PulseFlow production contracts
+- GreenCore routing rules
+- scoring logic
+- prompt material
+- tenant-specific extensions
 
-> A Domain Pack is how QORWAY converts domain reality into causal, constrained, executable intelligence.
+See [`PUBLIC_PRIVATE_BOUNDARY.md`](PUBLIC_PRIVATE_BOUNDARY.md).
 
-```
-```
 ---
-*© QORWAY Technology SAS — www.qorway.com*  
-*Proprietary. All rights reserved.*
-```
-```
+
+## 15. Final Definition
+
+A Domain Pack is the context intelligence layer that converts domain reality into causal, constrained, auditable, and executable decision intelligence.
+
+> Domain Packs make QORWAY structurally aware of the domains where decisions happen.
+
+---
+
+© QORWAY Technology — All rights reserved.
