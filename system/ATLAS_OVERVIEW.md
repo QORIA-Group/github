@@ -2,7 +2,7 @@
 
 **QORWAY Causal Intelligence Engine**
 
-> Atlas transforms enterprise state into causal, structured, and executable decisions.
+> Atlas transforms structured organizational reality into causal, explainable, and governed decision intelligence.
 
 ---
 
@@ -10,34 +10,35 @@
 
 Atlas is the causal intelligence engine of QORWAY.
 
-It is responsible for transforming organizational data, Knowledge Graph structures, and Domain Pack context into structured decision intelligence.
+It transforms organizational data, Knowledge Graph context, and Domain Pack structure into decision intelligence.
 
 Atlas does not generate generic content.
 
-Atlas produces:
+Atlas produces public-safe categories of output such as:
 
 - causal chains
-- decision structures
-- impact simulations
-- prioritized actions
+- decision candidates
+- impact paths
+- prioritization signals
 - explanation paths
-- decision confidence signals
+- feedback-aware reasoning updates
 
 Atlas is the reasoning layer of QORWAY.
 
 ---
 
-## 2. Role in QORWAY OS
+## 2. Role in QORWAY
 
 Atlas exists to answer one core question:
 
 > What should happen?
 
-It analyzes the current state of an organization and identifies:
+It analyzes structured organizational reality and identifies:
 
 - what is happening
 - why it is happening
 - which risks are emerging
+- which dependencies matter
 - which decision paths are available
 - which action should be considered next
 - what impact is expected
@@ -57,24 +58,24 @@ It is a causal reasoning engine.
 Atlas sits after the Knowledge Graph layer and before Domain Pack enrichment and PolicyCore validation.
 
 ```text
-ENTERPRISE DATA
+Enterprise Data
   ↓
-KNOWLEDGE GRAPH
+Knowledge Graph
   ↓
-ATLAS
+Atlas
   ↓
-DOMAIN PACKS
+Domain Packs
   ↓
-POLICYCORE
+PolicyCore
   ↓
-PULSEFLOW
+PulseFlow
   ↓
-GREENCORE
+GreenCore
   ↓
-EXECUTION
+Execution
   ↓
-FEEDBACK LOOP
-````
+Feedback Loop
+```
 
 Atlas reasons over structured organizational reality.
 
@@ -82,7 +83,7 @@ Domain Packs provide domain context.
 
 PolicyCore validates whether a decision is allowed.
 
-PulseFlow executes only validated decisions.
+PulseFlow orchestrates validated decisions.
 
 GreenCore optimizes approved execution paths.
 
@@ -92,14 +93,14 @@ GreenCore optimizes approved execution paths.
 
 Atlas is responsible for:
 
-* causal reasoning over enterprise state
-* identifying decision dependencies
-* detecting bottlenecks and risk propagation paths
-* generating structured decision options
-* simulating potential impact
-* ranking actions by priority and expected value
-* explaining why a decision is recommended
-* updating reasoning based on feedback signals
+- causal reasoning over enterprise state
+- identifying decision dependencies
+- detecting bottlenecks and risk propagation paths
+- generating structured decision candidates
+- simulating potential impact at a conceptual level
+- ranking possible actions by priority and expected value
+- explaining why a decision is recommended
+- updating future reasoning from governed feedback signals
 
 Atlas must always produce traceable reasoning.
 
@@ -107,59 +108,18 @@ Atlas must always produce traceable reasoning.
 
 ## 5. Inputs
 
-Atlas receives input from several QORWAY layers.
+Atlas may receive context from:
 
-### 5.1 Knowledge Graph State
+- Knowledge Graph state
+- Domain Pack context
+- enterprise signals
+- feedback data
+- governance constraints
+- sovereign resilience signals
 
-The Knowledge Graph provides:
+The public repository describes input categories only.
 
-* entities
-* indicators
-* actions
-* risks
-* gates
-* outcomes
-* dependencies
-* past decisions
-* feedback events
-
-### 5.2 Domain Pack Context
-
-Domain Packs provide:
-
-* graph schema
-* causal rules
-* decision policies
-* risks
-* gates
-* actions
-* events
-* feedback rules
-* systemic impact model
-
-### 5.3 Enterprise Signals
-
-Enterprise signals may include:
-
-* financial metrics
-* operational events
-* ESG indicators
-* compliance signals
-* supply chain events
-* user decisions
-* external regulatory changes
-
-### 5.4 Feedback Data
-
-Feedback includes:
-
-* actual outcomes
-* expected vs actual deviation
-* execution delay
-* financial impact
-* operational impact
-* policy constraint results
-* carbon / compute impact
+Private repositories contain implementation details.
 
 ---
 
@@ -167,39 +127,19 @@ Feedback includes:
 
 Atlas produces structured decision intelligence.
 
-Core outputs include:
+Public-safe output categories include:
 
-* causal chain
-* decision recommendation
-* decision options
-* expected impact
-* priority score
-* confidence score
-* explanation path
-* required PolicyCore validation
-* required execution path
+- causal chain
+- decision candidate
+- decision options
+- expected impact
+- prioritization signal
+- confidence signal
+- explanation path
+- required PolicyCore validation
+- required orchestration path
 
-Example:
-
-```json
-{
-  "decision_id": "dec_001",
-  "tenant_id": "tenant_001",
-  "domain_pack": "supply_chain_pack",
-  "causal_chain": [
-    "supplier_delay",
-    "inventory_pressure",
-    "margin_degradation"
-  ],
-  "recommended_action": "reroute_supplier_allocation",
-  "expected_impact": {
-    "margin": "+3.2%",
-    "delay_reduction": "-18%"
-  },
-  "confidence_score": 0.84,
-  "requires_policycore_validation": true
-}
-```
+Atlas outputs are not executable until validated.
 
 ---
 
@@ -207,36 +147,10 @@ Example:
 
 Atlas reasons through causal structures, not free-form inference.
 
-A typical reasoning path follows:
+A typical public-safe reasoning path follows:
 
 ```text
-signal
-  ↓
-indicator change
-  ↓
-causal chain activation
-  ↓
-risk or opportunity detection
-  ↓
-decision option generation
-  ↓
-impact simulation
-  ↓
-recommended action
-```
-
-Example:
-
-```text
-supplier_delay_detected
-  ↓
-inventory_pressure
-  ↓
-margin_degradation
-  ↓
-supply_chain_risk_activated
-  ↓
-reroute_supplier_allocation
+signal → indicator change → causal chain activation → risk or opportunity detection → decision option → impact expectation
 ```
 
 Atlas must always be able to explain the reasoning path.
@@ -249,12 +163,12 @@ The Knowledge Graph is the memory and structure layer.
 
 Atlas uses it to:
 
-* traverse relationships
-* identify active causal chains
-* detect missing data
-* locate risks and dependencies
-* link decisions to outcomes
-* generate audit-ready explanations
+- traverse relationships
+- identify active causal chains
+- detect missing context
+- locate risks and dependencies
+- link decisions to outcomes
+- generate audit-ready explanations
 
 Without the Knowledge Graph, Atlas becomes generic.
 
@@ -266,18 +180,7 @@ With the Knowledge Graph, Atlas becomes system-aware.
 
 Domain Packs make Atlas domain-aware.
 
-Atlas uses Domain Packs to understand:
-
-* how a domain is structured
-* which indicators matter
-* which causal rules apply
-* which actions are available
-* which gates may be blocked
-* which outcomes are expected
-
-Domain Packs do not replace Atlas.
-
-They provide the domain intelligence Atlas needs to reason correctly.
+Atlas uses Domain Packs to understand how a domain is structured, which dependencies matter, which risks apply, which decisions are relevant, and which evidence or feedback may be needed.
 
 Core rule:
 
@@ -287,25 +190,15 @@ Core rule:
 
 ## 10. Relationship with PolicyCore
 
-Atlas proposes decisions.
+Atlas proposes decision candidates.
 
-PolicyCore validates whether they can exist in the real world.
+PolicyCore validates whether they can move forward.
 
 ```text
-Atlas decision
-  ↓
-PolicyCore evaluation
-  ↓
-Approved / Modified / Rejected
+Atlas decision candidate → PolicyCore evaluation → approved / modified / rejected
 ```
 
 Atlas cannot override PolicyCore.
-
-If PolicyCore rejects a decision, Atlas must either:
-
-* explain why the decision was blocked
-* generate an alternative path
-* request human review where required
 
 Core rule:
 
@@ -317,15 +210,7 @@ Core rule:
 
 Atlas does not execute.
 
-PulseFlow converts validated decisions into:
-
-* events
-* workflows
-* agent tasks
-* execution logs
-* feedback signals
-
-Atlas hands off structured decisions to PulseFlow only after PolicyCore validation.
+PulseFlow converts validated decisions into governed execution flows.
 
 Core rule:
 
@@ -337,31 +222,11 @@ Core rule:
 
 GreenCore optimizes how approved execution should happen.
 
-Atlas may receive GreenCore feedback such as:
+Atlas may use GreenCore feedback categories such as execution cost, latency, carbon impact, routing efficiency, or sovereignty constraints to improve future reasoning.
 
-* execution cost
-* latency
-* carbon impact
-* routing efficiency
-* sovereignty score
+Core rule:
 
-This feedback can influence future Atlas recommendations.
-
-Example:
-
-```text
-execution feedback
-  ↓
-GreenCore metrics
-  ↓
-Knowledge Graph update
-  ↓
-future Atlas reasoning
-```
-
-Atlas defines what should happen.
-
-GreenCore optimizes where and how execution happens.
+> Atlas defines what should happen. GreenCore optimizes where and how approved execution happens.
 
 ---
 
@@ -371,129 +236,82 @@ Atlas learns through controlled feedback loops.
 
 It does not learn through uncontrolled model drift.
 
-Feedback updates may affect:
+Feedback may influence future causal confidence, risk patterns, decision heuristics, Domain Pack refinement, and Knowledge Graph relationships.
 
-* causal weights
-* confidence scores
-* risk patterns
-* decision heuristics
-* Domain Pack refinement
-* Knowledge Graph relationships
-
-Feedback must remain tenant-scoped unless explicitly anonymized and governed.
+Feedback must remain tenant-scoped unless anonymized and governed.
 
 Core rule:
 
-> Atlas learns from execution feedback, not from uncontrolled data leakage.
+> Atlas learns from governed execution feedback, not from uncontrolled data leakage.
 
 ---
 
-## 14. Explainability Model
+## 14. Sovereign Resilience Reasoning
 
-Every Atlas output must include an explanation path.
+Atlas may reason over sovereign resilience signals such as:
 
-An Atlas decision should be explainable through:
+- dependency concentration
+- provider fragility
+- data residency exposure
+- supplier fragility
+- regulatory instability
+- operational continuity
+- fallback absence
+- autonomy degradation
 
-* source signals
-* Knowledge Graph nodes
-* causal rules
-* Domain Pack context
-* expected impact
-* confidence score
-* PolicyCore requirement
+These are public categories only.
 
-A decision is invalid if it cannot be explained.
-
----
-
-## 15. Decision Quality Signals
-
-Atlas may produce decision quality signals such as:
-
-* clarity score
-* complexity score
-* impact score
-* confidence score
-* reversibility score
-* risk exposure score
-
-These signals help determine:
-
-* execution priority
-* human oversight requirements
-* PolicyCore review depth
-* feedback monitoring intensity
+Private repositories contain implementation-preparation details.
 
 ---
 
-## 16. System Constraints
+## 15. System Constraints
 
 Atlas must never:
 
-* execute decisions directly
-* bypass PolicyCore
-* generate decisions without causal lineage
-* use free-form LLM output as the source of truth
-* expose private tenant reasoning to other tenants
-* modify Domain Pack rules without governance
-* ignore feedback deviations
-* produce untraceable recommendations
-* override GreenCore execution routing
+- execute decisions directly
+- bypass PolicyCore
+- generate decisions without causal lineage
+- expose private tenant reasoning across tenants
+- modify Domain Pack rules without governance
+- ignore feedback deviations
+- produce untraceable recommendations
+- override GreenCore execution routing
 
 ---
 
-## 17. What Atlas Is Not
+## 16. What Atlas Is Not
 
 Atlas is not:
 
-* a chatbot
-* a reporting assistant
-* a workflow engine
-* a compliance authority
-* a data warehouse
-* an automation tool
-* a prompt-only system
+- a chatbot
+- a reporting assistant
+- a workflow engine
+- a compliance authority
+- a data warehouse
+- an automation tool
+- a prompt-only system
 
 Atlas is the causal decision engine of QORWAY.
 
 ---
 
-## 18. Strategic Importance
+## 17. Public Boundary
 
-Atlas is the intelligence core of QORWAY.
+This public overview does not expose Atlas internal reasoning rules, private prompts, causal weight models, scoring logic, graph projection internals, tenant data, or implementation contracts.
 
-It gives the system the ability to move from:
-
-```text
-data → dashboard → human interpretation
-```
-
-to:
-
-```text
-data → causal reasoning → structured decision
-```
-
-This is the foundation of QORWAY’s decision infrastructure.
-
-Without Atlas, QORWAY can orchestrate events.
-
-With Atlas, QORWAY can reason about why those events matter and what should happen next.
+See [`../docs/PUBLIC_PRIVATE_BOUNDARY.md`](../docs/PUBLIC_PRIVATE_BOUNDARY.md).
 
 ---
 
-## 19. Final Definition
+## 18. Final Definition
 
 Atlas is the causal decision engine of QORWAY.
 
-It transforms enterprise state, Knowledge Graph structure, and Domain Pack context into explainable, prioritized, and executable decision intelligence.
-
-Final system statement:
+It transforms enterprise state, Knowledge Graph structure, and Domain Pack context into explainable, prioritized, and governable decision intelligence.
 
 > Atlas is where organizational reality becomes causal decision intelligence.
 
-```
 ---
-*© QORWAY Technology SAS — www.qorway.com*  
-*Proprietary. All rights reserved.*
-```
+
+© QORWAY Technology — All rights reserved.
