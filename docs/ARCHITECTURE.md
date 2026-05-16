@@ -1,44 +1,44 @@
-````md
 # QORWAY Architecture
 
 **Sovereign Decision Intelligence Infrastructure for Europe**
 
-> From fragmented enterprise systems  
-> → to causal, constrained, executable intelligence.
+> From fragmented enterprise systems → to causal, constrained, governed, and resilient decision infrastructure.
 
 ---
 
 ## 1. Architecture Purpose
 
-QORWAY is designed to transform organizational decision-making into a structured, governed, and executable system.
+QORWAY is designed to transform organizational decision-making into a structured, governed, executable, and resilient system.
 
 It connects:
 
 - enterprise data
+- Knowledge Graph infrastructure
 - causal reasoning
 - domain-specific intelligence
 - constraint validation
 - execution orchestration
-- runtime optimization
+- execution optimization
 - feedback learning
+- sovereign resilience
 
 The objective is not to create another SaaS layer.
 
-The objective is to create a **decision infrastructure runtime**.
+The objective is to create a decision infrastructure runtime for organizations operating under digital, regulatory, operational, and geopolitical constraints.
 
 ---
 
 ## 2. Core Architecture
 
-QORWAY operates as a 5-layer decision intelligence infrastructure:
+QORWAY operates as a five-layer Decision Intelligence infrastructure:
 
 ```text
-1. Atlas        → Causal Intelligence Engine
-2. Domain Packs → Context & Business Intelligence Layer
-3. PolicyCore   → Constraint Validation Layer
-4. PulseFlow    → Execution Orchestration Layer
-5. GreenCore    → Execution Optimization Layer
-````
+1. Atlas         → Causal Intelligence Engine
+2. Domain Packs  → Context & Business Intelligence Layer
+3. PolicyCore    → Constraint Validation Layer
+4. PulseFlow     → Execution Orchestration Layer
+5. GreenCore     → Execution Optimization Layer
+```
 
 Each layer has a distinct responsibility.
 
@@ -70,83 +70,54 @@ EXECUTION
 FEEDBACK LOOP
 ```
 
-This is the core QORWAY loop.
+Every decision must move through reasoning, context, validation, orchestration, optimization, execution, and feedback.
 
-Every decision must move through reasoning, context, validation, execution, optimization, and feedback.
+A decision is invalid if its trace cannot be reconstructed.
 
 ---
 
 ## 4. Layer 1 — Atlas
 
-### Causal Intelligence Engine
+Atlas is the causal reasoning engine of QORWAY.
 
-Atlas is the reasoning core of QORWAY.
-
-It transforms enterprise state into causal decision structures.
-
-Atlas does not generate generic content.
-
-It produces:
-
-* causal chains
-* decision recommendations
-* impact simulations
-* prioritized actions
-* explanation paths
+It transforms structured organizational reality into decision candidates, causal chains, impact paths, and explanation structures.
 
 Atlas answers:
 
 > What should happen?
 
+Atlas does not execute decisions.
+
 ---
 
 ## 5. Layer 2 — Domain Packs
 
-### Context & Business Intelligence Layer
+Domain Packs inject domain-specific intelligence into QORWAY.
 
-Domain Packs inject domain-specific intelligence into Atlas.
+A Domain Pack describes how a business, institutional, or operational domain is represented, understood, constrained, executed, and improved.
 
-A Domain Pack contains:
+Public-safe examples include:
 
-* Knowledge Graph structure
-* causal rules
-* indicators
-* actions
-* risks
-* gates
-* outcomes
-* templates
-
-Domain Packs make Atlas operational in a specific business domain without fine-tuning or training data.
-
-Examples:
-
-* Finance Pack
-* ESG / CSRD Pack
-* Risk Pack
-* Growth Pack
-* Governance Pack
+- Finance
+- Supply Chain
+- CSRD / RSE
+- Regulator
+- Workforce Capital
+- Sovereign Resilience
 
 Domain Packs answer:
 
 > How does this domain work structurally?
 
+Domain Packs do not override PolicyCore.
+
 ---
 
 ## 6. Layer 3 — PolicyCore
 
-### Constraint Validation Layer
+PolicyCore validates whether a proposed decision can move toward execution.
 
-PolicyCore validates whether a causal decision can exist in the real world.
-
-It evaluates decisions against:
-
-* regulatory constraints
-* ESG constraints
-* financial constraints
-* ethical constraints
-* system constraints
-* tenant-specific policies
+It evaluates decisions against regulatory, financial, ESG, operational, sovereignty, human oversight, and tenant-specific constraints.
 
 PolicyCore can return:
 
@@ -166,57 +137,23 @@ No decision can move to execution without PolicyCore validation.
 
 ## 7. Layer 4 — PulseFlow
 
-### Execution Orchestration Layer
+PulseFlow transforms validated decisions into governed execution flows.
 
-PulseFlow transforms validated decisions into execution events.
-
-It orchestrates:
-
-* events
-* workflows
-* agents
-* enterprise systems
-* execution logs
-* feedback signals
-
-PulseFlow is event-driven by design.
-
-It uses:
-
-* event ingestion
-* outbox pattern
-* idempotent consumers
-* replayable execution logs
-* feedback events
+It coordinates events, workflows, agents, enterprise systems, execution logs, and feedback signals.
 
 PulseFlow answers:
 
 > How does this decision move through the system?
 
+No execution should happen outside PulseFlow.
+
 ---
 
 ## 8. Layer 5 — GreenCore
 
-### Execution Optimization Layer
-
 GreenCore optimizes how validated execution should happen.
 
-It evaluates:
-
-* compute cost
-* latency
-* energy footprint
-* carbon impact
-* data sovereignty
-* execution location
-
-GreenCore routes execution across:
-
-```text
-local
-edge
-cloud
-```
+It evaluates approved execution paths across locality, latency, compute cost, energy footprint, carbon impact, data sovereignty, and tenant execution preferences.
 
 GreenCore answers:
 
@@ -230,18 +167,9 @@ It only optimizes approved execution paths.
 
 ## 9. Knowledge Graph Infrastructure
 
-The Knowledge Graph is the system memory layer of QORWAY.
+The Knowledge Graph is the memory and causal structure layer of QORWAY.
 
-It models organizations as causal systems composed of:
-
-* indicators
-* decisions
-* actions
-* risks
-* constraints
-* dependencies
-* outcomes
-* feedback
+It models organizations as causal systems composed of entities, indicators, decisions, actions, risks, constraints, dependencies, outcomes, events, and feedback.
 
 QORWAY uses two graph levels:
 
@@ -250,174 +178,127 @@ Universal Knowledge Graph
 Private Tenant Knowledge Graph
 ```
 
-### Universal Knowledge Graph
+The Universal Knowledge Graph contains reusable, non-identifiable domain structures.
 
-Contains reusable causal structures, domain logic, and anonymized abstractions.
+The Private Tenant Knowledge Graph represents the tenant-specific operating reality of one organization.
 
-It must never contain identifiable tenant data.
+Core rule:
 
-### Private Tenant Knowledge Graph
-
-Contains organization-specific reality.
-
-It is:
-
-* tenant-isolated
-* encrypted
-* access-controlled
-* never merged with another tenant graph
+> One tenant's graph must never become another tenant's intelligence.
 
 ---
 
-## 10. Runtime Model
+## 10. Sovereign Resilience Architecture
+
+QORWAY is designed for organizations operating under digital dependency, regulatory pressure, provider concentration, data residency constraints, supplier fragility, operational continuity risk, and geopolitical instability.
+
+Sovereign resilience is therefore part of the architecture.
+
+It is not a later compliance layer.
+
+It affects:
+
+- Knowledge Graph dependency representation
+- Atlas resilience reasoning
+- Domain Pack context
+- PolicyCore constraint validation
+- PulseFlow orchestration
+- GreenCore execution optimization
+- feedback and learning loops
+
+See [`SOVEREIGN_RESILIENCE_PUBLIC.md`](SOVEREIGN_RESILIENCE_PUBLIC.md).
+
+---
+
+## 11. Runtime Model
 
 QORWAY is a runtime system.
 
-It is not a static architecture.
+It is not a static documentation model.
 
 Every decision exists inside a live loop:
 
 ```text
-input
-↓
-model
-↓
-reason
-↓
-validate
-↓
-execute
-↓
-observe
-↓
-learn
+input → model → reason → validate → orchestrate → optimize → execute → observe → learn
 ```
 
-This runtime model allows QORWAY to continuously improve decision quality, execution performance, and system intelligence.
+This runtime model allows QORWAY to improve decision quality, execution performance, resilience visibility, and system intelligence.
 
 ---
 
-## 11. Separation of Responsibilities
+## 12. Separation of Responsibilities
 
-| Layer        | Responsibility | Must Not Do          |
-| ------------ | -------------- | -------------------- |
-| Atlas        | Reasoning      | Execute decisions    |
-| Domain Packs | Context        | Override constraints |
-| PolicyCore   | Validation     | Generate decisions   |
-| PulseFlow    | Orchestration  | Reason causally      |
-| GreenCore    | Optimization   | Override PolicyCore  |
+| Layer | Responsibility | Must not do |
+|---|---|---|
+| Atlas | Reason causally | Execute decisions |
+| Domain Packs | Provide domain context | Override constraints |
+| PolicyCore | Validate constraints | Generate decisions |
+| PulseFlow | Orchestrate execution | Reason causally |
+| GreenCore | Optimize execution | Override PolicyCore |
 
-This separation ensures:
-
-* auditability
-* maintainability
-* regulatory compliance
-* system scalability
-* tenant safety
+This separation protects auditability, maintainability, regulatory alignment, system scalability, and tenant safety.
 
 ---
 
-## 12. Decision Lifecycle
+## 13. Decision Lifecycle
 
 A QORWAY decision follows this lifecycle:
 
 ```text
-1. Data is ingested
-2. Knowledge Graph is updated
-3. Atlas generates causal reasoning
-4. Domain Pack enriches the context
-5. PolicyCore validates the decision
-6. PulseFlow creates execution events
-7. GreenCore optimizes execution routing
-8. Agents / systems execute
-9. Feedback is captured
-10. Knowledge Graph is updated
+created
+→ reasoned
+→ contextualized
+→ validated
+→ approved / modified / rejected
+→ orchestrated
+→ optimized
+→ executed
+→ observed
+→ learned
 ```
 
 A decision is invalid if it cannot be traced through this lifecycle.
 
 ---
 
-## 13. Execution Model
+## 14. Governance and Security
 
-Execution is event-driven.
+QORWAY follows a governance-by-architecture model.
 
-No execution happens directly from Atlas.
+Every governed decision must include:
 
-No execution bypasses PolicyCore.
+- tenant boundary
+- causal explanation
+- domain context
+- PolicyCore validation status
+- execution path
+- audit trace
+- feedback reference
 
-No execution bypasses PulseFlow.
+Security principles include:
 
-PulseFlow converts validated decisions into:
-
-* workflow events
-* agent tasks
-* system updates
-* human approval requests
-* execution logs
-* feedback events
-
-GreenCore then optimizes the approved execution path.
-
----
-
-## 14. Governance Model
-
-QORWAY governance is native.
-
-Every decision must include:
-
-* causal explanation
-* PolicyCore validation status
-* execution path
-* audit trace
-* feedback reference
-
-This enables alignment with:
-
-* GDPR
-* EU AI Act
-* enterprise audit requirements
-* sovereign deployment constraints
+- Zero Trust architecture
+- tenant isolation
+- access control
+- encrypted data handling
+- event-level auditability
+- public/private architecture boundary
 
 ---
 
-## 15. Security Architecture
+## 15. Public Boundary
 
-QORWAY follows Zero Trust principles.
+This public architecture document describes layer responsibilities and public-safe doctrine.
 
-Core requirements:
+It does not expose private runtime registries, internal prompts, causal rule libraries, scoring logic, PolicyCore gate internals, PulseFlow production contracts, GreenCore routing rules, private Domain Pack internals, or tenant-specific material.
 
-* strict tenant isolation
-* AES-256 encryption at rest
-* TLS 1.3 in transit
-* no cross-tenant leakage
-* event-level access control
-* audit logs for all decisions and executions
-
-Every request, decision, event, and execution must be tenant-scoped.
+See [`PUBLIC_PRIVATE_BOUNDARY.md`](PUBLIC_PRIVATE_BOUNDARY.md).
 
 ---
 
-## 16. What QORWAY Is Not
+## 16. Final Architecture Statement
 
-QORWAY is not:
-
-* a dashboard
-* a chatbot
-* a BI tool
-* a workflow automation tool
-* a traditional SaaS product
-
-QORWAY is:
-
-> a decision intelligence infrastructure runtime.
-
----
-
-## 17. Final Architecture Statement
-
-QORWAY transforms enterprise systems into causal, constrained, executable, and self-improving decision infrastructures.
+QORWAY transforms fragmented enterprise systems into causal, constrained, governed, resilient, and self-improving decision infrastructures.
 
 Its architecture separates reasoning, context, validation, orchestration, and optimization into five coordinated layers:
 
@@ -427,11 +308,6 @@ Atlas → Domain Packs → PolicyCore → PulseFlow → GreenCore
 
 Together, they form the foundation for sovereign decision intelligence in Europe.
 
-```
 ---
-*© QORWAY Technology — www.qorway.com*  
-```
----
-© Nicole Valey. QORWAY Technology is a proprietary project created and owned by Nicole Valey.
-All rights reserved.
-```
+
+© QORWAY Technology — All rights reserved.
